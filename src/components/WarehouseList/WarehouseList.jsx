@@ -1,4 +1,5 @@
 import "../WarehouseList/warehouseList.scss";
+import arrowRight from "../../assets/Icons/chevron_right-24px.svg";
 
 function WarehouseList() {
   return (
@@ -16,17 +17,27 @@ function WarehouseList() {
         </div>
         <div className="warehouseListContainer__detailsBox">
           <div className="warehouseListContainer__detailsBox--left">
-            <p>WAREHOUSE</p>
-            <p>Manhattan</p>
-            <p>ADDRESS</p>
-            <p>503 Broadway, New York, USA</p>
+            <p className="warehouseListContainer__detailsTitle">WAREHOUSE</p>
+            <p className="warehouseListContainer__detailsInfo--alt">
+              Manhattan <img src={arrowRight} alt="" />
+            </p>
+            <p className="warehouseListContainer__detailsTitle">ADDRESS</p>
+            <p className="warehouseListContainer__detailsInfo">
+              503 Broadway, New York, USA
+            </p>
             <img></img>
           </div>
           <div className="warehouseListContainer__detailsBox--right">
-            <p>CONTACT NAME</p>
-            <p>CONTACT INFORMATION</p>
-            <p>+1(629)555-0129</p>
-            <p>paujla@instock.com</p>
+            <p className="warehouseListContainer__detailsTitle">CONTACT NAME</p>
+            <p className="warehouseListContainer__detailsTitle">
+              CONTACT INFORMATION
+            </p>
+            <p className="warehouseListContainer__detailsInfo">
+              +1(629)555-0129
+            </p>
+            <p className="warehouseListContainer__detailsInfo">
+              paujla@instock.com
+            </p>
             <img></img>
           </div>
         </div>

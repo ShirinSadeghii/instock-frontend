@@ -20,6 +20,7 @@
     margin: 0 auto;
     height: 2rem;
     border-radius: 1.2rem;
+    // border-color: $Light-Grey;
   }
   &__searchButton {
     width: 87%;
@@ -36,15 +37,24 @@
     display: flex;
     justify-content: center;
 
-    border-top: solid 0.1rem black;
-    border-bottom: solid 0.1rem black;
+    border-top: solid 0.1rem $Cloud;
+    border-bottom: solid 0.1rem $Cloud;
   }
   &__detailsBox--left,
   &__detailsBox--right {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: auto 2rem;
+    margin: 0 1rem 0 1rem;
+  }
+  &__detailsTitle {
+    color: $Slate;
+  }
+  &__detailsInfo {
+    color: $Instock-Black;
+  }
+  &__detailsInfo--alt {
+    color: $Instock-Indigo;
   }
 }
 ::placeholder {
