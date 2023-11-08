@@ -1,5 +1,7 @@
 import "../WarehouseList/warehouseList.scss";
 import arrowRight from "../../assets/Icons/chevron_right-24px.svg";
+import trashBin from "../../assets/Icons/delete_outline-24px.svg";
+import pen from "../../assets/Icons/edit-24px.svg";
 
 function WarehouseList() {
   return (
@@ -19,11 +21,12 @@ function WarehouseList() {
           <div className="warehouseListContainer__detailsBox--left">
             <p className="warehouseListContainer__detailsTitle">WAREHOUSE</p>
             <p className="warehouseListContainer__detailsInfo--alt">
-              Manhattan <img src={arrowRight} alt="" />
+              Manhattan <img src={arrowRight} alt="arrowRight" />
             </p>
             <p className="warehouseListContainer__detailsTitle">ADDRESS</p>
             <p className="warehouseListContainer__detailsInfo">
               503 Broadway, New York, USA
+              <img src={trashBin} alt="trashbin" />
             </p>
             <img></img>
           </div>
@@ -37,6 +40,7 @@ function WarehouseList() {
             </p>
             <p className="warehouseListContainer__detailsInfo">
               paujla@instock.com
+              <img src={pen} alt="editPen" />
             </p>
             <img></img>
           </div>
