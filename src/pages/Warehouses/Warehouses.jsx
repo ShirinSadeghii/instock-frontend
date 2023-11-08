@@ -1,10 +1,12 @@
+import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import WarehouseList from "../../components/WarehouseList/WarehouseList";
 
 function Warehouses() {
   return (
     <>
-      <h1>Hello world</h1>
-
+      <Header />
+      <WarehouseList />
       <Footer />
     </>
   );
