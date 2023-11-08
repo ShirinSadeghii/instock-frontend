@@ -5,12 +5,15 @@ function Header() {
     return (
        <div className='header'>
         <div className='header__container'>
-            <img className="header__logo" src={Logo} alt='Logo'></img>
+            <div className='header__sub-container'>
+                <img className="header__logo" src={Logo} alt='Logo'></img>
+            </div>
+            <div className='header__sub-container' >
+                <button className='header__button header__button--active'>Warehouses</button>
+                <button className='header__button'>Inventory </button>
+            </div>
         </div>
-        <div className='header__container' >
-            <button className='header__button header__button--active'>Warehouses</button>
-            <button className='header__button'>Inventory </button>
-        </div>
+       
        </div> 
     )
 }
