@@ -1,0 +1,111 @@
+@use '../../styles/partials/variables' as *;
+
+.warehouse {
+    // padding: 0 24px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        font-weight: 600;
+        padding-left: 10px;
+    }
+
+    &__edit-btn {
+        border: none;
+        background-color: $Instock-Indigo;
+        width: 36px;
+        height: 36px;
+        border-radius: 20px;
+    }
+
+    &__edit-icon {
+        filter: invert(1);
+    }
+
+    &__list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        padding-inline-start: 0;
+        border-top: 1px solid $Cloud;
+        padding: 0 16px;
+    }
+
+    &__list-item {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 24px;
+        padding-top: 16px;
+
+        &--row {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__label {
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 16px;
+        color: $Slate;
+        padding-bottom: 4px;
+
+        &-item {
+            font-size: 13px;
+            color: $Instock-Black;
+            line-height: 20px;
+            
+            &--blue {
+                display: flex;
+                color: $Instock-Indigo;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+        }
+
+        &-btn {
+            width: 61px;
+            height: 24px;
+            border-radius: 20px;
+            border: none;
+            background-color: #15846324;
+            color: #158463;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__inventory {
+        display: flex;
+        flex-direction: column;
+        padding-top: 16px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid $Cloud;
+    }
+
+}
+
+.inventory {
+    display: flex;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+.logo__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
