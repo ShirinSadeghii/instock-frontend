@@ -1,4 +1,4 @@
-import Logo from '../../assets/Logo/InStock-Logo_1x.png';
+import Logo from '../../assets/Logo/InStock-Logo.svg';
 import '../Header/Header.scss';
 
 function Header() {
@@ -8,11 +8,9 @@ function Header() {
             <img className="header__logo" src={Logo} alt='Logo'></img>
         </div>
         <div className='header__container' >
-            <button className='header__button'>Warehouses</button>
+            <button className='header__button header__button--active'>Warehouses</button>
             <button className='header__button'>Inventory </button>
         </div>
-       
-        
        </div> 
     )
 }
