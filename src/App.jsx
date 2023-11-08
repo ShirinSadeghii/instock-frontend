@@ -1,9 +1,7 @@
-// const router = express.Router();
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Inventory from "./pages/Inventory/Inventory";
 import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./pages/Warehouses/Warehouses";
-
 import "./App.scss";
 
 function App() {
