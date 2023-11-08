@@ -1,9 +1,9 @@
-
+import './Footer.scss';
 
 function Footer() {
   return (
     <>
-    <p>© InStock Inc. All Rights Reserved.</p>
+    <p className="footer">© InStock Inc. All Rights Reserved.</p>
     </>
   )
 }
