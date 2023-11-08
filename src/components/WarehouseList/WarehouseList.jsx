@@ -38,7 +38,11 @@ function WarehouseList() {
                   </p>
                   <p className="warehouseListContainer__detailsInfo--alt">
                     {info.warehouse_name}
-                    <img src={arrowRight} alt="arrowRight" />
+                    <img
+                      className="warehouseListContainer__arrowLogo"
+                      src={arrowRight}
+                      alt="arrowRight"
+                    />
                   </p>
                   <p className="warehouseListContainer__detailsTitle">
                     ADDRESS
@@ -46,20 +50,35 @@ function WarehouseList() {
 
                   <p className="warehouseListContainer__detailsInfo">
                     {info.address} {info.city}, {info.country}
-                    <img src={trashBin} alt="trashbin" />
                   </p>
+                  <span>
+                    <img
+                      className="warehouseListContainer__binIcon"
+                      src={trashBin}
+                      alt="trashbin"
+                    />
+                  </span>
                 </div>
                 <div className="warehouseListContainer__detailsBox--right">
                   <p className="warehouseListContainer__detailsTitle">
                     CONTACT NAME
                   </p>
+                  <p className="warehouseListContainer__detailsInfo--altName">
+                    {info.contact_name}
+                  </p>
                   <p className="warehouseListContainer__detailsTitle">
-                    {info.contact_name} {info.contact_phone}
+                    CONTACT INFORMATION
                   </p>
                   <p className="warehouseListContainer__detailsInfo">
-                    {info.contact_email}
-                    <img src={pen} alt="editPen" />
+                    {info.contact_phone} {info.contact_email}
                   </p>
+                  <span className="warehouseListContainer__penIcon--box">
+                    <img
+                      className="warehouseListContainer__penIcon"
+                      src={pen}
+                      alt="editPen"
+                    />
+                  </span>
                 </div>
               </li>
             );

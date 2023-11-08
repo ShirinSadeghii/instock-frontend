@@ -8,6 +8,8 @@
 
   &__title {
     margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
   }
   &__titleBox {
     display: flex;
@@ -33,14 +35,15 @@
     background-color: $Instock-Indigo;
     margin-bottom: 2rem;
     border: none;
+    font-weight: 600;
   }
   &__detailsBox {
     display: flex;
     padding: 0;
     flex-wrap: wrap;
     flex-direction: column;
-    border-top: solid 0.1rem $Cloud;
-    border-bottom: solid 0.1rem $Cloud;
+    // border-top: solid 0.1rem $Cloud;
+    // border-bottom: solid 0.1rem $Cloud;
     list-style-type: none;
     font-size: 0.7rem;
 
@@ -48,6 +51,13 @@
   }
   &__detailsBox--list {
     display: flex;
+    border-top: solid 0.1rem $Cloud;
+    // border-bottom: solid 0.1rem $Cloud;
+    height: 10rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    justify-content: center;
   }
   &__detailsBox--left {
     display: flex;
@@ -55,22 +65,50 @@
     flex-direction: column;
     // flex-direction: column;
     margin-left: 1rem;
+    width: 42%;
+    margin-right: 2rem;
   }
   &__detailsBox--right {
     // background-color: chartreuse;
     flex-direction: column;
     margin-right: 1rem;
+    width: 42%;
 
     display: flex;
   }
   &__detailsTitle {
     color: $Slate;
+    font-weight: 600;
+    padding-bottom: 0.3rem;
+    // padding-top: 0.1rem;
   }
   &__detailsInfo {
     color: $Instock-Black;
+    // padding-bottom: 0.1rem;
   }
   &__detailsInfo--alt {
     color: $Instock-Indigo;
+    padding-bottom: 1rem;
+    margin-top: -0.9rem;
+    font-weight: 600;
+  }
+  &__detailsInfo--altName {
+    padding-bottom: 1rem;
+    margin-top: -0.3rem;
+  }
+  &__arrowLogo {
+    position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  &__binIcon {
+    margin-top: 1rem;
+  }
+  &__penIcon {
+    margin-top: 1rem;
+  }
+  &__penIcon--box {
+    margin-left: 6rem;
   }
 }
 ::placeholder {
