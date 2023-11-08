@@ -1,0 +1,52 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouseListContainer {
+  //   display: flex;
+  // margin: auto 1rem;
+
+  &__title {
+    margin-left: 1rem;
+  }
+  &__titleBox {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+    }
+  }
+  &__searchBar {
+    width: 85%;
+    margin: 0 auto;
+    height: 2rem;
+    border-radius: 1.2rem;
+  }
+  &__searchButton {
+    width: 87%;
+    margin: 0 auto;
+    height: 2.5rem;
+    border-radius: 1.2rem;
+    margin-top: 1rem;
+    color: $White;
+    background-color: $Instock-Indigo;
+    margin-bottom: 2rem;
+    border: none;
+  }
+  &__detailsBox {
+    display: flex;
+    justify-content: center;
+
+    border-top: solid 0.1rem black;
+    border-bottom: solid 0.1rem black;
+  }
+  &__detailsBox--left,
+  &__detailsBox--right {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto 2rem;
+  }
+}
+::placeholder {
+  padding: 1rem;
+}
