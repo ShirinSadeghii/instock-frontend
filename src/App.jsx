@@ -6,13 +6,15 @@ import "./App.scss";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Warehouses />}></Route>
-        <Route path="/details" element={<WarehouseDetails />}></Route>
-        <Route path="/inventory" element={<WarehouseDetails />}></Route>
-      </Routes>
-    </BrowserRouter>
+ 
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Warehouses />}></Route>
+          <Route path="/details" element={<WarehouseDetails />}></Route>
+          <Route path="/inventory" element={<WarehouseDetails />}></Route>
+        </Routes>
+      </BrowserRouter>
+   
   );
 }
 
