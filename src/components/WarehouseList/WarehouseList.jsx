@@ -37,7 +37,7 @@ function WarehouseList() {
             +Add New Warehouse
           </button> */}
         </div>
-        <div className="warehouseListContainer__tabletLeader">
+        {/* <div className="warehouseListContainer__tabletLeader">
           <p className="warehouseListContainer__tabletLeaderItem">
             WAREHOUSE{" "}
             <img
@@ -71,8 +71,50 @@ function WarehouseList() {
             />
           </p>
           <p className="warehouseListContainer__tabletLeaderItem">ACTIONS</p>
-        </div>
+        </div> */}
         <ul className="warehouseListContainer__detailsBox">
+          <div className="warehouseListContainer__tabletLeader">
+            <div className="warehouseListContainer__tabletLeader--box1">
+              <p className="warehouseListContainer__tabletLeaderItem">
+                WAREHOUSE{" "}
+                <img
+                  className="warehouseListContainer__tabletLeaderArrow"
+                  src={sortArrow}
+                  alt="sort arrows"
+                />
+              </p>
+              <p className="warehouseListContainer__tabletLeaderItem">
+                ADDRESS
+                <img
+                  className="warehouseListContainer__tabletLeaderArrow"
+                  src={sortArrow}
+                  alt="sort arrows"
+                />
+              </p>
+              <p className="warehouseListContainer__tabletLeaderItem">
+                CONTACT NAME
+                <img
+                  className="warehouseListContainer__tabletLeaderArrow"
+                  src={sortArrow}
+                  alt="sort arrows"
+                />
+              </p>
+            </div>
+            <div className="warehouseListContainer__tabletLeader--box2">
+              <p className="warehouseListContainer__tabletLeaderItem">
+                CONTACT INFORMATION
+                <img
+                  className="warehouseListContainer__tabletLeaderArrow"
+                  src={sortArrow}
+                  alt="sort arrows"
+                />
+              </p>
+              <p className="warehouseListContainer__tabletLeaderItem">
+                ACTIONS
+              </p>
+            </div>
+          </div>
+
           {dataJson.map((info, index) => {
             return (
               <li
@@ -95,9 +137,9 @@ function WarehouseList() {
                     ADDRESS
                   </p>
 
-                  <p className="warehouseListContainer__detailsInfo">
+                  <span className="warehouseListContainer__detailsInfo">
                     {info.address} {info.city}, {info.country}
-                  </p>
+                  </span>
                   <p className="warehouseListContainer__detailsInfo--altName">
                     {info.contact_name}
                   </p>
@@ -119,7 +161,7 @@ function WarehouseList() {
                   <p className="warehouseListContainer__detailsTitle">
                     CONTACT INFORMATION
                   </p>
-                  <p className="warehouseListContainer__detailsInfo">
+                  <p className="warehouseListContainer__detailsInfo warehouseListContainer__detailsInfo2">
                     {info.contact_phone} {info.contact_email}
                   </p>
 
