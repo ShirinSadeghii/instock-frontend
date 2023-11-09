@@ -8,21 +8,58 @@
 
   &__title {
     margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    @include tablet {
+      margin-top: 1.2rem;
+    }
   }
+
   &__titleBox {
     display: flex;
     flex-direction: column;
+    // margin: auto 1rem;
     @include tablet {
+      flex-direction: row;
+      justify-content: space-around;
+      // align-items: baseline;
+      height: 5rem;
+    }
+  }
+  &__searchBarBox {
+    position: relative;
+    margin: auto 2rem;
+    @include tablet {
+      display: flex;
+      align-items: baseline;
+      padding-top: 0.6rem;
     }
   }
   &__searchBar {
-    width: 85%;
-    margin: 0 auto;
+    width: 100%;
+    // margin: auto 1rem;
     height: 2rem;
     border-radius: 1.2rem;
+    // border-color: $Light-Grey;
+    border: 0.25px solid $Cloud;
+    @include tablet {
+      width: 11rem;
+      margin-right: 1rem;
+      height: 2.4rem;
+    }
+  }
+  &__lookingGlass {
+    height: 1.5rem;
+    position: absolute;
+    top: 4%;
+    right: 10%;
+    @include tablet {
+      right: 55%;
+      top: 35%;
+    }
   }
   &__searchButton {
-    width: 87%;
+    width: 100%;
     margin: 0 auto;
     height: 2.5rem;
     border-radius: 1.2rem;
@@ -31,20 +68,153 @@
     background-color: $Instock-Indigo;
     margin-bottom: 2rem;
     border: none;
+    font-weight: 600;
+    @include tablet {
+      width: 10rem;
+    }
+  }
+  &__tabletLeader {
+    display: none;
+    @include tablet {
+      display: flex;
+      justify-content: space-around;
+      font-size: 0.7rem;
+      color: $Slate;
+      height: 2.5rem;
+      background-color: $Light-Grey;
+    }
+  }
+  &__tabletLeaderItem {
+    @include tablet {
+      padding-top: 0.5rem;
+      display: flex;
+    }
+  }
+  &__tabletLeaderArrow {
+    @include tablet {
+      height: 1rem;
+    }
   }
   &__detailsBox {
     display: flex;
-    justify-content: center;
-
-    border-top: solid 0.1rem black;
-    border-bottom: solid 0.1rem black;
-  }
-  &__detailsBox--left,
-  &__detailsBox--right {
-    display: flex;
-    flex-direction: column;
+    padding: 0;
     flex-wrap: wrap;
-    margin: auto 2rem;
+    flex-direction: column;
+    // border-top: solid 0.1rem $Cloud;
+    // border-bottom: solid 0.1rem $Cloud;
+    list-style-type: none;
+    font-size: 0.7rem;
+    @include tablet {
+      // flex-direction: row;
+      width: 100%;
+    }
+  }
+  &__detailsBox--list {
+    display: flex;
+    border-top: solid 0.1rem $Cloud;
+    // border-bottom: solid 0.1rem $Cloud;
+    height: 10rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    justify-content: center;
+    @include tablet {
+      height: 2.5rem;
+      padding-left: 2rem;
+      align-items: baseline;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+  &__detailsBox--left {
+    display: flex;
+    // background-color: lightblue;
+    flex-direction: column;
+    // flex-direction: column;
+    margin-left: 1rem;
+    width: 42%;
+    margin-right: 2rem;
+    @include tablet {
+      // width: 20%;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+  &__detailsBox--right {
+    // background-color: chartreuse;
+    flex-direction: column;
+    margin-right: 1rem;
+    width: 42%;
+    display: flex;
+    @include tablet {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+  &__detailsTitle {
+    color: $Slate;
+    font-weight: 600;
+    padding-bottom: 0.3rem;
+    // padding-top: 0.1rem;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__detailsInfo {
+    color: $Instock-Black;
+    // padding-bottom: 0.1rem;
+  }
+  &__detailsInfo--alt {
+    color: $Instock-Indigo;
+    padding-bottom: 1rem;
+    margin-top: -0.9rem;
+    font-weight: 600;
+  }
+  &__detailsInfo--Name {
+    padding-bottom: 1rem;
+    margin-top: -0.3rem;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__detailsInfo--altName {
+    @include tablet {
+      display: initial;
+    }
+  }
+  &__arrowLogo {
+    position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  &__binIcon {
+    margin-top: 1rem;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__binIconTablet {
+    display: none;
+    @include tablet {
+      display: initial;
+      height: 1.5rem;
+    }
+  }
+  &__penIcon {
+    margin-top: 1rem;
+    @include tablet {
+      height: 1.5rem;
+      margin-left: 1rem;
+    }
+  }
+  &__penIcon--box {
+    margin-left: 6rem;
+    @include tablet {
+      display: flex;
+      align-items: baseline;
+    }
   }
 }
 ::placeholder {
