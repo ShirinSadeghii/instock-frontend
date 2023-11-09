@@ -1,8 +1,16 @@
 @use './styles/partials/fonts' as *;
-
+@use './styles/partials/variables' as *;
 
 
 * {
     font-family: Titillium Web;
 }
 
+
+.warehouse-details {
+    position: relative;
+}
+
+.main {
+    background-color: $Light-Grey;
+}
