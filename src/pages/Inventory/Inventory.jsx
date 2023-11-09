@@ -1,8 +1,12 @@
 import deleteIcon from '../../assets/Icons/delete_outline-24px.svg';
 import editIcon from '../../assets/Icons/edit-24px.svg';
+import chevronIcon from '../../assets/Icons/chevron_right-24px.svg';
 import './Inventory.scss';
 
 function Inventory({inventoryItem}) {
+
+  const inStock = "In Stock";
+
   const dummyInventoryData = [{
       id: 1,
       warehouse_id: 1,
@@ -102,48 +106,66 @@ function Inventory({inventoryItem}) {
       status: 'In Stock',
       quantity: 12500,
     },]
+
   return (
+   <div className="warehouseListContainer">
+   <div className="inventoryListContainer__titleBox">
+          <h1 className="inventoryListContainer__title">Inventory</h1>
+          <input
+            className="inventoryListContainer__searchBar"
+            placeholder="Search..."
+          ></input>
+          <button className="inventoryListContainer__searchButton">
+            +Add New Item
+          </button>
+        </div>
+
     <ul className="inventory">
       {dummyInventoryData.map((inventoryItem, index) => {
         return (
           <li key={index} className="inventory__list">
-            <div>
-              <div>
-                  <p>Inventory Item</p>
-                  <p>{inventoryItem.item_name}</p>
-              </div> 
-              <div>
-                  <p>Category</p>
-                  <p>{inventoryItem.category}</p>
+            <div className="inventory__list-top">
+              <div className="inventory__list-left">
+                <div className="inventory__list-left-details">
+                    <p>Inventory Item</p>
+                    <div className="inventory__list-container">
+                      <p className="inventory__list-blueItm">{inventoryItem.item_name}</p>
+                      <img src={chevronIcon} alt="" />
+                    </div>
+                   
+                </div> 
+                <div className="inventory__list-left-details">
+                    <p>Category</p>
+                    <p>{inventoryItem.category}</p>
+                </div>
               </div>
-              <div>
-                  <p>Status</p>
-                  <p>{inventoryItem.status}</p>
+              <div className="inventory__list-right">
+                <div className="inventory__list-right-details">
+                    <p>Status</p>
+                    <p className={` ${inventoryItem.status === inStock ? 'inventory__list-instock' : 'inventory__list-outstock'}`}>
+                      {inventoryItem.status}</p>
+                </div>
+                <div className="inventory__list-right-details">
+                    <p>Quantity</p>
+                    <p>{inventoryItem.quantity}</p>
+                </div>
+                <div className="inventory__list-right-details">
+                    <p>Warehouse</p>
+                    <p>{inventoryItem.id}</p>
+                </div>
               </div>
-              <div>
-                  <p>Quantity</p>
-                  <p>{inventoryItem.quantity}</p>
+            </div>
+            <div className="inventory__list-bottom">
+              <div className="inventory__icons">
+                <img src={deleteIcon} alt="Delete Logo" />
+                <img src={editIcon} alt="Edit Logo" />    
               </div>
-              <div>
-                  <p>Warehouse</p>
-                  <p>{inventoryItem.id}</p>
-              </div>
-
-            <p>Category{inventoryItem.category}</p>
-            <p>Status{inventoryItem.status}</p>
-            <p>Quantity{inventoryItem.quantity}</p>
-            <p>Warehouse{inventoryItem.id}</p>
-            <div className="inventory__icons">
-          </div>
-          <div>
-      <img src={deleteIcon} alt="Delete Logo" />
-      <img src={editIcon} alt="Edit Logo" />    
-      </div>
-          </div>
+            </div>
           </li>
           )
       })}
     </ul>
+    </div>
   );
 }
-export default Inventory
+export default Inventory;
