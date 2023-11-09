@@ -3,6 +3,7 @@ import arrowRight from "../../assets/Icons/chevron_right-24px.svg";
 import trashBin from "../../assets/Icons/delete_outline-24px.svg";
 import pen from "../../assets/Icons/edit-24px.svg";
 import dataJson from "../../data/data.json";
+import lookingGlass from "../../assets/Icons/search-24px.svg";
 function WareHouseListDetail({ info }) {
   return (
     <li>
@@ -17,13 +18,23 @@ function WarehouseList() {
       <div className="warehouseListContainer">
         <div className="warehouseListContainer__titleBox">
           <h1 className="warehouseListContainer__title">Warehouses</h1>
-          <input
-            className="warehouseListContainer__searchBar"
-            placeholder="Search..."
-          ></input>
-          <button className="warehouseListContainer__searchButton">
+          <div className="warehouseListContainer__searchBarBox">
+            <input
+              className="warehouseListContainer__searchBar"
+              placeholder="Search..."
+            ></input>
+            <img
+              className="warehouseListContainer__lookingGlass"
+              src={lookingGlass}
+              alt="a looking glass icon"
+            />
+            <button className="warehouseListContainer__searchButton">
+              +Add New Warehouse
+            </button>
+          </div>
+          {/* <button className="warehouseListContainer__searchButton">
             +Add New Warehouse
-          </button>
+          </button> */}
         </div>
         <ul className="warehouseListContainer__detailsBox">
           {dataJson.map((info, index) => {
