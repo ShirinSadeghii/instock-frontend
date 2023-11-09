@@ -58,6 +58,8 @@
 
     
     border-top: 1px solid $Cloud;
+    display: flex;
+    flex-direction: column;
   
 
     &__list {
