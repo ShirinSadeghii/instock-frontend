@@ -4,6 +4,7 @@ import trashBin from "../../assets/Icons/delete_outline-24px.svg";
 import pen from "../../assets/Icons/edit-24px.svg";
 import dataJson from "../../data/data.json";
 import lookingGlass from "../../assets/Icons/search-24px.svg";
+import sortArrow from "../../assets/Icons/sort-24px.svg";
 function WareHouseListDetail({ info }) {
   return (
     <li>
@@ -29,12 +30,47 @@ function WarehouseList() {
               alt="a looking glass icon"
             />
             <button className="warehouseListContainer__searchButton">
-              +Add New Warehouse
+              + Add New Warehouse
             </button>
           </div>
           {/* <button className="warehouseListContainer__searchButton">
             +Add New Warehouse
           </button> */}
+        </div>
+        <div className="warehouseListContainer__tabletLeader">
+          <p className="warehouseListContainer__tabletLeaderItem">
+            WAREHOUSE{" "}
+            <img
+              className="warehouseListContainer__tabletLeaderArrow"
+              src={sortArrow}
+              alt="sort arrows"
+            />
+          </p>
+          <p className="warehouseListContainer__tabletLeaderItem">
+            ADDRESS
+            <img
+              className="warehouseListContainer__tabletLeaderArrow"
+              src={sortArrow}
+              alt="sort arrows"
+            />
+          </p>
+          <p className="warehouseListContainer__tabletLeaderItem">
+            CONTACT NAME
+            <img
+              className="warehouseListContainer__tabletLeaderArrow"
+              src={sortArrow}
+              alt="sort arrows"
+            />
+          </p>
+          <p className="warehouseListContainer__tabletLeaderItem">
+            CONTACT INFORMATION
+            <img
+              className="warehouseListContainer__tabletLeaderArrow"
+              src={sortArrow}
+              alt="sort arrows"
+            />
+          </p>
+          <p className="warehouseListContainer__tabletLeaderItem">ACTIONS</p>
         </div>
         <ul className="warehouseListContainer__detailsBox">
           {dataJson.map((info, index) => {
@@ -83,7 +119,13 @@ function WarehouseList() {
                   <p className="warehouseListContainer__detailsInfo">
                     {info.contact_phone} {info.contact_email}
                   </p>
+
                   <span className="warehouseListContainer__penIcon--box">
+                    <img
+                      className="warehouseListContainer__binIconTablet"
+                      src={trashBin}
+                      alt="trashbin"
+                    />
                     <img
                       className="warehouseListContainer__penIcon"
                       src={pen}
