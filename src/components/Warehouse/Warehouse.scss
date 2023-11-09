@@ -1,4 +1,5 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .warehouse {
     position: relative;
@@ -7,14 +8,18 @@
     background-color: $White;
     width: 90%;
     left: 20px;
-
-
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
 
     &__header {
         display: flex;
         justify-content: space-between;
         height: 100px;
         padding: 0 16px;
+
+        @include tablet {
+            padding: 0 32px;
+        }
     }
 
     &__container {
@@ -25,6 +30,10 @@
     &__title {
         font-weight: 600;
         padding-left: 10px;
+
+        @include tablet {
+            font-size: 32px;
+        }
     }
 
     &__edit-btn {
@@ -36,7 +45,7 @@
     }
 
     &__edit-icon {
-        filter: invert(1);
+        background-color: white;
     }
 
     &__list {
@@ -46,6 +55,19 @@
         padding-inline-start: 0;
         border-top: 1px solid $Cloud;
         padding: 0 16px;
+
+        @include tablet {
+            justify-content: space-between;
+            flex-direction: row;
+            padding: 0 32px;
+        }
+
+        &--tablet {
+            @include tablet {
+                flex-direction: column;
+                border-top: none;
+            }
+        }
     }
 
     &__list-item {
@@ -57,6 +79,12 @@
         &--row {
             flex-direction: row;
             justify-content: space-between;
+            width: 85%;
+
+            @include tablet {
+                width: 70%;
+                justify-content: space-evenly;
+            }
         }
     }
 
@@ -67,10 +95,24 @@
         color: $Slate;
         padding-bottom: 4px;
 
+        @include tablet {
+            font-size: 12px;
+        }
+
+        &--tablet {
+            @include tablet {
+                display: none;
+            }
+        }
+
         &-item {
             font-size: 13px;
             color: $Instock-Black;
             line-height: 20px;
+            
+            @include tablet {
+                font-size: 14px;
+            }
             
             &--blue {
                 display: flex;
@@ -129,4 +171,45 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+
+    @include tablet {
+        margin-top: 0;
+        width: 10%;
+    }
+}
+
+.contact__container {
+    @include tablet {
+        padding-left: 32px;
+        border-left: 1px solid $Cloud;
+    }
+}
+
+.toolbar {
+display: none;
+
+@include tablet {
+    display: flex;
+    background-color: $Light-Grey;
+}
+    &__container {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            height: 40px;
+            width: 100%;
+            padding: 0 32px;
+        }
+    }
+    
+
+    &__item {
+        @include tablet {
+            font-size: 12px;
+            font-weight: 600;
+            color: $Slate;
+            display: flex;
+            align-items: center;
+        }
+    }
 }
