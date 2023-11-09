@@ -5,13 +5,7 @@ import pen from "../../assets/Icons/edit-24px.svg";
 import dataJson from "../../data/data.json";
 import lookingGlass from "../../assets/Icons/search-24px.svg";
 import sortArrow from "../../assets/Icons/sort-24px.svg";
-function WareHouseListDetail({ info }) {
-  return (
-    <li>
-      <h2>{info.warehouse_name}</h2>
-    </li>
-  );
-}
+
 function WarehouseList() {
   // const dataJson
   return (
