@@ -10,7 +10,7 @@ import Delete from '../../assets/Icons/delete_outline-24px.svg';
 function Warehouse() {
     const [warehouses, setWarehouses] = useState(dataJson)
     const [selectedWarehouse, setSelectedWarehouse] = useState(dataDetailsJson[0]);
-    
+    const inStock = "In Stock";
     return (
         <section className='warehouse'>
             <div className='warehouse__header'>
@@ -24,7 +24,6 @@ function Warehouse() {
                     </button>
                 </div>
             </div>
-            
             <ul className='warehouse__list'> 
                     <li className='warehouse__list-item'>
                         <span className='warehouse__label'>WAREHOUSE ADDRESS:</span>
@@ -58,7 +57,7 @@ function Warehouse() {
                             </div>
                             <div className='inventory__container'>
                                 <span className='warehouse__label'>STATUS</span>
-                                <button className='warehouse__label-item warehouse__label-btn'>{detail.status}</button>
+                                <button className={`${detail.status === inStock? 'inventory__list-instock':'inventory__list-outstock'}`}>{detail.status}</button>
                                 <span className='warehouse__label'>QTY</span>
                                 <span className='warehouse__label-item'>{detail.quantity}</span>
                             </div>
@@ -71,7 +70,6 @@ function Warehouse() {
                 )
             })}
             </ul>
-
         </section>
     )
 }
