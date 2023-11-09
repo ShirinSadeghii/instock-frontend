@@ -54,7 +54,7 @@ function Warehouse() {
                         <span className='toolbar__item'>CATEGORY
                             <img src={Sort} alt='sort icon'></img>
                         </span>
-                        <span className='toolbar__item'>STATUS
+                        <span className='toolbar__item toolbar__item--width'>STATUS
                             <img src={Sort} alt='sort icon'></img>
                         </span>
                     </div>
@@ -78,13 +78,13 @@ function Warehouse() {
                                         <img src={Chevron} alt="chevron icon"></img>
                                     </span>
                                     <span className='warehouse__label warehouse__label--tablet'>CATEGORY</span>
-                                    <span className='warehouse__label-item'>{detail.category}</span>
+                                    <span className='warehouse__label-item warehouse__label-item--width'>{detail.category}</span>
                                 </div>
                                 <div className='inventory-row__container inventory-row__container2'>
                                     <span className='warehouse__label warehouse__label--tablet'>STATUS</span>
                                     <button className={`${detail.status === inStock? 'inventory-row__list-instock':'inventory-row__list-outstock'}`}>{detail.status}</button>
                                     <span className='warehouse__label warehouse__label--tablet'>QTY</span>
-                                    <span className='warehouse__label-item'>{detail.quantity}</span>
+                                    <span className='warehouse__label-item warehouse__label-item--quantity'>{detail.quantity}</span>
                                 </div>
                             </div>
                             <div className='logo__container'>
