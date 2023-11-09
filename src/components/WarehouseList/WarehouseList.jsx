@@ -98,6 +98,9 @@ function WarehouseList() {
                   <p className="warehouseListContainer__detailsInfo">
                     {info.address} {info.city}, {info.country}
                   </p>
+                  <p className="warehouseListContainer__detailsInfo--altName">
+                    {info.contact_name}
+                  </p>
                   <span>
                     <img
                       className="warehouseListContainer__binIcon"
@@ -110,7 +113,7 @@ function WarehouseList() {
                   <p className="warehouseListContainer__detailsTitle">
                     CONTACT NAME
                   </p>
-                  <p className="warehouseListContainer__detailsInfo--altName">
+                  <p className="warehouseListContainer__detailsInfo--Name">
                     {info.contact_name}
                   </p>
                   <p className="warehouseListContainer__detailsTitle">

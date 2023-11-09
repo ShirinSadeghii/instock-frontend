@@ -172,9 +172,17 @@
     margin-top: -0.9rem;
     font-weight: 600;
   }
-  &__detailsInfo--altName {
+  &__detailsInfo--Name {
     padding-bottom: 1rem;
     margin-top: -0.3rem;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__detailsInfo--altName {
+    @include tablet {
+      display: initial;
+    }
   }
   &__arrowLogo {
     position: relative;
