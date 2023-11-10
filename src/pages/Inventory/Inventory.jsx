@@ -2,6 +2,9 @@ import deleteIcon from '../../assets/Icons/delete_outline-24px.svg';
 import editIcon from '../../assets/Icons/edit-24px.svg';
 import chevronIcon from '../../assets/Icons/chevron_right-24px.svg';
 import './Inventory.scss';
+import Header from '../../components/Header/Header';
+import sortIcon from '../../assets/Icons/sort-24px.svg';
+import Footer from '../../components/Footer/Footer';
 
 function Inventory({inventoryItem}) {
 
@@ -106,20 +109,39 @@ function Inventory({inventoryItem}) {
       status: 'In Stock',
       quantity: 12500,
     },]
-
+   
   return (
+   
    <div className="warehouseListContainer">
-   <div className="inventoryListContainer__titleBox">
+    <Header />
+    <div className="inventoryListContainer__titleBox">
           <h1 className="inventoryListContainer__title">Inventory</h1>
-          <input
-            className="inventoryListContainer__searchBar"
-            placeholder="Search..."
-          ></input>
-          <button className="inventoryListContainer__searchButton">
-            +Add New Item
-          </button>
-        </div>
-
+          <div className="inventoryListContainer__items">
+            <input className="inventoryListContainer__searchBar" placeholder="Search...">
+            </input>
+            <button className="inventoryListContainer__searchButton">+Add New Item</button>
+          </div>
+    </div>
+    <div className="inventory-titlebar">
+      <div className="inventory-titlebar__item">INVENTORY ITEM
+      <img src={sortIcon} alt="Sort Icon" />
+      </div>
+      <div className="inventory-titlebar__item">CATEGORY
+      <img src={sortIcon} alt="Sort Icon" />
+      </div>
+      <div className="inventory-titlebar__item">STATUS
+      <img src={sortIcon} alt="Sort Icon" />
+      </div>
+      <div className="inventory-titlebar__item">QUANTITY
+      <img src={sortIcon} alt="Sort Icon" />
+      </div>
+      <div className="inventory-titlebar__item">WAREHOUSE
+      <img src={sortIcon} alt="Sort Icon" />
+      </div>
+      <div className="inventory-titlebar__item">ACTIONS
+      <img src={sortIcon} alt="Sort Icon" />
+      </div>
+    </div>
     <ul className="inventory">
       {dummyInventoryData.map((inventoryItem, index) => {
         return (
@@ -127,45 +149,50 @@ function Inventory({inventoryItem}) {
             <div className="inventory__list-top">
               <div className="inventory__list-left">
                 <div className="inventory__list-left-details">
-                    <p>Inventory Item</p>
+                    <p className = "inventory__list-title">Inventory Item</p>
                     <div className="inventory__list-container">
                       <p className="inventory__list-blueItm">{inventoryItem.item_name}</p>
                       <img src={chevronIcon} alt="" />
                     </div>
-                   
-                </div> 
+                  </div> 
                 <div className="inventory__list-left-details">
-                    <p>Category</p>
+                    <p className = "inventory__list-title">Category</p>
                     <p>{inventoryItem.category}</p>
                 </div>
               </div>
               <div className="inventory__list-right">
                 <div className="inventory__list-right-details">
-                    <p>Status</p>
+                    <p className = "inventory__list-title">Status</p>
                     <p className={` ${inventoryItem.status === inStock ? 'inventory__list-instock' : 'inventory__list-outstock'}`}>
                       {inventoryItem.status}</p>
                 </div>
                 <div className="inventory__list-right-details">
-                    <p>Quantity</p>
+                    <p className = "inventory__list-title">Quantity</p>
                     <p>{inventoryItem.quantity}</p>
                 </div>
                 <div className="inventory__list-right-details">
-                    <p>Warehouse</p>
+                    <p className = "inventory__list-title">Warehouse</p>
                     <p>{inventoryItem.id}</p>
                 </div>
+                <div div className="inventory__icons-tablet">
+                  <p className = "inventory__list-title">Actions</p>
+                  <img className="inventory__icon" src={deleteIcon} alt="Delete Logo" />
+                  <img className="inventory__icon" src={editIcon} alt="Edit Logo" />  
+                </div> 
               </div>
             </div>
             <div className="inventory__list-bottom">
-              <div className="inventory__icons">
-                <img src={deleteIcon} alt="Delete Logo" />
-                <img src={editIcon} alt="Edit Logo" />    
-              </div>
+                  <div div className="inventory__icons">
+                    <img src={deleteIcon} alt="Delete Logo" />
+                    <img src={editIcon} alt="Edit Logo" />  
+                  </div>  
             </div>
           </li>
           )
       })}
     </ul>
-    </div>
+    <Footer />
+  </div>
   );
 }
 export default Inventory;
