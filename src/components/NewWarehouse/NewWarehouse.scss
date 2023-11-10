@@ -70,11 +70,11 @@
 
             @include tablet {
                 justify-content: flex-end;
-                width: 95%;
+                width: 70%;
             }
 
             @include desktop {
-                width: 97%;
+                width: 70%;
             }
         }
     }
