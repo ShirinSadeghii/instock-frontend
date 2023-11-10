@@ -1,12 +1,21 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .inventoryListContainer {
+
+    &__items {
+        @include tablet {
+            padding-right: 2rem;
+        }
+
+    }
 
     &__title {
         color: $Instock-Black;
@@ -15,52 +24,119 @@
         font-weight: 600;
         line-height: 2.25rem;
         padding: 1rem;
+
+        @include tablet {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
       }
       &__titleBox {
         display: flex;
         flex-direction: column;
         
         @include tablet {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
         }
       }
       &__searchBar {
        
-        width: 18.4375rem;
+        width: 18rem;
         height: 2.25rem;
         flex-shrink: 0;
         border-radius: 1.25rem;
         border: 1px solid $Cloud;
         background: $White;
-        margin:1rem;
+        margin:1rem 0 1rem 1rem;
+        background-image: url(../../assets/Icons/search-24px.svg);
+        background-repeat: no-repeat;
+        background-position: calc(100% - 0.5rem) center;
+        
+
+        @include tablet {
+            width: 11.5625rem;
+            height: 2.375rem;
+        }
       }
       &__searchButton {
-        // width: 87%;
-        // margin: 0 auto;
-        // height: 2.5rem;
-        // border-radius: 1.2rem;
-        // margin-top: 1rem;
-        // color: $White;
-        // background-color: $Instock-Indigo;
-        // margin-bottom: 2rem;
-        // border: none;
+   
         display: inline-flex;
-        padding: 0.5rem 6.4375rem;
+        padding: 0.5rem 6rem;
         align-items: center;
         gap: 0.625rem;
         border-radius: 1.25rem;
         background: $Instock-Indigo;
+        margin: 0 0 1rem 1rem;
+        width: 18rem;
+        font-size: 0.8125rem;
+        font-style: normal;
+        font-weight: 600;
+        color: $White;
+        border: none;
+
+        @include tablet {
+        display: inline-flex;
+        padding: 0.5rem 1rem;
+        align-items: center;
+        gap: 0.625rem;
         margin: 1rem;
-        // width: 18.4375rem;
+        width: 11.5625rem;
+        height: 2.375rem;
+        justify-content: center;
+        }
+
       }
 }
 
 .inventory {
-
     
     border-top: 1px solid $Cloud;
-    display: flex;
-    flex-direction: column;
-  
+
+    @include tablet {
+        border-top: none;
+    }
+
+    &-titlebar {
+        display: none;
+
+        @include tablet {
+            padding-left: 1rem;
+            display: flex;
+            align-items: center;
+            
+            height: 2.5rem;
+            flex-shrink: 0;
+            background: rgba(247, 248, 249, 0.70);
+           
+        }
+
+        &__item {
+
+            width: 120px;
+            color: $Slate;
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.125rem;
+            display: flex;
+            align-items: center;
+
+            @include desktop {
+                width: 213px;
+            }
+
+
+
+        }
+    }
+
+    &__icon {
+        @include tablet {
+            padding: 0 0.5rem;
+        }
+    }
+
 
     &__list {
         list-style: none;
@@ -71,9 +147,20 @@
         line-height: 1rem;
         text-transform: uppercase;
 
+        @include tablet {
+            border-bottom: 1px solid $Cloud;
+        }
+
+
         &-container {
             display:flex;
             align-items: center;
+        }
+
+        &-title {
+            @include tablet {
+                display: none;
+            }
         }
 
         &-instock {
@@ -90,6 +177,10 @@
             border-radius: 1.25rem;
             background: rgba(21, 132, 99, 0.07);
             margin-top: 0.2rem;
+
+            @include tablet {
+                margin-top: 0;
+            }
         }
 
         &-outstock {
@@ -105,12 +196,18 @@
             line-height: 1rem;
             text-transform: uppercase;
             margin-top: 1rem;
+
+            @include tablet {
+                margin-top: 0;
+            }
         }
-
-
 
         &-bottom {
             border-bottom: 1px solid $Cloud;
+
+            @include tablet {
+                display: none;
+            }
         }
 
         &-blueItm {
@@ -120,21 +217,55 @@
         &-top {
             display:flex;
             padding-top: 1rem;
+
+            @include tablet {
+                // width: 768px;
+                align-items: center;
+                padding: 0.5rem 1rem; 
+            }
         }
 
         &-left {
             width: 50%;
 
+            @include tablet {
+                display: flex;
+                width: auto;
+            }
+
             &-details {
                 padding: 0.5rem 1rem;
+                
+                @include tablet {
+                    width: 120px;
+                    padding: 0.5rem 0;
+                }
+
+                @include desktop {
+                    width: 213px;
+                }
             }
         }
 
         &-right {
+
+            @include tablet {
+                display: flex;
+
+            }
             
             &-details {
                 padding: 0.5rem 1rem;
                 text-align: left;
+                
+                @include tablet {
+                    width: 120px;
+                    padding: 0.5rem 0;
+                }
+
+                @include desktop {
+                    width: 213px;
+                }
             }
         }
     }
@@ -144,5 +275,16 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 2rem;
+
+    }
+
+    &__icons-tablet {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            padding: 0.5rem 0;
+            margin-right: 4rem;
+        }
     }
 }
