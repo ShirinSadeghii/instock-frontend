@@ -5,11 +5,11 @@
 
     color: $Slate;
     text-align: center;
- 
     font-size: 0.6875rem;
     font-style: normal;
     font-weight: 400;
     line-height: 1rem;
+    padding-bottom: 1.5rem;
 
     @include tablet {
         
@@ -17,5 +17,6 @@
         font-style: normal;
         font-weight: 400;
         line-height: 1.125rem;
+        padding-bottom: 2rem;
     }
 }
