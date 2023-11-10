@@ -113,7 +113,6 @@ function Inventory({inventoryItem}) {
   return (
    
    <div className="warehouseListContainer">
-    <Header />
     <div className="inventoryListContainer__titleBox">
           <h1 className="inventoryListContainer__title">Inventory</h1>
           <div className="inventoryListContainer__items">
@@ -191,7 +190,6 @@ function Inventory({inventoryItem}) {
           )
       })}
     </ul>
-    <Footer />
   </div>
   );
 }

@@ -1,14 +1,10 @@
 import backArrow from '../../assets/Icons/arrow_back-24px.svg';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import './EditInventory.scss';
 import dropDownArrow from '../../assets/Icons/arrow_drop_down-24px.svg';
 
 
 function EditInventory() {
   return (
-    <div>
-        <Header />
+    <div className="warehouse">
         <div className="newInv-heading">
             <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" />
             <span>Edit Inventory Item</span>
@@ -51,7 +47,6 @@ function EditInventory() {
             <button className="newInv__cancel-btn">Cancel</button>
             <button className="newInv__btn-blue"> + Add Item</button>
         </div>
-        <Footer />
         </div>
   )
 }
