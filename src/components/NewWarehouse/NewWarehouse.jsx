@@ -73,7 +73,10 @@ return (
                     <input className='warehouse-detail__input' type="text" name="PhoneNumber" placeholder='Phone Number' required></input>
                     <label className='warehouse-detail__label'>Email</label>
                     <input className='warehouse-detail__input' type="text" name="Email" placeholder='Email' required></input>
-                    <button className='buttons buttons--blue'>+Add Warehouse</button>
+                    <div className='buttons--blue__container'>
+                        <button className='buttons buttons--blue'>+Add Warehouse</button>
+                    </div>
+                    {/* <button className='buttons buttons--blue'>+Add Warehouse</button> */}
                 </form>
             </div>
         </div>
@@ -81,7 +84,6 @@ return (
         <div className='warehouse-detail__btn'>
             <div className='warehouse-detail__btn-container'>
                 <button onClick={handleClick} className='buttons'>Cancel</button>
-                
             </div>
         </div>
     </section>
