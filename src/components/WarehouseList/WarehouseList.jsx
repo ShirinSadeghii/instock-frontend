@@ -5,8 +5,33 @@ import pen from "../../assets/Icons/edit-24px.svg";
 import dataJson from "../../data/data.json";
 import lookingGlass from "../../assets/Icons/search-24px.svg";
 import sortArrow from "../../assets/Icons/sort-24px.svg";
-
+import Modal from "./modal";
+import React from "react";
+import { useState } from "react";
+import axios from "axios";
 function WarehouseList() {
+  const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const handleDelete = async (warehouseId) => {
+    try {
+      const response = await axios.delete(
+        `http://3.20.237.64:80/warehouses/${warehouseId}`
+      );
+      console.log("Deletion successful:", response.data);
+      closeModal();
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <>
       <div className="warehouseListContainer">
@@ -104,6 +129,10 @@ function WarehouseList() {
                       className="warehouseListContainer__binIcon"
                       src={trashBin}
                       alt="trashbin"
+                      onClick={() => {
+                        openModal();
+                        SetDeleteWarehouse(info);
+                      }}
                     />
                   </span>
                 </div>
@@ -126,6 +155,10 @@ function WarehouseList() {
                       className="warehouseListContainer__binIconTablet"
                       src={trashBin}
                       alt="trashbin"
+                      onClick={() => {
+                        openModal();
+                        SetDeleteWarehouse(info);
+                      }}
                     />
                     <img
                       className="warehouseListContainer__penIcon"
@@ -139,6 +172,12 @@ function WarehouseList() {
           })}
         </ul>
       </div>
+      <Modal
+        showModal={showModal}
+        closeModal={closeModal}
+        handleDelete={handleDelete}
+        deleteWarehouse={deleteWarehouse}
+      />
     </>
   );
 }
