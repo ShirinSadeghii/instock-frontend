@@ -6,6 +6,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+   
 }
 
 .inventoryListContainer {
@@ -39,16 +41,20 @@
             align-items: center;
             justify-content: space-between;
         }
+
+        @include desktop {
+            padding: 1rem 0;
+        }
       }
       &__searchBar {
        
-        width: 18rem;
+        width: 85%;
         height: 2.25rem;
         flex-shrink: 0;
         border-radius: 1.25rem;
         border: 1px solid $Cloud;
         background: $White;
-        margin:1rem 0 1rem 1rem;
+        margin:1rem;
         background-image: url(../../assets/Icons/search-24px.svg);
         background-repeat: no-repeat;
         background-position: calc(100% - 0.5rem) center;
@@ -58,22 +64,28 @@
             width: 11.5625rem;
             height: 2.375rem;
         }
+
+        @include desktop {
+            width: 17.125rem;
+        }
       }
       &__searchButton {
    
         display: inline-flex;
-        padding: 0.5rem 6rem;
+        padding: 0.5rem 5rem;
         align-items: center;
         gap: 0.625rem;
         border-radius: 1.25rem;
         background: $Instock-Indigo;
-        margin: 0 0 1rem 1rem;
-        width: 18rem;
+        margin: 0 1rem 1rem 1rem;
+        width: 85%;
         font-size: 0.8125rem;
         font-style: normal;
         font-weight: 600;
         color: $White;
         border: none;
+        display: flex;
+        justify-content: center;
 
         @include tablet {
         display: inline-flex;
@@ -106,14 +118,17 @@
             align-items: center;
             
             height: 2.5rem;
-            flex-shrink: 0;
             background: rgba(247, 248, 249, 0.70);
-           
+            width: auto;
+        }
+
+        @include desktop {
+            width: 1280px;
         }
 
         &__item {
 
-            width: 120px;
+            width: 100px;
             color: $Slate;
             font-size: 0.75rem;
             font-style: normal;
@@ -122,8 +137,12 @@
             display: flex;
             align-items: center;
 
+            @include tablet {
+                width: 100px;
+            }
+
             @include desktop {
-                width: 213px;
+                width: 190px;
             }
 
 
@@ -133,7 +152,7 @@
 
     &__icon {
         @include tablet {
-            padding: 0 0.5rem;
+            padding-right: 1rem;
         }
     }
 
@@ -223,6 +242,10 @@
                 align-items: center;
                 padding: 0.5rem 1rem; 
             }
+
+            @include desktop {
+                padding: 0 0 0 1rem;
+            }
         }
 
         &-left {
@@ -237,12 +260,12 @@
                 padding: 0.5rem 1rem;
                 
                 @include tablet {
-                    width: 120px;
+                    width: 100px;
                     padding: 0.5rem 0;
                 }
 
                 @include desktop {
-                    width: 213px;
+                    width: 190px;
                 }
             }
         }
@@ -259,12 +282,12 @@
                 text-align: left;
                 
                 @include tablet {
-                    width: 120px;
+                    width: 100px;
                     padding: 0.5rem 0;
                 }
 
                 @include desktop {
-                    width: 213px;
+                    width: 190px;
                 }
             }
         }
@@ -284,7 +307,7 @@
         @include tablet {
             display: flex;
             padding: 0.5rem 0;
-            margin-right: 4rem;
+            
         }
     }
 }
