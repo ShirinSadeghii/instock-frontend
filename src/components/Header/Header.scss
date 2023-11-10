@@ -35,7 +35,7 @@
 
     &__logo {
         width: 8rem;
-        height: 28px;
+        height: auto;
         padding: 24px 0;
 
         @include tablet {

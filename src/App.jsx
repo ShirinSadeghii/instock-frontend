@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Inventory from "./pages/Inventory/Inventory";
-import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
+import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
 import Warehouses from "./pages/Warehouses/Warehouses";
 import AddWarehousePage from './pages/AddWarehousePage/AddWarehousePage';
 import "./App.scss";
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Warehouses />}></Route>
-          <Route path="/details" element={<WarehouseDetails />}></Route>
+          <Route path="/details" element={<WarehouseDetailsPage />}></Route>
           <Route path="/details/add" element={<AddWarehousePage />}></Route>
           <Route path="/inventory" element={<Inventory />}></Route>
         </Routes>
