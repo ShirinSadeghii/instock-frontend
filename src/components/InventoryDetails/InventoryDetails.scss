@@ -8,9 +8,9 @@
 }
 
 .inventory-item-section{
-    position: absolute;
+    position: relative;
     width: 90%;
-    top: calc($card-offset*(-1));
+    top: -60px;
     left: 5%;
     right: 5%;
 }

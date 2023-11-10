@@ -34,66 +34,51 @@ function InventoryDetails() {
 
     // MARK: Return Function
     return (
-        <div>
-
-            {/* MARK: Generic Headuur */}
-            <Header />
-
-            {/* MARK: Item Header */}
-            <div className='inventory-item-container'>
-                <section className="inventory-item-section">
-                    <div className='inventory-item-header'>
-                        <div className='inventory-item-header__container'>
-                            <img src={ArrowBack} alt="arrow back icon"></img>
-                            <h1 className='inventory-item-header__title'>{itemData?.item_name}</h1>
-                            <button className='edit-btn-container inventory-item-header__edit-btn'>
-                                <img className="edit-icon" src={Edit} alt='edit icon'></img>
-                                <span className='edit-label'>Edit</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className='inventory-details'>
-
-                        {/* MARK: Top Layer Info */}
-                        <div className='inventory-details__top-layer'>
-                            <article className='inventory-details__info-item'>
-                                <p className='item-label'>Item Description:</p>
-                                <p>{itemData?.description}</p>
-                            </article>
-                            <article className='inventory-details__info-item'>
-                            <p className='item-label'>Category:</p>
-                                <p>{itemData?.category}</p>
-                            </article>
-                        </div>
-
-                        {/* MARK: Bottom Layer Info */}
-                        <div className='inventory-details__bottom-layer'>
-                            <article className='inventory-details__info-item'>
-                            <p className='item-label'>Status:</p>
-                                <p className={` ${itemData?.status === inStock ? 'inventory-instock' : 'inventory-outstock'}`}>{itemData?.status}</p>
-                            </article>
-                            <article className='inventory-details__info-item'>
-                            <p className='item-label'>Quantity:</p>
-                                <p>{itemData?.quantity}</p>
-                            </article>
-                            <article className='inventory-details__info-item'>
-                            <p className='item-label'>Warehouse:</p>
-                                <p>{warehouseName}</p>
-                            </article>
-                        </div>
-
-                    </div>
-
-                </section>
-
-                {/* MARK: Futuur */}
-                <Footer />
+        <section className="inventory-item-section">
+            <div className='inventory-item-header'>
+                <div className='inventory-item-header__container'>
+                    <img src={ArrowBack} alt="arrow back icon"></img>
+                    <h1 className='inventory-item-header__title'>{itemData?.item_name}</h1>
+                    <button className='edit-btn-container inventory-item-header__edit-btn'>
+                        <img className="edit-icon" src={Edit} alt='edit icon'></img>
+                        <span className='edit-label'>Edit</span>
+                    </button>
+                </div>
             </div>
-        </div>
 
+            <div className='inventory-details'>
 
+                {/* MARK: Top Layer Info */}
+                <div className='inventory-details__top-layer'>
+                    <article className='inventory-details__info-item'>
+                        <p className='item-label'>Item Description:</p>
+                        <p>{itemData?.description}</p>
+                    </article>
+                    <article className='inventory-details__info-item'>
+                        <p className='item-label'>Category:</p>
+                        <p>{itemData?.category}</p>
+                    </article>
+                </div>
 
+                {/* MARK: Bottom Layer Info */}
+                <div className='inventory-details__bottom-layer'>
+                    <article className='inventory-details__info-item'>
+                        <p className='item-label'>Status:</p>
+                        <p className={` ${itemData?.status === inStock ? 'inventory-instock' : 'inventory-outstock'}`}>{itemData?.status}</p>
+                    </article>
+                    <article className='inventory-details__info-item'>
+                        <p className='item-label'>Quantity:</p>
+                        <p>{itemData?.quantity}</p>
+                    </article>
+                    <article className='inventory-details__info-item'>
+                        <p className='item-label'>Warehouse:</p>
+                        <p>{warehouseName}</p>
+                    </article>
+                </div>
+
+            </div>
+
+        </section>
     )
 }
 
