@@ -3,9 +3,21 @@
 @use "../../styles/partials/variables" as *;
 
 .warehouseListContainer {
-  //   display: flex;
-  // margin: auto 1rem;
-
+  position: relative;
+  z-index: 1;
+  top: -60px;
+  background-color: $White;
+  width: 90%;
+  left: 5%;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+  @include tablet {
+    left: 45px;
+  }
+  @include desktop {
+    width: 85%;
+    left: 100px;
+  }
   &__title {
     margin-left: 1rem;
     margin-bottom: 1rem;
@@ -27,6 +39,10 @@
       height: 6rem;
       padding-left: 2rem;
     }
+    @include desktop {
+      justify-content: initial;
+      gap: 30%;
+    }
   }
   &__searchBarBox {
     position: relative;
@@ -35,6 +51,9 @@
       display: flex;
       align-items: baseline;
       padding-top: 0.6rem;
+    }
+    @include desktop {
+      // width: 30rem;
     }
   }
   &__searchBar {
@@ -48,6 +67,9 @@
       width: 11rem;
       margin-right: 1rem;
       height: 2.4rem;
+      @include desktop {
+        width: 17rem;
+      }
     }
   }
   &__lookingGlass {
@@ -58,6 +80,9 @@
     @include tablet {
       right: 55%;
       top: 35%;
+    }
+    @include desktop {
+      right: 44%;
     }
   }
   &__searchButton {
@@ -74,6 +99,9 @@
     @include tablet {
       width: 10rem;
     }
+    @include desktop {
+      width: 11rem;
+    }
   }
   &__tabletLeader {
     display: none;
@@ -89,25 +117,42 @@
       // padding-right: 2rem;
       padding: 0 32px;
     }
+    @include desktop {
+      font-size: 0.75rem;
+      font-weight: 600;
+      height: 2.75rem;
+      // gap: 3.6rem;
+    }
   }
   &__tabletLeader--box1 {
     @include tablet {
       display: flex;
       justify-content: space-between;
       width: 55%;
+      @include desktop {
+        justify-content: initial;
+        gap: 20%;
+      }
     }
   }
   &__tabletLeader--box2 {
     @include tablet {
       display: flex;
       justify-content: space-between;
-      width: 35%;
+      width: 40%;
+    }
+    @include desktop {
+      justify-content: initial;
+      gap: 30%;
     }
   }
   &__tabletLeaderItem {
     @include tablet {
       padding-top: 0.5rem;
       display: flex;
+    }
+    @include desktop {
+      width: 10rem;
     }
   }
   &__tabletLeaderArrow {
@@ -147,6 +192,9 @@
       // padding-bottom: 1rem;
       padding: 1rem 0 1rem;
       justify-content: space-between;
+    }
+    @include desktop {
+      height: 3rem;
     }
   }
   &__detailsBox--left {
@@ -194,6 +242,10 @@
       // text-align: right;
       width: 22%;
     }
+    @include desktop {
+      font-size: 0.875rem;
+      width: 30%;
+    }
   }
   &__detailsInfo--alt2 {
     display: none;
@@ -212,6 +264,9 @@
     @include tablet {
       width: 25%;
     }
+    @include desktop {
+      font-size: 0.875rem;
+    }
   }
   &__detailsInfo--Name {
     padding-bottom: 1rem;
@@ -223,7 +278,12 @@
   &__detailsInfo--altName {
     @include tablet {
       display: initial;
-      width: 32px;
+      width: 2rem;
+    }
+    @include desktop {
+      font-size: 0.875rem;
+      width: 6rem;
+      text-align: right;
     }
   }
   &__arrowLogo {
@@ -257,6 +317,10 @@
     @include tablet {
       display: flex;
       width: 25%;
+    }
+    @include desktop {
+      align-items: left;
+      margin-right: 4rem;
     }
   }
 }
