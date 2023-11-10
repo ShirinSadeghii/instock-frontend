@@ -179,7 +179,7 @@
     display: flex;
     border-top: solid 0.1rem $Cloud;
     // border-bottom: solid 0.1rem $Cloud;
-    height: 11rem;
+    // height: 11rem;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 1rem;
@@ -202,7 +202,7 @@
     // background-color: lightblue;
     flex-direction: column;
     // flex-direction: column;
-    margin-left: 1rem;
+    // margin-left: 1rem;
     width: 42%;
     margin-right: 2rem;
     @include tablet {
@@ -259,8 +259,9 @@
   &__detailsInfo--alt {
     color: $Instock-Indigo;
     padding-bottom: 1rem;
-    margin-top: -0.9rem;
+    margin-top: -0.4rem;
     font-weight: 600;
+    // width: 40%;
     @include tablet {
       width: 25%;
     }
@@ -276,6 +277,7 @@
     }
   }
   &__detailsInfo--altName {
+    display: none;
     @include tablet {
       display: initial;
       width: 2rem;
