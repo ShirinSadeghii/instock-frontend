@@ -16,3 +16,32 @@ $Light-Grey: #F7F8F9;
 $Green: #158463;
 $Red: #C94515;
 
+
+
+
+// MARK: Robert's
+$icon-dimen: 24px;
+$line-height: 20px;
+$title-header-height: 100px;
+$card-offset: 60px;
+
+$corner-radius: 0.25rem;
+$small-title-bottom-padding: 0.25rem;
+$text-bottom-padding: 1.5rem;
+$text-top-padding: 1rem;
+$btn-dimen: 2.25rem;
+$btn-width: 5rem;
+
+:root{
+    --base-padding: 1rem;
+}
+
+@media (min-width: 768px) { // above mobile (768px)
+  :root{ // auto adjust global variables
+    --base-padding: 2rem;
+  }
+}
+
+@media (min-width: 1280px) { // above tablet (1280px)
+
+}
