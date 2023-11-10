@@ -193,6 +193,7 @@
 
 .inventory-row {
     display: flex;
+    flex-direction: column;
 
     @include tablet {
         width: 85%;
@@ -220,29 +221,29 @@
         }
     }
 
-    &__list-instock {
-            width: 61px;
-            height: 24px;
-            border-radius: 20px;
-            border: none;
-            background-color: rgba(21, 132, 99, 0.07);
-            color: $Green;
-            font-size: 11px;
-            font-weight: 600;
-            margin-bottom: 20px;
-    }
+    // &__list-instock {
+    //         width: 61px;
+    //         height: 24px;
+    //         border-radius: 20px;
+    //         border: none;
+    //         background-color: rgba(21, 132, 99, 0.07);
+    //         color: $Green;
+    //         font-size: 11px;
+    //         font-weight: 600;
+    //         margin-bottom: 20px;
+    // }
 
-    &__list-outstock {
-        width: 86px;
-        height: 24px;
-        border-radius: 20px;
-        border: none;
-        background-color: rgba(201, 69, 21, 0.07);
-        color: $Red;
-        font-size: 11px;
-        font-weight: 600;
-        margin-bottom: 20px;
-    }
+    // &__list-outstock {
+    //     width: 86px;
+    //     height: 24px;
+    //     border-radius: 20px;
+    //     border: none;
+    //     background-color: rgba(201, 69, 21, 0.07);
+    //     color: $Red;
+    //     font-size: 11px;
+    //     font-weight: 600;
+    //     margin-bottom: 20px;
+    // }
 }
 
 .logo__container {
