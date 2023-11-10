@@ -1,0 +1,60 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouse-detail {
+    border-top: 1px solid $Cloud;
+    padding: 0 16px;
+
+    &__title {
+        font-size: 20px;
+        padding: 16px 0;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 20px;
+        padding-bottom: 4px;
+    }
+
+    &__input {
+        height: 36px;
+        border-radius: 20px;
+        border: 1px solid $Cloud;
+        margin-bottom: 1rem;
+    }
+
+    &__btn {
+        height: 68px;
+        background-color: rgba(247, 248, 249, 0.7);
+        border-radius: 0 0 3px 3px;
+        padding-top: 16px;
+        box-sizing: border-box;
+
+        &-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    }
+
+}
+
+.buttons {
+    width: 115px;
+    height: 36px;
+    border-radius: 20px;
+    border: 1px solid $Cloud;
+    background-color: $White;
+    font-weight: 600;
+
+    &--blue {
+        background-color: $Instock-Indigo;
+        color: $White;
+    }
+}
