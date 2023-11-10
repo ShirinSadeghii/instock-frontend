@@ -8,7 +8,7 @@ function EditWarehouse() {
       <div className="warehouse__header">
         <div className="warehouse__container">
           <img src={bArrow} alt="arrow back icon"></img>
-          <h1 className="warehouse__title">Add New Warehouse</h1>
+          <h1 className="warehouse__title">Edit Warehouse</h1>
         </div>
       </div>
       <div className="warehouse-detail">
