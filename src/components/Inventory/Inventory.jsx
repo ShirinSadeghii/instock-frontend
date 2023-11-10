@@ -2,9 +2,8 @@ import deleteIcon from '../../assets/Icons/delete_outline-24px.svg';
 import editIcon from '../../assets/Icons/edit-24px.svg';
 import chevronIcon from '../../assets/Icons/chevron_right-24px.svg';
 import './Inventory.scss';
-import Header from '../../components/Header/Header';
 import sortIcon from '../../assets/Icons/sort-24px.svg';
-import Footer from '../../components/Footer/Footer';
+
 
 function Inventory({inventoryItem}) {
 

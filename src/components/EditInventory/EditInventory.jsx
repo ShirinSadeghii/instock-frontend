@@ -18,8 +18,8 @@ function EditInventory() {
                 <textarea className="newInv__item-descriptionInput" placeholder="Please enter a brief item description" id="" cols="30" rows="10"></textarea>
                 <p className="newInv__item-name">Category</p>
                 <button className="newInv__btn newInv__item-input" name="" placeholder="Please Select" id="" cols="30" rows="1">
-                <p>Please select</p>
-                <img src={dropDownArrow} alt="" />
+                    <p>Please select</p>
+                    <img src={dropDownArrow} alt="" />
                 </button>
                 
             </div>
@@ -38,8 +38,8 @@ function EditInventory() {
                 </div>
                 <p className="newInv__item-name">Warehouse</p>
                 <button className="newInv__btn newInv__item-input" placeholder="Please Select" id="" cols="30" rows="1">
-                <p>Please select</p>
-                <img src={dropDownArrow} alt="" />
+                    <p>Please select</p>
+                    <img src={dropDownArrow} alt="" />
                 </button>
             </div>
         </div>
