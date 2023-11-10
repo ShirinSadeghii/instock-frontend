@@ -7,9 +7,18 @@
     top: -60px;
     background-color: $White;
     width: 90%;
-    left: 20px;
+    left: 5%;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+
+    @include tablet {
+        left: 45px;
+    }
+
+    @include desktop {
+        width: 85%;
+        left: 100px;
+    }
 
     &__header {
         display: flex;
@@ -20,6 +29,7 @@
         @include tablet {
             padding: 0 32px;
         }
+
     }
 
     &__container {
@@ -42,10 +52,33 @@
         width: 36px;
         height: 36px;
         border-radius: 20px;
+
+        @include tablet {
+            width: 81px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     &__edit-icon {
-        background-color: white;
+        filter: brightness(0) invert(1);
+        @include tablet {
+            height: 20px;
+        }
+    }
+
+    &__edit-txt {
+        display: none;
+        @include tablet {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            margin-left: 4px;
+
+        }
     }
 
     &__list {
@@ -66,6 +99,7 @@
             @include tablet {
                 flex-direction: column;
                 border-top: none;
+                padding: 0;
             }
         }
     }
@@ -97,6 +131,7 @@
 
         @include tablet {
             font-size: 12px;
+            line-height: 18px;
         }
 
         &--tablet {
@@ -112,6 +147,7 @@
             
             @include tablet {
                 font-size: 14px;
+                line-height: 22px;
             }
             
             &--blue {
@@ -119,6 +155,22 @@
                 color: $Instock-Indigo;
                 font-weight: 600;
                 margin-bottom: 20px;
+            }
+
+            &--width {
+                @include tablet{
+                    width: 20%;
+                }
+            }
+
+            &--quantity {
+                @include tablet {
+                    width: 5%;
+                }
+
+                @include desktop {
+                    width: 4%;
+                }
             }
         }
     }
@@ -129,18 +181,44 @@
         padding-top: 16px;
         padding-bottom: 24px;
         border-bottom: 1px solid $Cloud;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 16px 32px 0;
+        }
     }
 
 }
 
-.inventory {
+.inventory-row {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+        width: 85%;
+        justify-content: space-between;
+    }
+
 
     &__container {
         display: flex;
         flex-direction: column;
         width: 50%;
+
+        @include tablet {
+            width: 40%;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+    }
+
+    &__container2 {
+        @include tablet {
+            display: flex;
+            width: 55%;
+            justify-content: space-evenly;
+        }
     }
 
     // &__list-instock {
@@ -177,6 +255,10 @@
         margin-top: 0;
         width: 10%;
     }
+
+    @include desktop {
+        width: 7%;
+    }
 }
 
 .contact__container {
@@ -202,6 +284,22 @@ display: none;
             padding: 0 32px;
         }
     }
+
+    &__box1 {
+        @include tablet {
+            display: flex;
+            width: 60%;
+            justify-content: space-between;
+        }
+    }
+
+    &__box2 {
+        @include tablet {
+            display: flex;
+            width: 30%;
+            justify-content: space-between;
+        }
+    }
     
 
     &__item {
@@ -212,5 +310,17 @@ display: none;
             display: flex;
             align-items: center;
         }
+
+        &--width {
+            @include tablet {
+                width: 14%;
+            }
+        }
     }
+
+}
+
+.edit-logo {
+    height: 24px;
+    width: 24px;
 }
