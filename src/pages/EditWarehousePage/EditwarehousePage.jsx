@@ -1,16 +1,19 @@
 import Header from "../../components/Header/Header";
+import NewWarehouse from "../../components/NewWarehouse/NewWarehouse";
 import Footer from "../../components/Footer/Footer";
-import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import "../../App.scss";
-function Warehouses() {
+import EditWarehouse from "../../components/EditWarehouse/EditWarehouse";
+
+function EditWarehousePage() {
   return (
     <div className="warehouse-details">
       <Header />
       <div className="main">
-        <WarehouseList />
+        <EditWarehouse />
         <Footer />
       </div>
     </div>
   );
 }
-export default Warehouses;
+
+export default EditWarehousePage;
