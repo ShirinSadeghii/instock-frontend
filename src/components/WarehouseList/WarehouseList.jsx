@@ -7,7 +7,6 @@ import lookingGlass from "../../assets/Icons/search-24px.svg";
 import sortArrow from "../../assets/Icons/sort-24px.svg";
 
 function WarehouseList() {
-  // const dataJson
   return (
     <>
       <div className="warehouseListContainer">
@@ -27,45 +26,8 @@ function WarehouseList() {
               + Add New Warehouse
             </button>
           </div>
-          {/* <button className="warehouseListContainer__searchButton">
-            +Add New Warehouse
-          </button> */}
         </div>
-        {/* <div className="warehouseListContainer__tabletLeader">
-          <p className="warehouseListContainer__tabletLeaderItem">
-            WAREHOUSE{" "}
-            <img
-              className="warehouseListContainer__tabletLeaderArrow"
-              src={sortArrow}
-              alt="sort arrows"
-            />
-          </p>
-          <p className="warehouseListContainer__tabletLeaderItem">
-            ADDRESS
-            <img
-              className="warehouseListContainer__tabletLeaderArrow"
-              src={sortArrow}
-              alt="sort arrows"
-            />
-          </p>
-          <p className="warehouseListContainer__tabletLeaderItem">
-            CONTACT NAME
-            <img
-              className="warehouseListContainer__tabletLeaderArrow"
-              src={sortArrow}
-              alt="sort arrows"
-            />
-          </p>
-          <p className="warehouseListContainer__tabletLeaderItem">
-            CONTACT INFORMATION
-            <img
-              className="warehouseListContainer__tabletLeaderArrow"
-              src={sortArrow}
-              alt="sort arrows"
-            />
-          </p>
-          <p className="warehouseListContainer__tabletLeaderItem">ACTIONS</p>
-        </div> */}
+
         <ul className="warehouseListContainer__detailsBox">
           <div className="warehouseListContainer__tabletLeader">
             <div className="warehouseListContainer__tabletLeader--box1">
@@ -176,44 +138,6 @@ function WarehouseList() {
             );
           })}
         </ul>
-
-        {/* <li>
-            {dataJson.map((info, index) => {
-              return <WareHouseListDetail key={index} info={info} />;
-            })}
-          </li>
-          <li>
-            <div className="warehouseListContainer__detailsBox--left">
-              <p className="warehouseListContainer__detailsTitle">WAREHOUSE</p>
-              <p className="warehouseListContainer__detailsInfo--alt">
-                Manhattan <img src={arrowRight} alt="arrowRight" />
-              </p>
-              <p className="warehouseListContainer__detailsTitle">ADDRESS</p>
-              <p className="warehouseListContainer__detailsInfo">
-                503 Broadway, New York, USA
-                <img src={trashBin} alt="trashbin" />
-              </p>
-              
-              <img></img>
-            </div> */}
-        {/* <div className="warehouseListContainer__detailsBox--right">
-              <p className="warehouseListContainer__detailsTitle">
-                CONTACT NAME
-              </p>
-              <p className="warehouseListContainer__detailsTitle">
-                CONTACT INFORMATION
-              </p>
-              <p className="warehouseListContainer__detailsInfo">
-                +1(629)555-0129
-              </p>
-              <p className="warehouseListContainer__detailsInfo">
-                paujla@instock.com
-                <img src={pen} alt="editPen" />
-              </p>
-              <img></img>
-            </div>
-          </li>
-        </ul> */}
       </div>
     </>
   );
