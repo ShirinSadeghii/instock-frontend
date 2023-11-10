@@ -45,7 +45,6 @@
             border-right: 1px solid $Cloud;
             margin-top: 1rem;
             width: 50%;
-
         }
 
         @include desktop {
@@ -59,10 +58,9 @@
     &-itemAvailability {
         @include tablet {
             margin-top: 1rem;
-        }
-        @include desktop {
             padding-left: 2rem;
         }
+        
     }
 
     &__cancel-btn {
@@ -144,7 +142,7 @@
         border-radius: 1.25rem;
         border: 1px solid $Cloud;
         background: $White;
-        width: 18.4375rem;
+        width: 90%;
         height: 2.25rem;
         flex-shrink: 0;
         margin: 0.5rem 1rem;
@@ -160,7 +158,7 @@
      }
 
      &__item-descriptionInput {
-        width: 18.4375rem;
+        width: 90%;
         height: 7.5rem;
         flex-shrink: 0;
         border-radius: 1.25rem;
