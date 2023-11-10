@@ -3,7 +3,7 @@ import Footer from "../../components/Footer/Footer";
 import Warehouse from '../../components/Warehouse/Warehouse';
 import '../../App.scss';
 
-function WarehouseDetails() {
+function WarehouseDetailsPage() {
     return (
         <div className="warehouse-details">
             <Header />
@@ -14,4 +14,4 @@ function WarehouseDetails() {
         </div>
     );
 }
-export default WarehouseDetails;
+export default WarehouseDetailsPage;
