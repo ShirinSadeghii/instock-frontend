@@ -1,8 +1,39 @@
 import ArrowBack from '../../assets/Icons/arrow_back-24px.svg';
 import "../Warehouse/Warehouse.scss";
 import '../NewWarehouse/NewWarehouse.scss';
+import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 function NewWarehouse() {
+
+const baseUrl = "http://3.20.237.64:80"
+const navigate = useNavigate();
+
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+        const response = await axios.post(`${baseUrl}/warehouses`, {
+            warehouse_name: event.target.warehouse_name.value,
+            address: event.target.address.value, 
+            city: event.target.city.value,
+            country: event.target.country.value,
+            contact_name: event.target.contact_name.value,
+            contact_position: event.target.contact_position.value,
+            contact_phone: event.target.contact_phone.value,
+            contact_email: event.target.contact_email.value,
+        });
+        navigate("/");
+    } catch (err) {
+        alert("please fill out the missing fields!");
+    }
+};
+
+function handleClick (event) {
+    const cancelSubmit = () => {
+        navigate("/");
+    }
+    cancelSubmit();
+}
 return (
     <section className="warehouse">
         <div className='warehouse__header'>
@@ -28,7 +59,7 @@ return (
             <div className='warehouse-detail__divider'></div>
             <div className='warehouse-detail'>
                 <h2 className='warehouse-detail__title'>Contact Details</h2>
-                <form className='warehouse-detail__form'> 
+                <form onSubmit={handleSubmit}className='warehouse-detail__form'> 
                     <label className='warehouse-detail__label'>Contact Name</label>
                     <input className='warehouse-detail__input' type="text" name="ContactName" placeholder='Contact Name' required></input>
                     <label className='warehouse-detail__label'>Position</label>
@@ -43,7 +74,7 @@ return (
         
         <div className='warehouse-detail__btn'>
             <div className='warehouse-detail__btn-container'>
-                <button className='buttons'>Cancel</button>
+                <button onClick={handleClick} className='buttons'>Cancel</button>
                 <button className='buttons buttons--blue'>+Add Warehouse</button>
             </div>
         </div>
