@@ -26,7 +26,7 @@ const Modal = ({ showModal, closeModal, handleDelete, deleteWarehouse }) => {
         </div>
         <div className="selectionBox">
           <button className="selectionBox__cancel" onClick={closeModal}>
-            cancel
+            Cancel
           </button>
           <button
             className="selectionBox__delete"
