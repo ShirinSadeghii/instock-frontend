@@ -185,16 +185,9 @@
     padding-top: 1rem;
     justify-content: center;
     @include tablet {
-      height: 4.5rem;
-      // padding-left: 2rem;
       align-items: baseline;
-      // padding-top: 1rem;
-      // padding-bottom: 1rem;
       padding: 1rem 0 1rem;
       justify-content: space-between;
-    }
-    @include desktop {
-      height: 3rem;
     }
   }
   &__detailsBox--left {

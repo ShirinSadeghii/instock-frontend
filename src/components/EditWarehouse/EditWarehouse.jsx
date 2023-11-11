@@ -17,7 +17,7 @@ return (
   <section className="warehouse">
       <div className='warehouse__header'>
           <div className='warehouse__container'>
-              <img src={ArrowBack} alt="arrow back icon"></img>
+              <img onClick={(handleClick) => navigate('/')} src={ArrowBack} alt="arrow back icon"></img>
               <h1 className='warehouse__title'>Edit Warehouse</h1>
           </div>
       </div>
@@ -47,7 +47,9 @@ return (
                   <input className='warehouse-detail__input' type="text" name="PhoneNumber" placeholder='Phone Number' required></input>
                   <label className='warehouse-detail__label'>Email</label>
                   <input className='warehouse-detail__input' type="text" name="Email" placeholder='Email' required></input>
-                  <button className='buttons buttons--blue'>+Add Warehouse</button>
+                  <div className='buttons--blue__container'>
+                        <button className='buttons buttons--blue'>+Add Warehouse</button>
+                  </div>
               </form>
           </div>
       </div>

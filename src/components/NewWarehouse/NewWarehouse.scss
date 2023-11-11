@@ -71,7 +71,7 @@
 
             @include tablet {
                 justify-content: flex-end;
-                width: 74%;
+                width: 70%;
             }
 
             @include desktop {
@@ -126,8 +126,8 @@
             @include tablet {
                 display: flex;
                 justify-content: end;
-                left: 50%;
-                width: 50%;
+                left: 40%;
+                width: 60%;
             }
 
             @include desktop {
