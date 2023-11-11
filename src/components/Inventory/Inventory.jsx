@@ -3,11 +3,22 @@ import editIcon from '../../assets/Icons/edit-24px.svg';
 import chevronIcon from '../../assets/Icons/chevron_right-24px.svg';
 import './Inventory.scss';
 import sortIcon from '../../assets/Icons/sort-24px.svg';
+import { useNavigate } from 'react-router-dom';
 
 
 function Inventory({inventoryItem}) {
 
   const inStock = "In Stock";
+
+  const navigate = useNavigate();
+
+  const handleAddItemClick = () => {
+    // Navigate to the Add Item Page
+    navigate('/add-inventory');
+  };
+
+
+
 
   const dummyInventoryData = [{
       id: 1,
@@ -108,6 +119,9 @@ function Inventory({inventoryItem}) {
       status: 'In Stock',
       quantity: 12500,
     },]
+
+
+
    
   return (
    
@@ -117,7 +131,7 @@ function Inventory({inventoryItem}) {
           <div className="inventoryListContainer__items">
             <input className="inventoryListContainer__searchBar" placeholder="Search...">
             </input>
-            <button className="inventoryListContainer__searchButton">+Add New Item</button>
+            <button className="inventoryListContainer__searchButton" onClick={handleAddItemClick}>+Add New Item</button>
           </div>
     </div>
     <div className="inventory-titlebar">

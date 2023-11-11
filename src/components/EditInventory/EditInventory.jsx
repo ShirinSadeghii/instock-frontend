@@ -1,6 +1,7 @@
 import backArrow from '../../assets/Icons/arrow_back-24px.svg';
 import dropDownArrow from '../../assets/Icons/arrow_drop_down-24px.svg';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function EditInventory() {
@@ -8,6 +9,11 @@ function EditInventory() {
     const [stockStatus, setStockStatus] = useState('InStock');
     const [selectedWarehouse, setSelectedWarehouse] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
+
+    const navigate = useNavigate();
+
+   
+
 
     // Event handler for when the radio button selection changes
     const handleStockStatusChange = (event) => {
@@ -24,6 +30,11 @@ function EditInventory() {
         setSelectedCategory(event.target.value);
     };
 
+    const handleBackClick = () => {
+        // Navigate back to the Inventory Page
+        navigate('/inventory');
+      };
+
     // Dummy warehouse names
     const warehouses = ["Warehouse 1", "Warehouse 2", "Warehouse 3", "Warehouse 4", "Warehouse 5", "Warehouse 6", "Warehouse 7", "Warehouse 8"];
     const categories = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5"];
@@ -32,7 +43,7 @@ function EditInventory() {
   return (
     <div className="warehouse">
         <div className="newInv-heading">
-            <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" />
+            <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" onClick={handleBackClick}/>
             <span>Edit Inventory Item</span>
         </div>
         <div className="newInv-container">

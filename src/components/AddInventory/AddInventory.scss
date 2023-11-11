@@ -155,6 +155,10 @@
         padding: 0 1rem;
      }
 
+     &__item-input::placeholder{
+        font-size: 0.6rem;
+    }
+
      &__item-description {
         color: $Instock-Black;
         font-family: Titillium Web;
@@ -172,8 +176,13 @@
         border: 1px solid $Cloud;
         background: $White;
         margin-top:0.5rem;
+        padding: 0 0 1rem 1rem;
         
      }
+
+     &__item-descriptionInput::placeholder{
+        font-size: 0.6rem;
+    }
 
     &__radio-container {
         padding-right: 1rem;
