@@ -1,5 +1,5 @@
-@use "../partials/variables" as *;
-@use "../partials/mixins" as *;
+@import './variables';
+@import './mixins';
 
 .item-label {
   font-size: 11px;

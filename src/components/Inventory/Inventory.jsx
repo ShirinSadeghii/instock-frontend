@@ -1,3 +1,4 @@
+import {useNavigate} from 'react-router-dom';
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
@@ -9,11 +10,16 @@ import { useState } from "react";
 import React from "react";
 import { useEffect } from "react";
 
+
 function Inventory({}) {
   const inStock = "In Stock";
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [inventoryItem, setInventoryItem] = useState(null);
+  const navigate = useNavigate();
+  const handleItemClick = (itemId) =>{
+    navigate(`/inventory/${itemId}`, { state: {backNavigateUrl: '/inventory'} });
+  }
 
   const openModal = () => {
     setShowModal(true);
@@ -96,7 +102,7 @@ function Inventory({}) {
                 <div className="inventory__list-left">
                   <div className="inventory__list-left-details">
                     <p className="inventory__list-title">Inventory Item</p>
-                    <div className="inventory__list-container">
+                    <div className="inventory__list-container" onClick={() => handleItemClick(inventoryItem.id)}>
                       <p className="inventory__list-blueItm">
                         {inventoryItem.item_name}
                       </p>
