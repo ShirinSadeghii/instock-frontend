@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
+@use "../../styles/partials/fonts" as *;
 
 /* Modal (background) */
 
@@ -25,26 +26,51 @@
   width: 90%;
   // width: 80%;
   // height: 10rem;
-  height: 40rem;
+  // height: 40rem;
+}
+.deleteTitleLogoContainer {
+  display: flex;
+  position: relative;
+  &__title {
+    width: 70%;
+  }
+  &__logo {
+    position: absolute;
+    left: 94%;
+    // bottom: 3rem;
+  }
+}
+.warehouseListModaldetails_container {
+  padding-top: 1rem;
+  max-width: 80%;
 }
 .selectionBox {
   display: flex;
-  margin-top: 28rem;
+  width: 100%;
+  margin-top: 100%;
   &__delete {
     border-radius: 20px;
-    width: 163px;
+    // width: 163px;
+    width: 50%;
     height: 36px;
     margin-left: 1rem;
     border: none;
+    background-color: $Red;
+    color: $White;
+
+    font-weight: 600;
   }
 }
 /* The Close Button */
 .selectionBox__cancel {
-  color: #aaa;
+  color: $Instock-Black;
+  background-color: $White;
+  border: 0.25px solid $Cloud;
   float: right;
   // font-size: 28px;
   font-weight: bold;
-  width: 163px;
+  // width: 163px;
+  width: 50%;
   height: 36px;
   border-radius: 20px;
 

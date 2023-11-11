@@ -1,14 +1,10 @@
 import backArrow from '../../assets/Icons/arrow_back-24px.svg';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import './EditInventory.scss';
 import dropDownArrow from '../../assets/Icons/arrow_drop_down-24px.svg';
 
 
 function EditInventory() {
   return (
-    <div>
-        <Header />
+    <div className="warehouse">
         <div className="newInv-heading">
             <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" />
             <span>Edit Inventory Item</span>
@@ -22,8 +18,8 @@ function EditInventory() {
                 <textarea className="newInv__item-descriptionInput" placeholder="Please enter a brief item description" id="" cols="30" rows="10"></textarea>
                 <p className="newInv__item-name">Category</p>
                 <button className="newInv__btn newInv__item-input" name="" placeholder="Please Select" id="" cols="30" rows="1">
-                <p>Please select</p>
-                <img src={dropDownArrow} alt="" />
+                    <p>Please select</p>
+                    <img src={dropDownArrow} alt="" />
                 </button>
                 
             </div>
@@ -42,8 +38,8 @@ function EditInventory() {
                 </div>
                 <p className="newInv__item-name">Warehouse</p>
                 <button className="newInv__btn newInv__item-input" placeholder="Please Select" id="" cols="30" rows="1">
-                <p>Please select</p>
-                <img src={dropDownArrow} alt="" />
+                    <p>Please select</p>
+                    <img src={dropDownArrow} alt="" />
                 </button>
             </div>
         </div>
@@ -51,7 +47,6 @@ function EditInventory() {
             <button className="newInv__cancel-btn">Cancel</button>
             <button className="newInv__btn-blue"> + Add Item</button>
         </div>
-        <Footer />
         </div>
   )
 }
