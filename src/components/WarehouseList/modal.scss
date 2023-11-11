@@ -27,6 +27,10 @@
   // width: 80%;
   // height: 10rem;
   // height: 40rem;
+  @include desktop {
+    width: 42rem;
+    height: 16.375;
+  }
 }
 .deleteTitleLogoContainer {
   display: flex;
@@ -38,6 +42,10 @@
       padding-top: 3rem;
       font-size: 2rem;
       width: 90%;
+    }
+    @include desktop {
+      padding-left: 3rem;
+      padding-top: 1rem;
     }
   }
   &__logo {
@@ -53,15 +61,24 @@
     padding-left: 4rem;
     max-width: 90%;
   }
+  @include desktop {
+    padding-left: 3rem;
+    padding-top: 0.5rem;
+  }
 }
 .selectionBox {
   display: flex;
   width: 100%;
   margin-top: 100%;
   @include tablet {
-    width: 25%;
+    width: 20%;
     margin-top: 5%;
-    margin-left: 69%;
+    margin-left: 73%;
+  }
+  @include desktop {
+    // margin-top: 1%;
+    padding-bottom: 1rem;
+    width: 22%;
   }
   &__delete {
     border-radius: 20px;
