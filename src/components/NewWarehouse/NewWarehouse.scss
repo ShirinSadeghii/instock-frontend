@@ -67,14 +67,15 @@
             display: flex;
             justify-content: center;
             gap: 10px;
+            width: 50%;
 
             @include tablet {
                 justify-content: flex-end;
-                width: 70%;
+                width: 74%;
             }
 
             @include desktop {
-                width: 70%;
+                width: 82%;
             }
         }
     }
@@ -110,10 +111,32 @@
         background-color: $Instock-Indigo;
         color: $White;
 
+
         @include tablet {
             height: 38px;
             width: 138px;
         }
+
+        &__container {
+            position: relative;
+            left: 50%;
+            top: 52px;
+            width: 50%;
+
+            @include tablet {
+                display: flex;
+                justify-content: end;
+                left: 50%;
+                width: 50%;
+            }
+
+            @include desktop {
+                justify-content: end;
+                left: 70%;
+                width: 30%;
+            }
+        }
+        
     }
 }
 

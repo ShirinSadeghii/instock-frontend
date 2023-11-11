@@ -1,75 +1,77 @@
-.item-label{
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 16px;
-    color: $Slate;
-    padding-bottom: 4px;
-    text-transform: uppercase;
+@import './variables';
+@import './mixins';
+
+.item-label {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  color: $Slate;
+  padding-bottom: 4px;
+  text-transform: uppercase;
 }
 
 .inventory-instock {
-    font-family: Titillium Web;
-    color: $Green;
-    font-size: 0.6875rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1rem;
-    text-transform: uppercase;
-    display: inline-flex;
-    padding: 0.25rem 0.5rem;
-    align-items: center;
-    border-radius: 1.25rem;
-    background: rgba(21, 132, 99, 0.07);
-    margin-top: 0.2rem;
+  font-family: Titillium Web;
+  color: $Green;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  text-transform: uppercase;
+  display: inline-flex;
+  padding: 0.25rem 0.5rem;
+  align-items: center;
+  border-radius: 1.25rem;
+  background: rgba(21, 132, 99, 0.07);
+  margin-top: 0.2rem;
 }
 
 .inventory-outstock {
-    display: inline-flex;
-    padding: 0.25rem 0.5rem;
-    align-items: center;
-    border-radius: 1.25rem;
-    background: rgba(201, 69, 21, 0.07);
-    color: $Red;
-    font-size: 0.6875rem;
-    font-style: normal;
+  display: inline-flex;
+  padding: 0.25rem 0.5rem;
+  align-items: center;
+  border-radius: 1.25rem;
+  background: rgba(201, 69, 21, 0.07);
+  color: $Red;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.edit-btn-container {
+  width: $btn-dimen;
+  height: $btn-dimen;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $Instock-Indigo;
+  border: none;
+  border-radius: 50%;
+
+  @include tablet {
+    width: $btn-width;
+    border-radius: calc($btn-dimen/2);
+    justify-content: center;
+  }
+}
+
+.edit-icon {
+  width: $icon-dimen;
+  height: $icon-dimen;
+  filter: brightness(0) invert(1);
+}
+
+.edit-label {
+  display: none;
+
+  @include tablet {
+    display: block;
+    font-size: 13px;
     font-weight: 600;
-    line-height: 1rem;
-    text-transform: uppercase;
-    margin-top: 1rem;
-}
-
-.edit-btn-container{
-    width: $btn-dimen;
-    height: $btn-dimen;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: $Instock-Indigo;
-    border: none;
-    border-radius: 50%;
-
-    @include tablet{
-        width: $btn-width;
-        border-radius: calc($btn-dimen/2);
-        justify-content: center;
-    }
-}
-
-.edit-icon{
-    width: $icon-dimen;
-    height: $icon-dimen;
-    filter: brightness(0) invert(1);
-}
-
-.edit-label{
-    display: none;
-
-    @include tablet {
-        display: block;
-        font-size: 13px;
-        font-weight: 600;
-        color: white;
-        margin-left: 4px;
-
-    }
+    color: white;
+    margin-left: 4px;
+  }
 }

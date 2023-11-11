@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation, json } from "react-router-dom";
+import './InventoryDetails.scss';
 import ArrowBack from '../../assets/Icons/arrow_back-24px.svg';
 import Edit from '../../assets/Icons/edit-24px.svg';
-import './InventoryDetails.scss';
 import axios from 'axios';
 
 function InventoryDetails() {

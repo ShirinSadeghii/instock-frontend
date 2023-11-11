@@ -1,4 +1,9 @@
+@import '../../styles/partials/_variables.scss';
+@import '../../styles/partials/_mixins.scss';
+@import '../../styles/partials/_global.scss';
+
 /* Modal (background) */
+
 .modal {
   display: none;
   position: fixed;
@@ -17,16 +22,87 @@
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
-  height: 10rem;
+  width: 90%;
+  // width: 80%;
+  // height: 10rem;
+  // height: 40rem;
+  @include desktop {
+    width: 42rem;
+    height: 16.375;
+  }
 }
-
+.deleteTitleLogoContainer {
+  display: flex;
+  position: relative;
+  &__title {
+    width: 70%;
+    @include tablet {
+      padding-left: 4rem;
+      padding-top: 3rem;
+      font-size: 2rem;
+      width: 90%;
+    }
+    @include desktop {
+      padding-left: 3rem;
+      padding-top: 1rem;
+    }
+  }
+  &__logo {
+    position: absolute;
+    left: 94%;
+    // bottom: 3rem;
+  }
+}
+.warehouseListModaldetails_container {
+  padding-top: 1rem;
+  max-width: 80%;
+  @include tablet {
+    padding-left: 4rem;
+    max-width: 90%;
+  }
+  @include desktop {
+    padding-left: 3rem;
+    padding-top: 0.5rem;
+  }
+}
+.selectionBox {
+  display: flex;
+  width: 100%;
+  margin-top: 100%;
+  @include tablet {
+    width: 20%;
+    margin-top: 5%;
+    margin-left: 73%;
+  }
+  @include desktop {
+    // margin-top: 1%;
+    padding-bottom: 1rem;
+    width: 22%;
+  }
+  &__delete {
+    border-radius: 20px;
+    // width: 163px;
+    width: 50%;
+    height: 36px;
+    margin-left: 1rem;
+    border: none;
+    background-color: $Red;
+    color: $White;
+    font-weight: 600;
+  }
+}
 /* The Close Button */
-.close {
-  color: #aaa;
+.selectionBox__cancel {
+  color: $Slate;
+  background-color: $White;
+  border: 0.25px solid $Cloud;
   float: right;
-  font-size: 28px;
+  // font-size: 28px;
   font-weight: bold;
+  // width: 163px;
+  width: 50%;
+  height: 36px;
+  border-radius: 20px;
 
   &close:hover,
   &close:focus {
