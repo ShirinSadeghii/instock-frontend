@@ -1,3 +1,4 @@
+import {useNavigate} from 'react-router-dom';
 import deleteIcon from '../../assets/Icons/delete_outline-24px.svg';
 import editIcon from '../../assets/Icons/edit-24px.svg';
 import chevronIcon from '../../assets/Icons/chevron_right-24px.svg';
@@ -6,8 +7,11 @@ import sortIcon from '../../assets/Icons/sort-24px.svg';
 
 
 function Inventory({inventoryItem}) {
-
   const inStock = "In Stock";
+  const navigate = useNavigate();
+  const handleItemClick = (itemId) =>{
+    navigate(`/inventory/${itemId}`, { state: {backNavigateUrl: '/inventory'} });
+  }
 
   const dummyInventoryData = [{
       id: 1,
@@ -148,7 +152,7 @@ function Inventory({inventoryItem}) {
               <div className="inventory__list-left">
                 <div className="inventory__list-left-details">
                     <p className = "inventory__list-title">Inventory Item</p>
-                    <div className="inventory__list-container">
+                    <div className="inventory__list-container" onClick={() => handleItemClick(inventoryItem.id)}>
                       <p className="inventory__list-blueItm">{inventoryItem.item_name}</p>
                       <img src={chevronIcon} alt="" />
                     </div>

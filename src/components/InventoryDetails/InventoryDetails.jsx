@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from "react-router-dom";
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import { useParams, useNavigate, useLocation, json } from "react-router-dom";
 import ArrowBack from '../../assets/Icons/arrow_back-24px.svg';
 import Edit from '../../assets/Icons/edit-24px.svg';
 import './InventoryDetails.scss';
@@ -11,7 +9,16 @@ function InventoryDetails() {
     const { itemId } = useParams('');
     const [itemData, setItemData] = useState();
     const [warehouseName, setWareHouseName] = useState('Warehouse Name');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const backNavigateUrl = location.state.backNavigateUrl;
     const inStock = "In Stock";
+    const handleGoBack = () => { 
+        navigate(backNavigateUrl);
+    }
+    const handleEditClick = () =>{
+        navigate(`/edit-inventory/${itemId}`, { state: {backNavigateUrl: backNavigateUrl} });
+    }
 
 
     // MARK: Use Effect - Fetch Data
@@ -37,9 +44,9 @@ function InventoryDetails() {
         <section className="inventory-item-section">
             <div className='inventory-item-header'>
                 <div className='inventory-item-header__container'>
-                    <img src={ArrowBack} alt="arrow back icon"></img>
+                    <img src={ArrowBack} onClick={handleGoBack} alt="arrow back icon"></img>
                     <h1 className='inventory-item-header__title'>{itemData?.item_name}</h1>
-                    <button className='edit-btn-container inventory-item-header__edit-btn'>
+                    <button className='edit-btn-container inventory-item-header__edit-btn' onClick={() => handleEditClick(itemData?.id)}>
                         <img className="edit-icon" src={Edit} alt='edit icon'></img>
                         <span className='edit-label'>Edit</span>
                     </button>
