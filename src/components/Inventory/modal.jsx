@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./modal.scss";
+import "../WarehouseList/modal.scss";
 import xLogo from "../../assets/Icons/close-24px.svg";
 
 const Modal = ({ showModal, closeModal, handleDelete, deleteWarehouse }) => {
@@ -9,9 +9,8 @@ const Modal = ({ showModal, closeModal, handleDelete, deleteWarehouse }) => {
         <div className="deleteTitleLogoContainer__outerBox">
           <div className="deleteTitleLogoContainer">
             <h2 className="deleteTitleLogoContainer__title">
-              {" "}
-              Delete {deleteWarehouse?.warehouse_name} warehouse?
-            </h2>
+              Delete {deleteWarehouse?.warehouse_name} inventory item?
+            </h2>{" "}
             <img
               onClick={closeModal}
               className="deleteTitleLogoContainer__logo"

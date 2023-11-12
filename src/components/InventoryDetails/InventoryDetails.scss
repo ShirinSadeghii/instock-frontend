@@ -8,9 +8,9 @@
 }
 
 .inventory-item-section{
-    position: absolute;
+    position: relative;
     width: 90%;
-    top: calc($card-offset*(-1));
+    top: -60px;
     left: 5%;
     right: 5%;
 }
@@ -55,10 +55,10 @@
     display: flex;
     flex-direction: column;
     border-top: solid 1px $Cloud;
+    padding: var(--base-padding) 0;
 
     @include tablet{
         flex-direction: row;
-        padding-top: var(--base-padding);
     }
 
     &__top-layer{
@@ -90,5 +90,3 @@
 
     }
 }
-
-
