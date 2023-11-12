@@ -1,44 +1,39 @@
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
 import "../Warehouse/Warehouse.scss";
 import "../NewWarehouse/NewWarehouse.scss";
-import {useNavigate} from 'react-router-dom';
-import axios from 'axios';
-import { useEffect } from 'react';
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function EditWarehouse() {
+  const putWarehouse = async (warehouseId) => {
+    try {
+      const response = await axios.put(
+        `http://3.20.237.64:80/warehouses/${warehouseId}`
+      );
+      console.log(" put successful:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
-const baseUrl = "http://3.20.237.64:80"
 const navigate = useNavigate();
-
-useEffect(() => {
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await axios.post(`${baseUrl}/warehouses`, {
-                warehouse_name: event.target.warehouse_name.value, 
-                address: event.target.address.value,
-            });
-            navigate("/");
-        } catch (err) {
-            console.log(err);
-        }
-        handleSubmit();
-    } 
-},[]);
  
 function handleClick (event) {
   const cancelSubmit = () => {
       navigate("/");
+    };
+    cancelSubmit();
   }
-  cancelSubmit();
-}
-return (
-  <section className="warehouse">
-      <div className='warehouse__header'>
-          <div className='warehouse__container'>
-              <img onClick={(handleClick) => navigate('/')} src={ArrowBack} alt="arrow back icon"></img>
-              <h1 className='warehouse__title'>Edit Warehouse</h1>
-          </div>
+  return (
+    <section className="warehouse">
+      <div className="warehouse__header">
+        <div className="warehouse__container">
+          <img
+            onClick={(handleClick) => navigate("/")}
+            src={ArrowBack}
+            alt="arrow back icon"
+          ></img>
+          <h1 className="warehouse__title">Edit Warehouse</h1>
+        </div>
       </div>
       <div className='warehouse-parent'>
           <div className='warehouse-detail'>
@@ -57,7 +52,7 @@ return (
           <div className='warehouse-detail__divider'></div>
           <div className='warehouse-detail'>
               <h2 className='warehouse-detail__title'>Contact Details</h2>
-              <form onSubmit={handleClick} className='warehouse-detail__form'> 
+              <form  className='warehouse-detail__form'> 
                   <label className='warehouse-detail__label'>Contact Name</label>
                   <input className='warehouse-detail__input' type="text" name="ContactName" placeholder='Contact Name' required></input>
                   <label className='warehouse-detail__label'>Position</label>
@@ -72,14 +67,15 @@ return (
               </form>
           </div>
       </div>
-      
-      <div className='warehouse-detail__btn'>
-          <div className='warehouse-detail__btn-container'>
-              <button onClick={handleClick} className='buttons'>Cancel</button>
-              
-          </div>
+
+      <div className="warehouse-detail__btn">
+        <div className="warehouse-detail__btn-container">
+          <button onClick={handleClick} className="buttons">
+            Cancel
+          </button>
+        </div>
       </div>
-  </section>
+    </section>
   );
 }
 
