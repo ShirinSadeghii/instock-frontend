@@ -12,22 +12,21 @@ const navigate = useNavigate();
 const [newWarehouse, setNewWarehouse] = useState();
 
 useEffect(() => {
-    async function fetchNewWarehouse() {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         try {
-            const response = await axios.get(`http://3.20.237.64:80/warehouses`);
-            setNewWarehouse(response.data);
-        } catch (error) {
-            console.log(error);
+            const response = await axios.post(`${baseUrl}/warehouses`, {
+                warehouse_name: event.target.warehouse_name.value, 
+                address: event.target.address.value,
+            });
+            navigate("/");
+        } catch (err) {
+            console.log(err);
         }
-    } fetchNewWarehouse();
+        handleSubmit();
+    } 
 },[]);
 
-// function handleSubmit (event) {
-//     const submitNewWarhouse = () => {
-//         navigate("/");
-//     }
-//     submitNewWarhouse();
-// }
 
 function handleClick (event) {
     const cancelSubmit = () => {

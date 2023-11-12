@@ -2,10 +2,29 @@ import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
 import "../Warehouse/Warehouse.scss";
 import "../NewWarehouse/NewWarehouse.scss";
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function EditWarehouse() {
 
+const baseUrl = "http://3.20.237.64:80"
 const navigate = useNavigate();
+
+useEffect(() => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await axios.post(`${baseUrl}/warehouses`, {
+                warehouse_name: event.target.warehouse_name.value, 
+                address: event.target.address.value,
+            });
+            navigate("/");
+        } catch (err) {
+            console.log(err);
+        }
+        handleSubmit();
+    } 
+},[]);
  
 function handleClick (event) {
   const cancelSubmit = () => {
@@ -38,7 +57,7 @@ return (
           <div className='warehouse-detail__divider'></div>
           <div className='warehouse-detail'>
               <h2 className='warehouse-detail__title'>Contact Details</h2>
-              <form  className='warehouse-detail__form'> 
+              <form onSubmit={handleClick} className='warehouse-detail__form'> 
                   <label className='warehouse-detail__label'>Contact Name</label>
                   <input className='warehouse-detail__input' type="text" name="ContactName" placeholder='Contact Name' required></input>
                   <label className='warehouse-detail__label'>Position</label>
