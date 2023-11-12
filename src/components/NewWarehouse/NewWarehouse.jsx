@@ -51,6 +51,7 @@ function NewWarehouse() {
   const handleInputChange = (event) =>{
     const{name, value} = event.target;
     setWarehouseData({
+      ...warehouseData,
       [name]: value,
     });
     console.log(warehouseData);

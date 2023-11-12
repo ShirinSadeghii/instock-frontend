@@ -24,6 +24,7 @@ function EditInventory({ itemId }) {
       const handleInputChange = (event) =>{
         const{name, value} = event.target;
         setItemData({
+            ...itemData,
           [name]: value,
         });
       }

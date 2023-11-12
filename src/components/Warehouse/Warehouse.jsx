@@ -59,10 +59,11 @@ function Warehouse({props}) {
 
       const inventoryResponse = await axios.get(`http://3.20.237.64:80/warehouses/${itemId}/inventories`);
       setWarehouseInventory(inventoryResponse.data);
+      console.log('USE EFFECTING');
      }
 
      fetchItemData(props.itemId);
-  });
+  }, []);
 
 
   
