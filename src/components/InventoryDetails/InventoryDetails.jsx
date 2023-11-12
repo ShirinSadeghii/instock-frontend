@@ -11,8 +11,8 @@ function InventoryDetails() {
     const [warehouseName, setWareHouseName] = useState('Warehouse Name');
     const navigate = useNavigate();
     const location = useLocation();
-    const backNavigateUrl = location.state.backNavigateUrl;
     const inStock = "In Stock";
+    const backNavigateUrl = location.state.backNavigateUrl;
     const handleGoBack = () => { 
         navigate(backNavigateUrl);
     }

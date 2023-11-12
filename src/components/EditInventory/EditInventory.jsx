@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import backArrow from '../../assets/Icons/arrow_back-24px.svg';
 import dropDownArrow from '../../assets/Icons/arrow_drop_down-24px.svg';
 
 
 function EditInventory({ itemId }) {
+    const location = useLocation();
+    const navigate = useNavigate();
     const [itemData, setItemData] = useState();
+    const backNavigateUrl = location.state.backNavigateUrl;
+    const handleGoBack = () => { 
+        navigate(backNavigateUrl);
+    }
+
 
     // MARK: Fetch Initial Form Data
     useEffect(() => {
@@ -23,7 +31,7 @@ function EditInventory({ itemId }) {
         // MARK: Header
         <div className="warehouse">
             <div className="newInv-heading">
-                <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" />
+                <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" onClick={() => handleGoBack()} />
                 <span>Edit Inventory Item</span>
             </div>
 
@@ -67,7 +75,7 @@ function EditInventory({ itemId }) {
 
             {/* MARK: Buttons */}
             <div className="newInv__btn-container">
-                <button className="newInv__cancel-btn">Cancel</button>
+                <button className="newInv__cancel-btn" onClick={() => handleGoBack()}>Cancel</button>
                 <button className="newInv__btn-blue"> + Add Item</button>
             </div>
         </div>

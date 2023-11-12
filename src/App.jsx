@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Warehouses />}></Route>
-          <Route path="/details" element={<WarehouseDetailsPage />}></Route>
+          <Route path="/details/:itemId" element={<WarehouseDetailsPage />}></Route>
           <Route path="/details/add" element={<AddWarehousePage />}></Route>
           <Route path="/inventory/:itemId" element={<InventoryDetailsPage />}></Route>
           <Route path="/details/edit" element={<EditWarehousePage />}></Route>

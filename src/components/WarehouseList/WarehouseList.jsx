@@ -10,12 +10,15 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 function WarehouseList() {
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-
+  const handleItemClick = (itemId) => {
+    navigate(`/details/${itemId}`);
+  }
 
   const openModal = () => {
     setShowModal(true);
@@ -110,7 +113,7 @@ function WarehouseList() {
                   <p className="warehouseListContainer__detailsTitle">
                     WAREHOUSE
                   </p>
-                  <p className="warehouseListContainer__detailsInfo--alt">
+                  <p className="warehouseListContainer__detailsInfo--alt" onClick={() => handleItemClick(info.id)}>
                     {info.warehouse_name}
                     <img
                       className="warehouseListContainer__arrowLogo"

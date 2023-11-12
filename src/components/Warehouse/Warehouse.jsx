@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import dataJson from "../../data/data.json";
 import dataDetailsJson from "../../data/datadetails.json";
 import "../Warehouse/Warehouse.scss";
@@ -9,9 +10,21 @@ import Delete from "../../assets/Icons/delete_outline-24px.svg";
 import Sort from "../../assets/Icons/sort-24px.svg";
 import Modal from "./modal";
 import axios from "axios";
-function Warehouse() {
+
+function Warehouse({props}) {
+  const inStock = "In Stock";
+  const navigate = useNavigate();
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [warehouseData, setWarehouseData] = useState();
+
+  const handleInventoryItemClick = (itemId) =>{
+    navigate(`/inventory/${itemId}`, { state: {backNavigateUrl: `/details/${props.itemId}`} });
+  }
+
+  const handleBackClick = () =>{
+    navigate('/');
+  }
 
   const openModal = () => {
     setShowModal(true);
@@ -32,15 +45,24 @@ function Warehouse() {
       console.error("Error:", error);
     }
   };
-  // const [warehouses, setWarehouses] = useState(dataJson)
-  // const [selectedWarehouse, setSelectedWarehouse] = useState(dataDetailsJson[0]);
-  const inStock = "In Stock";
+  
+  useEffect(()=>{
+    async function fetchItemData(itemId){
+      const response = await axios.get(`http://3.20.237.64:80/warehouses/${itemId}`);
+      setWarehouseData(response.data);
+     }
+
+     fetchItemData(props.itemId);
+  });
+
+
+  
   return (
     <section className="warehouse">
       <div className="warehouse__header">
-        <div className="warehouse__container">
+        <div className="warehouse__container" onClick={()=>handleBackClick()}>
           <img src={ArrowBack} alt="arrow back icon"></img>
-          <h1 className="warehouse__title">{dataJson[0].warehouse_name}</h1>
+          <h1 className="warehouse__title">{warehouseData?.warehouse_name}</h1>
         </div>
         <div className="warehouse__container">
           <button className="warehouse__edit-btn">
@@ -57,7 +79,7 @@ function Warehouse() {
         <li className="warehouse__list-item">
           <span className="warehouse__label">WAREHOUSE ADDRESS:</span>
           <span className="warehouse__label-item">
-            {dataJson[0].address}, {dataJson[0].city}, {dataJson[0].country}
+            {warehouseData?.address}, {warehouseData?.city}, {warehouseData?.country}
           </span>
         </li>
         <li className="warehouse__list-item warehouse__list-item--row">
@@ -65,22 +87,22 @@ function Warehouse() {
             <span className="warehouse__label">CONTACT NAME:</span>
             <span className="warehouse__label-item">
               <br></br>
-              {dataJson[0].contact_name}
+              {warehouseData?.contact_name}
             </span>
             <span className="warehouse__label-item">
               <br></br>
-              {dataJson[0].contact_position}
+              {warehouseData?.contact_position}
             </span>
           </div>
           <div>
             <span className="warehouse__label">CONTACT INFORMATION:</span>
             <span className="warehouse__label-item">
               <br></br>
-              {dataJson[0].contact_phone}
+              {warehouseData?.contact_phone}
             </span>
             <span className="warehouse__label-item">
               <br></br>
-              {dataJson[0].contact_email}
+              {warehouseData?.contact_email}
             </span>
           </div>
         </li>
@@ -123,7 +145,7 @@ function Warehouse() {
                   <span className="warehouse__label warehouse__label--tablet">
                     INVENTORY ITEM
                   </span>
-                  <span className="warehouse__label-item warehouse__label-item--blue">
+                  <span className="warehouse__label-item warehouse__label-item--blue" onClick={() =>handleInventoryItemClick(detail.id)}>
                     {detail.item_name}
                     <img src={Chevron} alt="chevron icon"></img>
                   </span>
