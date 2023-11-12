@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap");
+:root {
+  --base-padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --base-padding: 2rem;
+  }
+}
+* {
+  font-family: Titillium Web;
+}
+
+.warehouse-details {
+  position: relative;
+}
+
+.main {
+  background-color: #F7F8F9;
+}/*# sourceMappingURL=App.css.map */
