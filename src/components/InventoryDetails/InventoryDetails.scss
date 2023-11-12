@@ -1,88 +1,92 @@
-@import "../../styles/partials/_variables.scss";
-@import "../../styles/partials/_mixins.scss";
-@import "../../styles/partials/fonts";
+@import '../../styles/partials/_variables.scss';
+@import '../../styles/partials/_mixins.scss';
+@import '../../styles/partials/_global.scss';
 
-.inventory-item-container {
-  position: relative;
-  background-color: $Light-Grey;
+.inventory-item-container{
+    position: relative;
+    background-color: $Light-Grey;
 }
 
-.inventory-item-section {
-  position: absolute;
-  width: 90%;
-  top: calc($card-offset * (-1));
-  left: 5%;
-  right: 5%;
+.inventory-item-section{
+    position: relative;
+    width: 90%;
+    top: -60px;
+    left: 5%;
+    right: 5%;
 }
 
-.inventory-item-section {
-  background-color: white;
-  border-radius: $corner-radius;
+.inventory-item-section{
+    background-color: white;
+    border-radius: $corner-radius;
 }
 
-.inventory-item-header {
-  height: $title-header-height;
-  display: flex;
-  align-items: center;
-
-  &__container {
-    width: 100%;
+.inventory-item-header{
+    height: $title-header-height;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: var(--base-padding);
-  }
+    align-items: center;
 
-  &__title {
-    margin-left: var(--base-padding);
-  }
+    &__container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: var(--base-padding);
+    }
 
-  //   &__edit-btn {
-  //     margin-left: auto;
-  //   }
+    &__title{
+        margin-left: var(--base-padding);
+    }
 
-  //   &__edit-icon {
-  //   }
+    &__edit-btn{
+        margin-left: auto;
+    }
 
-  //   &__edit-txt {
-  //   }
+    &__edit-icon{
+
+    }
+
+    &__edit-txt{
+
+    }
 }
 
-.inventory-details {
-  display: flex;
-  flex-direction: column;
-  border-top: solid 1px $Cloud;
 
-  @include tablet {
-    flex-direction: row;
-    padding-top: var(--base-padding);
-  }
-
-  &__top-layer {
-    flex: 1;
+.inventory-details{
     display: flex;
     flex-direction: column;
-    gap: var(--base-padding);
-    padding: var(--base-padding);
+    border-top: solid 1px $Cloud;
+    padding: var(--base-padding) 0;
 
-    @include tablet {
-      padding: 0 var(--base-padding);
+    @include tablet{
+        flex-direction: row;
     }
-  }
 
-  &__bottom-layer {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--base-padding);
-    padding: 0 var(--base-padding);
+    &__top-layer{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--base-padding);
+        padding: var(--base-padding);
 
-    @include tablet {
-      border-left: solid 1px $Cloud;
+        @include tablet{
+            padding: 0 var(--base-padding);
+        }
     }
-  }
 
-  //   &__info-item {
-  //   }
+    &__bottom-layer{
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--base-padding);
+        padding: 0 var(--base-padding);
+
+        @include tablet{
+            border-left: solid 1px $Cloud;
+        }
+    }
+
+    &__info-item{
+
+    }
 }

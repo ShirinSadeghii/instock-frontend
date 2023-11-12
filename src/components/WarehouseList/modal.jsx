@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../WarehouseList/modal.scss";
+import "./modal.scss";
 import xLogo from "../../assets/Icons/close-24px.svg";
 
 const Modal = ({ showModal, closeModal, handleDelete, deleteWarehouse }) => {
