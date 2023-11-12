@@ -23,11 +23,17 @@
   margin: 300px auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 90%;
-  height: 23.438rem;
+  max-width: 23rem;
+  height: 42rem;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   @include tablet {
     margin: 230px auto;
+    max-width: 42rem;
+    height: 16rem;
+    justify-content: space-around;
   }
   @include desktop {
     width: 42rem;
@@ -40,11 +46,13 @@
   position: relative;
   &__title {
     width: 70%;
+    padding-top: 1rem;
     @include tablet {
-      padding-left: 4rem;
-      padding-top: 2rem;
+      padding-left: 2.8rem;
+      // padding-top: 1rem;
       font-size: 2rem;
       width: 90%;
+      margin-top: -1rem;
     }
     @include desktop {
       padding-left: 3rem;
@@ -56,13 +64,18 @@
     left: 94%;
     // bottom: 3rem;
   }
+  &__outerBox {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .warehouseListModaldetails_container {
   padding-top: 1rem;
   max-width: 80%;
   @include tablet {
-    padding-left: 4rem;
+    padding-left: 2.8rem;
     max-width: 90%;
+    padding-top: 0;
   }
   @include desktop {
     padding-left: 3rem;
@@ -72,11 +85,13 @@
 .selectionBox {
   display: flex;
   width: 100%;
-  margin-top: 20%;
+  // margin-top: 22%;
+  margin-top: 8rem;
   @include tablet {
-    width: 20%;
-    margin-top: 5%;
-    margin-left: 73%;
+    width: 30%;
+    margin-top: 0;
+    margin-left: 65%;
+    // padding-right: 3rem;
   }
   @include desktop {
     // margin-top: 1%;
