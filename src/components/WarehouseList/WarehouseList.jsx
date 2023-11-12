@@ -8,10 +8,17 @@ import sortArrow from "../../assets/Icons/sort-24px.svg";
 import Modal from "./modal";
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 function WarehouseList() {
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+  const handleItemClick = (itemId) => {
+    navigate(`/details/${itemId}`);
+  }
 
   const openModal = () => {
     setShowModal(true);
@@ -32,6 +39,22 @@ function WarehouseList() {
       console.error("Error:", error);
     }
   };
+
+
+function handleClick (event) {
+    const editWarehouse = () => {
+        navigate("/details/edit");
+    }
+    editWarehouse();
+}   
+
+function handleAdd (event) {
+  const addWarehouse = () => {
+      navigate("/details/add");
+  }
+  addWarehouse();
+}
+
   return (
     <>
       <div className="warehouseListContainer">
@@ -47,7 +70,7 @@ function WarehouseList() {
               src={lookingGlass}
               alt="a looking glass icon"
             />
-            <button className="warehouseListContainer__searchButton">
+            <button onClick={handleAdd} className="warehouseListContainer__searchButton">
               + Add New Warehouse
             </button>
           </div>
@@ -58,7 +81,7 @@ function WarehouseList() {
             <div className="warehouseListContainer__tabletLeader--box1">
               <p className="warehouseListContainer__tabletLeaderItem">
                 WAREHOUSE{" "}
-                <img
+                <img 
                   className="warehouseListContainer__tabletLeaderArrow"
                   src={sortArrow}
                   alt="sort arrows"
@@ -106,7 +129,7 @@ function WarehouseList() {
                   <p className="warehouseListContainer__detailsTitle">
                     WAREHOUSE
                   </p>
-                  <p className="warehouseListContainer__detailsInfo--alt">
+                  <p className="warehouseListContainer__detailsInfo--alt" onClick={() => handleItemClick(info.id)}>
                     {info.warehouse_name}
                     <img
                       className="warehouseListContainer__arrowLogo"
@@ -164,6 +187,7 @@ function WarehouseList() {
                       className="warehouseListContainer__penIcon"
                       src={pen}
                       alt="editPen"
+                      onClick={(handleClick) => navigate(`/details/edit/${info.id}`)}
                     />
                   </span>
                 </div>

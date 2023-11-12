@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
@@ -5,15 +6,30 @@ import "./Inventory.scss";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
 import Modal from "./modal";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
-import { useEffect } from "react";
 
 function Inventory({}) {
   const inStock = "In Stock";
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [inventoryItem, setInventoryItem] = useState(null);
+  const navigate = useNavigate();
+  const handleItemClick = (itemId) => {
+    navigate(`/inventory/${itemId}`, {
+      state: { backNavigateUrl: "/inventory" },
+    });
+  };
+
+  const addInventoryItemClick = () => {
+    navigate('/add-inventory');
+  }
+
+  const editInventoryItemClick = (inventoryItemId) =>{
+    navigate(`/edit-inventory/${inventoryItemId}`, {
+      state: { backNavigateUrl: "/inventory" },
+    });
+  }
 
   const openModal = () => {
     setShowModal(true);
@@ -57,7 +73,7 @@ function Inventory({}) {
             className="inventoryListContainer__searchBar"
             placeholder="Search..."
           ></input>
-          <button className="inventoryListContainer__searchButton">
+          <button className="inventoryListContainer__searchButton" onClick={() => addInventoryItemClick()}>
             +Add New Item
           </button>
         </div>
@@ -96,7 +112,10 @@ function Inventory({}) {
                 <div className="inventory__list-left">
                   <div className="inventory__list-left-details">
                     <p className="inventory__list-title">Inventory Item</p>
-                    <div className="inventory__list-container">
+                    <div
+                      className="inventory__list-container"
+                      onClick={() => handleItemClick(inventoryItem.id)}
+                    >
                       <p className="inventory__list-blueItm">
                         {inventoryItem.item_name}
                       </p>
@@ -144,13 +163,21 @@ function Inventory({}) {
                       className="inventory__icon"
                       src={editIcon}
                       alt="Edit Logo"
+                      onClick={() => editInventoryItemClick(inventoryItem.id)}
                     />
                   </div>
                 </div>
               </div>
               <div className="inventory__list-bottom">
                 <div div className="inventory__icons">
-                  <img src={deleteIcon} alt="Delete Logo" />
+                  <img
+                    onClick={() => {
+                      openModal();
+                      SetDeleteWarehouse(inventoryItem);
+                    }}
+                    src={deleteIcon}
+                    alt="Delete Logo"
+                  />
                   <img src={editIcon} alt="Edit Logo" />
                 </div>
               </div>

@@ -1,4 +1,7 @@
+@import "../../styles/partials/_global.scss";
+
 /* Modal (background) */
+
 .modal {
   display: none;
   position: fixed;
@@ -14,19 +17,108 @@
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 300px auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
-  height: 10rem;
+  max-width: 23rem;
+  height: 42rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include tablet {
+    margin: 230px auto;
+    max-width: 42rem;
+    height: 16rem;
+    justify-content: space-around;
+  }
+  @include desktop {
+    width: 42rem;
+    height: 18rem;
+    margin: 140px auto;
+  }
 }
-
+.deleteTitleLogoContainer {
+  display: flex;
+  position: relative;
+  &__title {
+    width: 70%;
+    padding-top: 1rem;
+    @include tablet {
+      padding-left: 2.8rem;
+      // padding-top: 1rem;
+      font-size: 2rem;
+      width: 90%;
+      margin-top: -1rem;
+    }
+    @include desktop {
+      padding-left: 3rem;
+      padding-top: 1rem;
+    }
+  }
+  &__logo {
+    position: absolute;
+    left: 94%;
+    // bottom: 3rem;
+  }
+  &__outerBox {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.warehouseListModaldetails_container {
+  padding-top: 1rem;
+  max-width: 80%;
+  @include tablet {
+    padding-left: 2.8rem;
+    max-width: 90%;
+    padding-top: 0;
+  }
+  @include desktop {
+    padding-left: 3rem;
+    padding-top: 0.5rem;
+  }
+}
+.selectionBox {
+  display: flex;
+  width: 100%;
+  // margin-top: 22%;
+  margin-top: 8rem;
+  @include tablet {
+    width: 30%;
+    margin-top: 0;
+    margin-left: 65%;
+    // padding-right: 3rem;
+  }
+  @include desktop {
+    // margin-top: 1%;
+    padding-bottom: 1rem;
+    width: 22%;
+  }
+  &__delete {
+    border-radius: 20px;
+    // width: 163px;
+    width: 50%;
+    height: 36px;
+    margin-left: 1rem;
+    border: none;
+    background-color: $Red;
+    color: $White;
+    font-weight: 600;
+  }
+}
 /* The Close Button */
-.close {
-  color: #aaa;
+.selectionBox__cancel {
+  color: $Slate;
+  background-color: $White;
+  border: 0.25px solid $Cloud;
   float: right;
-  font-size: 28px;
+  // font-size: 28px;
   font-weight: bold;
+  // width: 163px;
+  width: 50%;
+  height: 36px;
+  border-radius: 20px;
 
   &close:hover,
   &close:focus {
