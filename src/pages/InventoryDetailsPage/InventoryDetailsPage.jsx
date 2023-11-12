@@ -1,17 +1,18 @@
+import InventoryDetails from '../../components/InventoryDetails/InventoryDetails';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "../../App.scss";
-import Inventory from "../../components/Inventory/Inventory";
 
-function InventoryPage() {
+function InventoryDetailsPage() {
   return (
     <div className="warehouse-details">
       <Header />
       <div className="main">
-        <Inventory />
+        <InventoryDetails />
         <Footer />
       </div>
     </div>
-  );
+  )
 }
-export default InventoryPage;
+
+export default InventoryDetailsPage

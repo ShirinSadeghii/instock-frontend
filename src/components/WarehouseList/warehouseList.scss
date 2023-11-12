@@ -23,7 +23,6 @@
     margin-bottom: 1rem;
     margin-right: 1rem;
     @include tablet {
-      // margin-top: 1.2rem;
       padding-top: 1.5rem;
     }
   }
@@ -108,20 +107,18 @@
     @include tablet {
       display: flex;
       justify-content: space-between;
-      // gap: 8rem;
+
       font-size: 0.7rem;
       color: $Slate;
       height: 2.5rem;
       background-color: $Light-Grey;
-      // padding-left: 2rem;
-      // padding-right: 2rem;
+
       padding: 0 32px;
     }
     @include desktop {
       font-size: 0.75rem;
       font-weight: 600;
       height: 2.75rem;
-      // gap: 3.6rem;
     }
   }
   &__tabletLeader--box1 {
@@ -165,8 +162,7 @@
     padding: 0;
     flex-wrap: wrap;
     flex-direction: column;
-    // border-top: solid 0.1rem $Cloud;
-    // border-bottom: solid 0.1rem $Cloud;
+
     list-style-type: none;
     font-size: 0.7rem;
     @include tablet {
@@ -178,8 +174,7 @@
   &__detailsBox--list {
     display: flex;
     border-top: solid 0.1rem $Cloud;
-    // border-bottom: solid 0.1rem $Cloud;
-    // height: 11rem;
+
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 1rem;
@@ -189,13 +184,13 @@
       padding: 1rem 0 1rem;
       justify-content: space-between;
     }
+
   }
   &__detailsBox--left {
     display: flex;
-    // background-color: lightblue;
+
     flex-direction: column;
-    // flex-direction: column;
-    // margin-left: 1rem;
+
     width: 42%;
     margin-right: 2rem;
     @include tablet {
@@ -207,7 +202,6 @@
     }
   }
   &__detailsBox--right {
-    // background-color: chartreuse;
     flex-direction: column;
     margin-right: 1rem;
     width: 42%;
@@ -223,16 +217,15 @@
     color: $Slate;
     font-weight: 600;
     padding-bottom: 0.3rem;
-    // padding-top: 0.1rem;
+
     @include tablet {
       display: none;
     }
   }
   &__detailsInfo {
     color: $Instock-Black;
-    // padding-bottom: 0.1rem;
+
     @include tablet {
-      // text-align: right;
       width: 22%;
     }
     @include desktop {
@@ -254,7 +247,7 @@
     padding-bottom: 1rem;
     margin-top: -0.4rem;
     font-weight: 600;
-    // width: 40%;
+
     @include tablet {
       width: 25%;
     }

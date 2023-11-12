@@ -1,39 +1,16 @@
-import { useState } from 'react';
-import dataJson from '../../data/data.json';
-import dataDetailsJson from '../../data/datadetails.json';
-import '../Warehouse/Warehouse.scss';
-import ArrowBack from '../../assets/Icons/arrow_back-24px.svg';
-import Edit from '../../assets/Icons/edit-24px.svg';
-import Chevron from '../../assets/Icons/chevron_right-24px.svg';
-import Delete from '../../assets/Icons/delete_outline-24px.svg';
-import Sort from '../../assets/Icons/sort-24px.svg';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import dataJson from "../../data/data.json";
+import dataDetailsJson from "../../data/datadetails.json";
+import "../Warehouse/Warehouse.scss";
+import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
+import Edit from "../../assets/Icons/edit-24px.svg";
+import Chevron from "../../assets/Icons/chevron_right-24px.svg";
+import Delete from "../../assets/Icons/delete_outline-24px.svg";
+import Sort from "../../assets/Icons/sort-24px.svg";
+import Modal from "./modal";
+import axios from "axios";import { useNavigate } from 'react-router-dom';
 
 function Warehouse() {
-
-const navigate = useNavigate();
-
-function handleClick (event) {
-    const editWarehouse = () => {
-        navigate("/details/edit");
-    }
-    editWarehouse();
-}   
-
-function handleEdit (event) {
-    const editInventory = () => {
-        navigate("/edit-inventory");
-    }
-    editInventory();
-}
-
-function handleBack (event) {
-    const backSubmit = () => {
-        navigate("/");
-    }
-    backSubmit();
-  }
-
     // const [warehouses, setWarehouses] = useState(dataJson)
     // const [selectedWarehouse, setSelectedWarehouse] = useState(dataDetailsJson[0]);
     const inStock = "In Stock";
@@ -41,11 +18,11 @@ function handleBack (event) {
         <section className='warehouse'>
             <div className='warehouse__header'>
                 <div className='warehouse__container'>
-                    <img onClick={(handleBack) => navigate('/')} src={ArrowBack} alt="arrow back icon"></img>
+                    <img src={ArrowBack} alt="arrow back icon"></img>
                     <h1 className='warehouse__title'>{dataJson[0].warehouse_name}</h1>
                 </div>
                 <div className='warehouse__container'>
-                    <button onClick={handleClick} className='warehouse__edit-btn'>
+                    <button className='warehouse__edit-btn'>
                         <img className="warehouse__edit-icon" src={Edit} alt='edit icon'></img>
                         <span className='warehouse__edit-txt'>Edit</span>
                     </button>
@@ -114,7 +91,7 @@ function handleBack (event) {
                             </div>
                             <div className='logo__container'>
                                 <img className="edit-logo" src={Delete} alt="delete icon"></img>
-                                <img onClick={(handleEdit) => navigate('/edit-inventory')} className="edit-logo" src={Edit} alt="edit icon"></img>
+                                <img className="edit-logo" src={Edit} alt="edit icon"></img>
                             </div>
                         </li>
                 )
@@ -124,4 +101,4 @@ function handleBack (event) {
     )
 }
 
-export default Warehouse
+export default Warehouse;

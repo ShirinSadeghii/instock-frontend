@@ -1,27 +1,43 @@
 import React, { useState } from "react";
-import "./modal.scss";
+import "../WarehouseList/modal.scss";
+import xLogo from "../../assets/Icons/close-24px.svg";
 
 const Modal = ({ showModal, closeModal, handleDelete, deleteWarehouse }) => {
   return (
     <div className={`modal ${showModal ? "show" : ""}`}>
       <div className="modal-content">
-        <span className="close" onClick={closeModal}>
-          cancel
-        </span>
-        <button
-          onClick={() => {
-            handleDelete();
-            deleteWarehouse?.id();
-          }}
-        >
-          Delete Warehouse
-        </button>
-        <h2> Delete {deleteWarehouse?.warehouse_name} warehouse?</h2>
-        <p>
-          Please confirm that you'd like to delete the{" "}
-          {deleteWarehouse?.warehouse_name} from the list of warehouses. You
-          won't be able to undo this action.{" "}
-        </p>
+        <div className="deleteTitleLogoContainer">
+          <h2 className="deleteTitleLogoContainer__title">
+            {" "}
+            Delete {deleteWarehouse?.warehouse_name} warehouse?
+          </h2>
+          <img
+            className="deleteTitleLogoContainer__logo"
+            src={xLogo}
+            alt="close window logo"
+          />
+        </div>
+        <div className="warehouseListModaldetails_container">
+          <p>
+            Please confirm that you'd like to delete the{" "}
+            {deleteWarehouse?.warehouse_name} from the list of warehouses. You
+            won't be able to undo this action.{" "}
+          </p>
+        </div>
+        <div className="selectionBox">
+          <button className="selectionBox__cancel" onClick={closeModal}>
+            Cancel
+          </button>
+          <button
+            className="selectionBox__delete"
+            onClick={() => {
+              handleDelete();
+              deleteWarehouse?.id();
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -8,12 +8,16 @@ import sortArrow from "../../assets/Icons/sort-24px.svg";
 import Modal from "./modal";
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 
 function WarehouseList() {
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+
 
   const openModal = () => {
     setShowModal(true);
