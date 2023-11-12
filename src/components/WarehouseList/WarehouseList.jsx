@@ -10,13 +10,11 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import {useNavigate} from 'react-router-dom';
 
 function WarehouseList() {
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-
 
 
   const openModal = () => {
@@ -39,7 +37,6 @@ function WarehouseList() {
     }
   };
 
-const navigate = useNavigate();
 
 function handleClick (event) {
     const editWarehouse = () => {
