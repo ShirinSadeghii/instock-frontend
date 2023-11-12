@@ -16,6 +16,9 @@ function WarehouseList() {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
+  const handleItemClick = (itemId) => {
+    navigate(`/details/${itemId}`);
+  }
 
   const openModal = () => {
     setShowModal(true);
@@ -126,7 +129,7 @@ function handleAdd (event) {
                   <p className="warehouseListContainer__detailsTitle">
                     WAREHOUSE
                   </p>
-                  <p className="warehouseListContainer__detailsInfo--alt">
+                  <p className="warehouseListContainer__detailsInfo--alt" onClick={() => handleItemClick(info.id)}>
                     {info.warehouse_name}
                     <img
                       className="warehouseListContainer__arrowLogo"
@@ -184,7 +187,7 @@ function handleAdd (event) {
                       className="warehouseListContainer__penIcon"
                       src={pen}
                       alt="editPen"
-                      onClick={(handleClick) => navigate('/details/edit')}
+                      onClick={(handleClick) => navigate(`/details/edit/${info.id}`)}
                     />
                   </span>
                 </div>
