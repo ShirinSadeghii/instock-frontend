@@ -34,8 +34,7 @@ const Modal = ({ showModal, closeModal, handleDelete, deleteWarehouse }) => {
           <button
             className="selectionBox__delete"
             onClick={() => {
-              handleDelete();
-              deleteWarehouse?.id();
+              handleDelete(deleteWarehouse.id);
             }}
           >
             Delete
