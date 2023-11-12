@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./modal.scss";
+import "../WarehouseList/modal.scss";
 
 const Modal = ({ showModal, closeModal, handleDelete, deleteWarehouse }) => {
   return (

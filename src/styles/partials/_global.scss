@@ -1,5 +1,5 @@
-@import './variables';
-@import './mixins';
+@import "./variables";
+@import "./mixins";
 
 .item-label {
   font-size: 11px;
@@ -32,7 +32,7 @@
   align-items: center;
   border-radius: 1.25rem;
   background: rgba(201, 69, 21, 0.07);
-  color: $Red;
+  // color: $Red;
   font-size: 0.6875rem;
   font-style: normal;
   font-weight: 600;
