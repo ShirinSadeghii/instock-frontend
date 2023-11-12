@@ -156,7 +156,8 @@
      }
 
      &__item-input::placeholder{
-        font-size: 0.6rem;
+        font-size: 0.7rem;
+        padding: 0;
     }
 
      &__item-description {
@@ -176,12 +177,13 @@
         border: 1px solid $Cloud;
         background: $White;
         margin-top:0.5rem;
-        padding: 0 0 1rem 1rem;
+        padding: 0.5rem 0 1rem 1rem;
         
      }
 
      &__item-descriptionInput::placeholder{
-        font-size: 0.6rem;
+        font-size: 0.7rem;
+        padding: 0.2rem 0 0 0;
     }
 
     &__radio-container {

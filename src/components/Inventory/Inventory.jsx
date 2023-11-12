@@ -17,6 +17,11 @@ function Inventory({inventoryItem}) {
     navigate('/add-inventory');
   };
 
+  const handleEditItemClick = () => {
+    // Navigate to the Edit Item Page
+    navigate('/edit-inventory');
+  }
+
 
 
 
@@ -189,14 +194,14 @@ function Inventory({inventoryItem}) {
                 <div div className="inventory__icons-tablet">
                   <p className = "inventory__list-title">Actions</p>
                   <img className="inventory__icon" src={deleteIcon} alt="Delete Logo" />
-                  <img className="inventory__icon" src={editIcon} alt="Edit Logo" />  
+                  <img className="inventory__icon" src={editIcon} alt="Edit Logo" onClick={handleEditItemClick} />  
                 </div> 
               </div>
             </div>
             <div className="inventory__list-bottom">
                   <div div className="inventory__icons">
                     <img src={deleteIcon} alt="Delete Logo" />
-                    <img src={editIcon} alt="Edit Logo" />  
+                    <img src={editIcon} alt="Edit Logo" onClick={handleEditItemClick} />  
                   </div>  
             </div>
           </li>
