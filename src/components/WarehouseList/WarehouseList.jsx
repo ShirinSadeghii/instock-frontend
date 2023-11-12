@@ -187,7 +187,7 @@ function handleAdd (event) {
                       className="warehouseListContainer__penIcon"
                       src={pen}
                       alt="editPen"
-                      onClick={(handleClick) => navigate('/details/edit')}
+                      onClick={(handleClick) => navigate(`/details/edit/${info.id}`)}
                     />
                   </span>
                 </div>

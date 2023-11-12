@@ -21,6 +21,16 @@ function Inventory({}) {
     });
   };
 
+  const addInventoryItemClick = () => {
+    navigate('/add-inventory');
+  }
+
+  const editInventoryItemClick = (inventoryItemId) =>{
+    navigate(`/edit-inventory/${inventoryItemId}`, {
+      state: { backNavigateUrl: "/inventory" },
+    });
+  }
+
   const openModal = () => {
     setShowModal(true);
   };
@@ -63,7 +73,7 @@ function Inventory({}) {
             className="inventoryListContainer__searchBar"
             placeholder="Search..."
           ></input>
-          <button className="inventoryListContainer__searchButton">
+          <button className="inventoryListContainer__searchButton" onClick={() => addInventoryItemClick()}>
             +Add New Item
           </button>
         </div>
@@ -153,6 +163,7 @@ function Inventory({}) {
                       className="inventory__icon"
                       src={editIcon}
                       alt="Edit Logo"
+                      onClick={() => editInventoryItemClick(inventoryItem.id)}
                     />
                   </div>
                 </div>

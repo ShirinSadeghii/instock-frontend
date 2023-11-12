@@ -23,8 +23,16 @@ function Warehouse({props}) {
     navigate(`/inventory/${itemId}`, { state: {backNavigateUrl: `/details/${props.itemId}`} });
   }
 
+  const handleEditInventoryClick = (itemId) =>{
+    navigate(`/edit-inventory/${itemId}`, { state: {backNavigateUrl: `/details/${props.itemId}`} });
+  }
+
   const handleBackClick = () =>{
     navigate('/');
+  }
+
+  const handleEditWarehouseClick = () =>{
+    navigate(`/details/edit/${props.itemId}`);
   }
 
 
@@ -66,7 +74,7 @@ function Warehouse({props}) {
           <h1 className="warehouse__title">{warehouseData?.warehouse_name}</h1>
         </div>
         <div className="warehouse__container">
-          <button className="warehouse__edit-btn">
+          <button className="warehouse__edit-btn" onClick={() => handleEditWarehouseClick()}>
             <img
               className="warehouse__edit-icon"
               src={Edit}
@@ -180,7 +188,7 @@ function Warehouse({props}) {
               </div>
               <div className="logo__container">
                 <img className="edit-logo" src={Delete} alt="delete icon"></img>
-                <img className="edit-logo" src={Edit} alt="edit icon"></img>
+                <img className="edit-logo" src={Edit} alt="edit icon" onClick={() => handleEditInventoryClick(detail?.id)}></img>
               </div>
             </li>
           );

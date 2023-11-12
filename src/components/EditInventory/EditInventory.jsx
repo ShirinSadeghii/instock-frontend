@@ -11,6 +11,7 @@ function EditInventory({ itemId }) {
     const [itemData, setItemData] = useState();
     const backNavigateUrl = location.state.backNavigateUrl;
     const handleGoBack = () => { 
+        console.log('Going back: ', backNavigateUrl);
         navigate(backNavigateUrl);
     }
 

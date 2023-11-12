@@ -1,14 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import "./AddInventory.scss";
 import dropDownArrow from "../../assets/Icons/arrow_drop_down-24px.svg";
 import "../Warehouse/Warehouse.scss";
 
 function AddInventory() {
+  const navigate = useNavigate();
+  const handleBackClick = () =>{
+    navigate('/inventory');
+  }
   
   return (
     <div className="warehouse">
       <div className="newInv-heading">
-        <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" />
+        <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" onClick={() => handleBackClick()}/>
         <span>Add New Inventory Item</span>
       </div>
       <div className="newInv-container">
@@ -70,7 +75,7 @@ function AddInventory() {
         </div>
       </div>
       <div className="newInv__btn-container">
-        <button className="newInv__cancel-btn">Cancel</button>
+        <button className="newInv__cancel-btn" onClick={() => handleBackClick()}>Cancel</button>
         <button className="newInv__btn-blue"> + Add Item</button>
       </div>
     </div>
