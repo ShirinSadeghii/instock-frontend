@@ -39,6 +39,22 @@ function WarehouseList() {
       console.error("Error:", error);
     }
   };
+
+
+function handleClick (event) {
+    const editWarehouse = () => {
+        navigate("/details/edit");
+    }
+    editWarehouse();
+}   
+
+function handleAdd (event) {
+  const addWarehouse = () => {
+      navigate("/details/add");
+  }
+  addWarehouse();
+}
+
   return (
     <>
       <div className="warehouseListContainer">
@@ -54,7 +70,7 @@ function WarehouseList() {
               src={lookingGlass}
               alt="a looking glass icon"
             />
-            <button className="warehouseListContainer__searchButton">
+            <button onClick={handleAdd} className="warehouseListContainer__searchButton">
               + Add New Warehouse
             </button>
           </div>
@@ -65,7 +81,7 @@ function WarehouseList() {
             <div className="warehouseListContainer__tabletLeader--box1">
               <p className="warehouseListContainer__tabletLeaderItem">
                 WAREHOUSE{" "}
-                <img
+                <img 
                   className="warehouseListContainer__tabletLeaderArrow"
                   src={sortArrow}
                   alt="sort arrows"
@@ -171,6 +187,7 @@ function WarehouseList() {
                       className="warehouseListContainer__penIcon"
                       src={pen}
                       alt="editPen"
+                      onClick={(handleClick) => navigate('/details/edit')}
                     />
                   </span>
                 </div>

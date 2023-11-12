@@ -10,11 +10,11 @@
     box-sizing: border-box;
 
     @include tablet {
-        padding: 34px 24px 24px;
+        padding: 34px 40px 24px;
     }
 
     @include desktop {
-        padding: 34px 110px 24px;
+        padding: 34px 100px 24px;
     }
 
     
