@@ -6,8 +6,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-   
 }
 
 .inventoryListContainer {
@@ -114,21 +112,42 @@
 
         @include tablet {
             padding-left: 1rem;
+            padding-right: 1rem;
             display: flex;
-            align-items: center;
-            
+            list-style-type: none;
             height: 2.5rem;
             background: rgba(247, 248, 249, 0.70);
-            width: auto;
         }
 
         @include desktop {
             width: 1280px;
         }
 
-        &__item {
+        &__list {
+            @include tablet {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
 
-            width: 100px;
+        &__container-left {
+            @include tablet {
+                display: flex;
+                justify-content: space-between;
+                width: 50%;
+            }
+        }
+
+        &__container-right {
+            @include tablet {
+                display: flex;
+                justify-content: space-between;
+                width: 44%;
+            }
+        }
+
+        &__item {
             color: $Slate;
             font-size: 0.75rem;
             font-style: normal;
@@ -136,10 +155,6 @@
             line-height: 1.125rem;
             display: flex;
             align-items: center;
-
-            @include tablet {
-                width: 100px;
-            }
 
             @include desktop {
                 width: 190px;
@@ -238,9 +253,9 @@
             padding-top: 1rem;
 
             @include tablet {
-                // width: 768px;
                 align-items: center;
-                padding: 0.5rem 1rem; 
+                padding: 0.5rem 1rem;
+                justify-content: space-between;
             }
 
             @include desktop {
@@ -253,14 +268,15 @@
 
             @include tablet {
                 display: flex;
-                width: auto;
+                width: 38%;
+                justify-content: space-between;
             }
 
             &-details {
                 padding: 0.5rem 1rem;
                 
                 @include tablet {
-                    width: 100px;
+                    width: 100%;
                     padding: 0.5rem 0;
                 }
 
@@ -274,6 +290,8 @@
 
             @include tablet {
                 display: flex;
+                justify-content: space-between;
+                width: 60%;
 
             }
             

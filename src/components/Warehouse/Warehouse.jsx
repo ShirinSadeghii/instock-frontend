@@ -9,36 +9,60 @@ import Sort from "../../assets/Icons/sort-24px.svg";
 import Modal from "./modal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useState } from "react";
-function Warehouse() {
-  const [warehouses, setWarehouses] = useState([]);
-  useEffect(() => {
-    const getWarehouse = async () => {
-      try {
-        const response = await axios.get(`http://3.20.237.64:80/warehouses/`);
-        console.log(" get successful:", response.data);
-        setWarehouses(response.data); // Update state with fetched data
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+import { useEffect, useState } from "react";
 
-    getWarehouse();
+
+function Warehouse() {
+
+const inStock = "In Stock";
+const navigate = useNavigate();
+const [warehouses, setWarehouses] = useState([]);
+
+useEffect(() => {
+const getWarehouse = async () => {
+    try {
+    const response = await axios.get(`http://3.20.237.64:80/warehouses/`);
+    // console.log(" get successful:", response.data);
+    setWarehouses(response.data); // Update state with fetched data
+    } catch (error) {
+    // console.error("Error:", error);
+    }
+};
+getWarehouse();
   }, []);
 
-  // const [warehouses, setWarehouses] = useState(dataJson)
-  // const [selectedWarehouse, setSelectedWarehouse] = useState(dataDetailsJson[0]);
-  const inStock = "In Stock";
+
+function handleClick (event) {
+    const editWarehouse = () => {
+        navigate("/details/edit");
+    }
+    editWarehouse();
+}   
+
+function handleEdit (event) {
+    const editInventory = () => {
+        navigate("/edit-inventory");
+    }
+    editInventory();
+}
+
+function handleBack (event) {
+    const backSubmit = () => {
+        navigate("/");
+    }
+    backSubmit();
+  }
+
+  
   return (
     <section className="warehouse">
       <div className="warehouse__header">
         <div className="warehouse__container">
-          <img src={ArrowBack} alt="arrow back icon"></img>
-          <h1 className="warehouse__title">{warehouses[0].warehouse_name}</h1>
+          <img onClick={(handleBack) => navigate('/')}  src={ArrowBack} alt="arrow back icon"></img>
+          <h1 className="warehouse__title">{dataJson [0].warehouse_name}</h1>
         </div>
         <div className="warehouse__container">
-          <button className="warehouse__edit-btn">
+          <button onClick={handleClick} className="warehouse__edit-btn">
             <img
               className="warehouse__edit-icon"
               src={Edit}
@@ -52,8 +76,8 @@ function Warehouse() {
         <li className="warehouse__list-item">
           <span className="warehouse__label">WAREHOUSE ADDRESS:</span>
           <span className="warehouse__label-item">
-            ? `${warehouses[0].address}, ${warehouses[0].city}, $
-            {warehouses[0].country}`
+            {dataJson [0].address}, {dataJson [0].city},  
+            {dataJson [0].country}
           </span>
         </li>
         <li className="warehouse__list-item warehouse__list-item--row">
@@ -61,22 +85,22 @@ function Warehouse() {
             <span className="warehouse__label">CONTACT NAME:</span>
             <span className="warehouse__label-item">
               <br></br>
-              {warehouses[0].contact_name}
+              {dataJson [0].contact_name}
             </span>
             <span className="warehouse__label-item">
               <br></br>
-              {warehouses[0].contact_position}
+              {dataJson [0].contact_position}
             </span>
           </div>
           <div>
             <span className="warehouse__label">CONTACT INFORMATION:</span>
             <span className="warehouse__label-item">
               <br></br>
-              {warehouses[0].contact_phone}
+              {dataJson [0].contact_phone}
             </span>
             <span className="warehouse__label-item">
               <br></br>
-              {warehouses[0].contact_email}
+              {dataJson [0].contact_email}
             </span>
           </div>
         </li>
@@ -104,14 +128,12 @@ function Warehouse() {
             </span>
             <span className="toolbar__item">
               ACTIONS
-              <img src={Sort} alt="sort icon"></img>
             </span>
           </div>
         </li>
       </ul>
       <ul className="warehouse__list warehouse__list--tablet">
-        {" "}
-        {warehouses.map((detail, index) => {
+        {dataDetailsJson.map((detail, index) => {
           return (
             <li key={index} className="warehouse__inventory">
               <div className="inventory-row">
@@ -153,7 +175,7 @@ function Warehouse() {
               </div>
               <div className="logo__container">
                 <img className="edit-logo" src={Delete} alt="delete icon"></img>
-                <img className="edit-logo" src={Edit} alt="edit icon"></img>
+                <img onClick={(handleEdit) => navigate('/edit-inventory/:itemId')} className="edit-logo" src={Edit} alt="edit icon"></img>
               </div>
             </li>
           );

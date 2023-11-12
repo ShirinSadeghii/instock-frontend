@@ -68,32 +68,31 @@ function Inventory({}) {
           </button>
         </div>
       </div>
-      <div className="inventory-titlebar">
-        <div className="inventory-titlebar__item">
-          INVENTORY ITEM
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          CATEGORY
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          STATUS
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          QUANTITY
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          WAREHOUSE
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          ACTIONS
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-      </div>
+      <ul className="inventory-titlebar">
+        <li className="inventory-titlebar__list">
+          <div className="inventory-titlebar__container-left"> 
+            <span className="inventory-titlebar__item"> INVENTORY ITEM
+              <img src={sortIcon} alt="Sort Icon" />
+            </span>
+            <span className="inventory-titlebar__item"> CATEGORY
+              <img src={sortIcon} alt="Sort Icon" />
+            </span>
+            <span className="inventory-titlebar__item"> STATUS
+              <img src={sortIcon} alt="Sort Icon" /> 
+            </span>
+          </div>
+          <div className="inventory-titlebar__container-right">
+            <span className="inventory-titlebar__item">QUANTITY
+              <img src={sortIcon} alt="Sort Icon" />
+            </span>
+            <span className="inventory-titlebar__item">WAREHOUSE
+              <img src={sortIcon} alt="Sort Icon" />
+            </span>
+            <span className="inventory-titlebar__item">ACTIONS</span>
+          </div>
+        </li>
+      </ul>
+
       <ul className="inventory">
         {inventoryItem?.map((inventoryItem, index) => {
           return (
@@ -116,10 +115,8 @@ function Inventory({}) {
                     <p className="inventory__list-title">Category</p>
                     <p>{inventoryItem.category}</p>
                   </div>
-                </div>
-                <div className="inventory__list-right">
-                  <div className="inventory__list-right-details">
-                    <p className="inventory__list-title">Status</p>
+                  <div className="inventory__list-left-details">
+                  <p className="inventory__list-title">Status</p>
                     <p
                       className={` ${
                         inventoryItem.status === inStock
@@ -130,6 +127,12 @@ function Inventory({}) {
                       {inventoryItem.status}
                     </p>
                   </div>
+                </div>
+
+                <div className="inventory__list-right">
+                  {/* <div className="inventory__list-right-details">
+                    
+                  </div> */}
                   <div className="inventory__list-right-details">
                     <p className="inventory__list-title">Quantity</p>
                     <p>{inventoryItem.quantity}</p>
