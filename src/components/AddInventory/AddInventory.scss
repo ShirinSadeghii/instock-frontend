@@ -4,12 +4,13 @@
 .newInv-heading {
     display: flex;
     color: $Instock-Black;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 600;
     line-height: 2.25rem;
     padding: 1rem;
     border-bottom: 1px solid $Cloud;
+    align-items: flex-start;
 
     @include tablet {
         padding: 2rem 1rem;
@@ -17,12 +18,10 @@
 
 
     &__img {
-        padding-bottom: 40px;
-        padding-right: 1rem;
+        padding: 0.4rem 0.5rem;
 
-        @include tablet {
-            padding-bottom: 0;
-        }
+
+
     }
 
 }
@@ -30,13 +29,15 @@
 .newInv {
 
     &-container {
+        padding-left: 1rem;
+
         @include tablet {
             display: flex;
+            padding-bottom: 1rem;
+
         }
 
-        @include desktop {
-            padding-bottom: 1rem;
-        }
+
     }
 
     &-itemDetails {
@@ -45,27 +46,32 @@
             border-right: 1px solid $Cloud;
             margin-top: 1rem;
             width: 50%;
-        }
-
-        @include desktop {
-           
             padding-left: 2rem;
         }
 
-      
+        @include desktop {
+
+            padding-left: 2rem;
+        }
+
+
     }
 
     &-itemAvailability {
         @include tablet {
             margin-top: 1rem;
             padding-left: 2rem;
+            width: 50%;
         }
-        
+    }
+
+    &__options {
+        margin: 0 5rem;
     }
 
     &__cancel-btn {
         display: inline-flex;
-        padding: 0.5rem 3.1875rem;
+        padding: 0.5rem 2.5rem;
         align-items: center;
         gap: 0.625rem;
         border-radius: 1.25rem;
@@ -92,11 +98,11 @@
             @include tablet {
                 justify-content: flex-end;
                 padding: 2rem 2rem;
-                
-                
+
+
 
             }
-          
+
         }
 
         &-blue {
@@ -125,8 +131,8 @@
         font-size: 1.25rem;
         font-style: normal;
         font-weight: 600;
-        line-height: 1.75rem;
-        padding: 1rem;
+        line-height: 1.5rem;
+        padding-top: 1rem;
     }
 
     &__item-name {
@@ -134,7 +140,7 @@
         font-size: 0.8125rem;
         font-weight: 600;
         line-height: 1.25rem;
-        padding: 0 1rem;
+
         margin-top: 1rem;
     }
 
@@ -145,41 +151,64 @@
         width: 90%;
         height: 2.25rem;
         flex-shrink: 0;
-        margin: 0.5rem 1rem;
-     }
+        margin: 0.5rem 0;
+        padding: 0 1rem;
+    }
 
-     &__item-description {
+    // &__item-input::placeholder {
+    //     font-size: 0.6rem;
+    // }
+
+    &__item-description {
         color: $Instock-Black;
         font-family: Titillium Web;
         font-size: 0.8125rem;
         font-weight: 600;
         line-height: 1.25rem;
         padding: 1rem;
-     }
+    }
 
-     &__item-descriptionInput {
+    &__item-descriptionInput {
         width: 90%;
         height: 7.5rem;
         flex-shrink: 0;
         border-radius: 1.25rem;
         border: 1px solid $Cloud;
         background: $White;
-        margin: 0 1rem;
-     }
+        margin-top: 0.5rem;
+        padding: 0 0 1rem 1rem;
 
-  
+    }
+
+    // &__item-descriptionInput::placeholder {
+    //     font-size: 0.6rem;
+    // }
+
+    &__radio-container {
+        padding-right: 1rem;
+    }
+
+
     &__radio {
-     display: flex;
-     justify-content: space-around;
+        display: flex;
+        justify-content: left;
+        color: $Slate;
 
-     &-label {
-        padding: 0 0.5rem;
-     }
-      
+
+        &-label {
+            padding: 0 1rem 0 0.5rem;
+
+            @include tablet {
+                padding: 0 0.5rem;
+                margin: 1rem;
+
+            }
+
+        }
+
     }
 
     &__bottom {
         flex-direction: column;
     }
 }
-
