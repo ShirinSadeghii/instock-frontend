@@ -1,5 +1,5 @@
 import { useState } from "react";
-import dataJson from "../../data/data.json";
+// import dataJson from "../../data/data.json";
 import dataDetailsJson from "../../data/datadetails.json";
 import "../Warehouse/Warehouse.scss";
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
