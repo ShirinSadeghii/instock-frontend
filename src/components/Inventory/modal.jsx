@@ -12,6 +12,7 @@ const Modal = ({ showModal, closeModal, handleDelete, deleteWarehouse }) => {
               Delete {deleteWarehouse?.warehouse_name} inventory item?
             </h2>{" "}
             <img
+              onClick={closeModal}
               className="deleteTitleLogoContainer__logo"
               src={xLogo}
               alt="close window logo"
