@@ -8,11 +8,33 @@ import dropDownArrow from '../../assets/Icons/arrow_drop_down-24px.svg';
 function EditInventory({ itemId }) {
     const location = useLocation();
     const navigate = useNavigate();
-    const [itemData, setItemData] = useState();
     const backNavigateUrl = location.state.backNavigateUrl;
     const handleGoBack = () => { 
-        console.log('Going back: ', backNavigateUrl);
         navigate(backNavigateUrl);
+    }
+    const [itemData, setItemData] = useState({
+        warehouse_id: 1,
+        item_name: '',
+        description: '',
+        category: '',
+        status: '',
+        quantity: 0,
+      });
+    
+      const handleInputChange = (event) =>{
+        const{name, value} = event.target;
+        setItemData({
+          [name]: value,
+        });
+      }
+
+    const updateInventoryItem = async () => {
+        try{
+            const response = await axios.put(`'http://3.20.237.64:80/inventories/${itemId}`, itemData);
+            console.log(response.data);
+        }catch(error){
+            console.log(error);
+        }
     }
 
 
@@ -21,6 +43,7 @@ function EditInventory({ itemId }) {
         async function fetchItemData(itemId) {
             const response = await axios.get(`http://3.20.237.64:80/inventories/${itemId}`);
             setItemData(response.data[0]);
+
         }
         fetchItemData(itemId);
     }, [itemId]);
@@ -41,9 +64,9 @@ function EditInventory({ itemId }) {
                 <div className="newInv-itemDetails">
                     <p className="newInv__item-heading">Item Details</p>
                     <p className="newInv__item-name">Item Name</p>
-                    <input className="newInv__item-input" type="text" placeholder="Item Name" value={itemData?.item_name}/>
+                    <input className="newInv__item-input" type="text" placeholder="Item Name" name="item_name" onChange={handleInputChange}/>
                     <p className="newInv__item-name">Description</p>
-                    <textarea className="newInv__item-descriptionInput" placeholder="Please enter a brief item description" id="" cols="30" rows="10" value={itemData?.description}></textarea>
+                    <textarea className="newInv__item-descriptionInput" placeholder="Please enter a brief item description" id="" cols="30" rows="10" name="description" onChange={handleInputChange}></textarea>
                     <p className="newInv__item-name">Category</p>
                     <button className="newInv__btn newInv__item-input" name="" placeholder="Please Select" id="" cols="30" rows="1">
                         <p>Please select</p>
@@ -77,7 +100,7 @@ function EditInventory({ itemId }) {
             {/* MARK: Buttons */}
             <div className="newInv__btn-container">
                 <button className="newInv__cancel-btn" onClick={() => handleGoBack()}>Cancel</button>
-                <button className="newInv__btn-blue"> + Add Item</button>
+                <button className="newInv__btn-blue" onClick={() => updateInventoryItem()}>Submit</button>
             </div>
         </div>
     )

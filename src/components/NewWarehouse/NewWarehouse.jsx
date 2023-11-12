@@ -6,11 +6,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function NewWarehouse() {
+  const [warehouseData, setWarehouseData] = useState({
+    warehouse_name: "",
+    address: "",
+    city: "",
+    country: "",
+    contact_name: "",
+    contact_position: "",
+    contact_phone: "",
+    contact_email: ""
+  });
+
   const postWarehouse = async (warehouseId) => {
     try {
-      const response = await axios.post(
-        `http://3.20.237.64:80/warehouses/${warehouseId}`
-      );
+      const response = await axios.post(`http://3.20.237.64:80/warehouses`, warehouseData);
       console.log(" post successful:", response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -39,6 +48,14 @@ function NewWarehouse() {
   //     submitNewWarhouse();
   // }
 
+  const handleInputChange = (event) =>{
+    const{name, value} = event.target;
+    setWarehouseData({
+      [name]: value,
+    });
+    console.log(warehouseData);
+  }
+
   function handleClick(event) {
     const cancelSubmit = () => {
       navigate("/");
@@ -65,32 +82,36 @@ function NewWarehouse() {
             <input
               className="warehouse-detail__input"
               type="text"
-              name="WarehouseName"
+              name="warehouse_name"
               placeholder="Warehouse Name"
+              onChange={handleInputChange}
               required
             ></input>
             <label className="warehouse-detail__label">Street Address</label>
             <input
               className="warehouse-detail__input"
               type="text"
-              name="StreetAddress"
+              name="address"
               placeholder="Street Address"
+              onChange={handleInputChange}
               required
             ></input>
             <label className="warehouse-detail__label">City</label>
             <input
               className="warehouse-detail__input"
               type="text"
-              name="City"
+              name="city"
               placeholder="City"
+              onChange={handleInputChange}
               required
             ></input>
             <label className="warehouse-detail__label">Country</label>
             <input
               className="warehouse-detail__input"
               type="text"
-              name="Country"
+              name="country"
               placeholder="Country"
+              onChange={handleInputChange}
               required
             ></input>
           </form>
@@ -103,32 +124,36 @@ function NewWarehouse() {
             <input
               className="warehouse-detail__input"
               type="text"
-              name="ContactName"
+              name="contact_name"
               placeholder="Contact Name"
+              onChange={handleInputChange}
               required
             ></input>
             <label className="warehouse-detail__label">Position</label>
             <input
               className="warehouse-detail__input"
               type="text"
-              name="Position"
+              name="contact_position"
               placeholder="Position"
+              onChange={handleInputChange}
               required
             ></input>
             <label className="warehouse-detail__label">Phone Number</label>
             <input
               className="warehouse-detail__input"
               type="text"
-              name="PhoneNumber"
+              name="contact_phone"
               placeholder="Phone Number"
+              onChange={handleInputChange}
               required
             ></input>
             <label className="warehouse-detail__label">Email</label>
             <input
               className="warehouse-detail__input"
               type="text"
-              name="Email"
+              name="contact_email"
               placeholder="Email"
+              onChange={handleInputChange}
               required
             ></input>
             <div className="buttons--blue__container">

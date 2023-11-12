@@ -13,7 +13,8 @@ function Inventory({}) {
   const inStock = "In Stock";
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [inventoryItem, setInventoryItem] = useState(null);
+  const [inventoryItems, setInventoryItems] = useState(null);
+  const [warehouseListData, setWarehouseListData] = useState();
   const navigate = useNavigate();
   const handleItemClick = (itemId) => {
     navigate(`/inventory/${itemId}`, {
@@ -42,9 +43,11 @@ function Inventory({}) {
   useEffect(() => {
     const handleGet = async () => {
       try {
+        const warehousesResponse = await axios.get(`http://3.20.237.64:80/warehouses`);
+        setWarehouseListData(warehousesResponse.data);
+
         const response = await axios.get(`http://3.20.237.64:80/inventories/`);
-        console.log("get successful:", response.data);
-        setInventoryItem(response.data);
+        setInventoryItems(response.data);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -63,6 +66,11 @@ function Inventory({}) {
       console.error("Error:", error);
     }
   };
+
+  function getWarehouseName(warehouseId){
+    const warehouses = warehouseListData?.filter(warehouse => warehouse.id == warehouseId);
+    return warehouses[0].warehouse_name;
+  }
 
   return (
     <div className="warehouseListContainer">
@@ -105,7 +113,7 @@ function Inventory({}) {
         </div>
       </div>
       <ul className="inventory">
-        {inventoryItem?.map((inventoryItem, index) => {
+        {inventoryItems?.map((inventoryItem, index) => {
           return (
             <li key={index} className="inventory__list">
               <div className="inventory__list-top">
@@ -146,7 +154,7 @@ function Inventory({}) {
                   </div>
                   <div className="inventory__list-right-details">
                     <p className="inventory__list-title">Warehouse</p>
-                    <p>{inventoryItem.id}</p>
+                    <p>{getWarehouseName(inventoryItem.warehouse_id) }</p>
                   </div>
                   <div div className="inventory__icons-tablet">
                     <p className="inventory__list-title">Actions</p>
