@@ -19,7 +19,7 @@ function WarehouseList() {
 
   const handleItemClick = (itemId) => {
     navigate(`/details/${itemId}`);
-  }
+  };
 
   const openModal = () => {
     setShowModal(true);
@@ -31,12 +31,13 @@ function WarehouseList() {
 
   const handleDelete = async (warehouseId) => {
     try {
-      const response = await axios.delete(
-        `http://3.20.237.64:80/warehouses/${warehouseId}`
-      );
-      console.log("Deletion successful:", response.data);
-      closeModal();
-    } catch (error) {
+    const response = await axios.delete(
+      `http://3.20.237.64:80/warehouses/${warehouseId}`
+    );
+    console.log("Deletion successful:", response.data);
+    closeModal();
+    }
+    catch (error) {
       console.error("Error:", error);
     }
   };
@@ -57,17 +58,17 @@ function WarehouseList() {
 
 function handleClick (event) {
     const editWarehouse = () => {
-        navigate("/details/edit");
-    }
+      navigate("/details/edit");
+    };
     editWarehouse();
-}   
-
-function handleAdd (event) {
-  const addWarehouse = () => {
-      navigate("/details/add");
   }
-  addWarehouse();
-}
+
+  function handleAdd(event) {
+    const addWarehouse = () => {
+      navigate("/details/add");
+    };
+    addWarehouse();
+  }
 
   return (
     <>
@@ -84,7 +85,10 @@ function handleAdd (event) {
               src={lookingGlass}
               alt="a looking glass icon"
             />
-            <button onClick={handleAdd} className="warehouseListContainer__searchButton">
+            <button
+              onClick={handleAdd}
+              className="warehouseListContainer__searchButton"
+            >
               + Add New Warehouse
             </button>
           </div>
@@ -95,7 +99,7 @@ function handleAdd (event) {
             <div className="warehouseListContainer__tabletLeader--box1">
               <p className="warehouseListContainer__tabletLeaderItem">
                 WAREHOUSE{" "}
-                <img 
+                <img
                   className="warehouseListContainer__tabletLeaderArrow"
                   src={sortArrow}
                   alt="sort arrows"
@@ -143,7 +147,10 @@ function handleAdd (event) {
                   <p className="warehouseListContainer__detailsTitle">
                     WAREHOUSE
                   </p>
-                  <p className="warehouseListContainer__detailsInfo--alt" onClick={() => handleItemClick(info.id)}>
+                  <p
+                    className="warehouseListContainer__detailsInfo--alt"
+                    onClick={() => handleItemClick(info.id)}
+                  >
                     {info.warehouse_name}
                     <img
                       className="warehouseListContainer__arrowLogo"
@@ -201,7 +208,9 @@ function handleAdd (event) {
                       className="warehouseListContainer__penIcon"
                       src={pen}
                       alt="editPen"
-                      onClick={(handleClick) => navigate(`/details/edit/${info.id}`)}
+                      onClick={(handleClick) =>
+                        navigate(`/details/edit/${info.id}`)
+                      }
                     />
                   </span>
                 </div>

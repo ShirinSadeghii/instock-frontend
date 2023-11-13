@@ -1,3 +1,4 @@
+// import dataJson from "../../data/data.json";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import dataJson from "../../data/data.json";
@@ -11,7 +12,7 @@ import Sort from "../../assets/Icons/sort-24px.svg";
 import Modal from "./modal";
 import axios from "axios";
 
-function Warehouse({props}) {
+function Warehouse({ props }) {
   const inStock = "In Stock";
   const navigate = useNavigate();
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
@@ -19,22 +20,29 @@ function Warehouse({props}) {
   const [warehouseData, setWarehouseData] = useState();
   const [warehouseInventory, setWarehouseInventory] = useState();
 
-  const handleInventoryItemClick = (itemId) =>{
-    navigate(`/inventory/${itemId}`, { state: {backNavigateUrl: `/details/${props.itemId}`} });
-  }
+  const handleInventoryItemClick = (itemId) => {
+    navigate(`/inventory/${itemId}`, {
+      state: { backNavigateUrl: `/details/${props.itemId}` },
+    });
+  };
 
-  const handleEditInventoryClick = (itemId) =>{
-    navigate(`/edit-inventory/${itemId}`, { state: {backNavigateUrl: `/details/${props.itemId}`} });
-  }
+  const handleEditInventoryClick = (itemId) => {
+    navigate(`/edit-inventory/${itemId}`, {
+      state: { backNavigateUrl: `/details/${props.itemId}` },
+    });
+  };
 
-  const handleBackClick = () =>{
-    navigate('/');
-  }
+  const handleBackClick = () => {
+    navigate("/");
+  };
 
-  const handleEditWarehouseClick = () =>{
+  const handleEditWarehouseClick = () => {
     navigate(`/details/edit/${props.itemId}`);
-  }
+  };
 
+  const openModal = () => {
+    setShowModal(true);
+  };
 
   const closeModal = () => {
     setShowModal(false);
@@ -51,30 +59,35 @@ function Warehouse({props}) {
       console.error("Error:", error);
     }
   };
-  
-  useEffect(()=>{
-    async function fetchItemData(itemId){
-      const response = await axios.get(`http://3.20.237.64:80/warehouses/${itemId}`);
+
+  useEffect(() => {
+    async function fetchItemData(itemId) {
+      const response = await axios.get(
+        `http://3.20.237.64:80/warehouses/${itemId}`
+      );
       setWarehouseData(response.data);
 
-      const inventoryResponse = await axios.get(`http://3.20.237.64:80/warehouses/${itemId}/inventories`);
+      const inventoryResponse = await axios.get(
+        `http://3.20.237.64:80/warehouses/${itemId}/inventories`
+      );
       setWarehouseInventory(inventoryResponse.data);
-     }
+    }
 
      fetchItemData(props.itemId);
   }, []);
 
-
-  
   return (
     <section className="warehouse">
       <div className="warehouse__header">
-        <div className="warehouse__container" onClick={()=>handleBackClick()}>
+        <div className="warehouse__container" onClick={() => handleBackClick()}>
           <img src={ArrowBack} alt="arrow back icon"></img>
           <h1 className="warehouse__title">{warehouseData?.warehouse_name}</h1>
         </div>
         <div className="warehouse__container">
-          <button className="warehouse__edit-btn" onClick={() => handleEditWarehouseClick()}>
+          <button
+            className="warehouse__edit-btn"
+            onClick={() => handleEditWarehouseClick()}
+          >
             <img
               className="warehouse__edit-icon"
               src={Edit}
@@ -88,7 +101,8 @@ function Warehouse({props}) {
         <li className="warehouse__list-item">
           <span className="warehouse__label">WAREHOUSE ADDRESS:</span>
           <span className="warehouse__label-item">
-            {warehouseData?.address}, {warehouseData?.city}, {warehouseData?.country}
+            {warehouseData?.address}, {warehouseData?.city},{" "}
+            {warehouseData?.country}
           </span>
         </li>
         <li className="warehouse__list-item warehouse__list-item--row">
@@ -154,7 +168,10 @@ function Warehouse({props}) {
                   <span className="warehouse__label warehouse__label--tablet">
                     INVENTORY ITEM
                   </span>
-                  <span className="warehouse__label-item warehouse__label-item--blue" onClick={() =>handleInventoryItemClick(detail?.id)}>
+                  <span
+                    className="warehouse__label-item warehouse__label-item--blue"
+                    onClick={() => handleInventoryItemClick(detail?.id)}
+                  >
                     {detail?.item_name}
                     <img src={Chevron} alt="chevron icon"></img>
                   </span>
@@ -188,12 +205,23 @@ function Warehouse({props}) {
               </div>
               <div className="logo__container">
                 <img className="edit-logo" src={Delete} alt="delete icon"></img>
-                <img className="edit-logo" src={Edit} alt="edit icon" onClick={() => handleEditInventoryClick(detail?.id)}></img>
+                <img
+                  className="edit-logo"
+                  src={Edit}
+                  alt="edit icon"
+                  onClick={() => handleEditInventoryClick(detail?.id)}
+                ></img>
               </div>
             </li>
           );
         })}
       </ul>
+      <Modal
+        showModal={showModal}
+        closeModal={closeModal}
+        handleDelete={handleDelete}
+        deleteWarehouse={deleteWarehouse}
+      />
     </section>
   );
 }
