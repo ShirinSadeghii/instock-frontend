@@ -15,7 +15,7 @@ import axios from "axios";
 function Warehouse({ props }) {
   const inStock = "In Stock";
   const navigate = useNavigate();
-  const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
+  const [deletedItem, setDeletedItem] = useState();
   const [showModal, setShowModal] = useState(false);
   const [warehouseData, setWarehouseData] = useState();
   const [warehouseInventory, setWarehouseInventory] = useState();
@@ -40,18 +40,19 @@ function Warehouse({ props }) {
     navigate(`/details/edit/${props.itemId}`);
   };
 
-  const openModal = () => {
+  const setUpDeleteModal = (inventoryItem) =>{
+    setDeletedItem(inventoryItem);
     setShowModal(true);
   };
-
+  
   const closeModal = () => {
     setShowModal(false);
   };
 
-  const handleDelete = async (warehouseId) => {
+  const handleDelete = async (inventoryItemId) => {
     try {
       const response = await axios.delete(
-        `http://3.20.237.64:80/warehouses/${warehouseId}/inventories`
+        `http://3.20.237.64:80/inventories/${inventoryItemId}`
       );
       console.log("Deletion successful:", response.data);
       closeModal();
@@ -204,7 +205,7 @@ function Warehouse({ props }) {
                 </div>
               </div>
               <div className="logo__container">
-                <img className="edit-logo" src={Delete} alt="delete icon"></img>
+                <img className="edit-logo" src={Delete} alt="delete icon" onClick={() => setUpDeleteModal(detail)}></img>
                 <img
                   className="edit-logo"
                   src={Edit}
@@ -220,7 +221,7 @@ function Warehouse({ props }) {
         showModal={showModal}
         closeModal={closeModal}
         handleDelete={handleDelete}
-        deleteWarehouse={deleteWarehouse}
+        deletedItem={deletedItem}
       />
     </section>
   );

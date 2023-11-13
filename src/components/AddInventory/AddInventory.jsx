@@ -22,7 +22,7 @@ function AddInventory() {
     item_name: '',
     description: '',
     category: '',
-    status: '',
+    status: 'InStock',
     quantity: 0,
   });
 

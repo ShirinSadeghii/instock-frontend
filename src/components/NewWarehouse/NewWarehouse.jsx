@@ -6,6 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function NewWarehouse() {
+  const navigate = useNavigate();
   const [warehouseData, setWarehouseData] = useState({
     warehouse_name: "",
     address: "",
@@ -25,28 +26,6 @@ function NewWarehouse() {
       console.error("Error:", error);
     }
   };
-  const baseUrl = "http://3.20.237.64:80";
-  const navigate = useNavigate();
-  const [newWarehouse, setNewWarehouse] = useState();
-
-  useEffect(() => {
-    async function fetchNewWarehouse() {
-      try {
-        const response = await axios.get(`http://3.20.237.64:80/warehouses`);
-        setNewWarehouse(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchNewWarehouse();
-  }, []);
-
-  // function handleSubmit (event) {
-  //     const submitNewWarhouse = () => {
-  //         navigate("/");
-  //     }
-  //     submitNewWarhouse();
-  // }
 
   const handleInputChange = (event) =>{
     const{name, value} = event.target;
@@ -54,7 +33,6 @@ function NewWarehouse() {
       ...warehouseData,
       [name]: value,
     });
-    console.log(warehouseData);
   }
 
   function handleClick(event) {

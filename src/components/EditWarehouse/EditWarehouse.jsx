@@ -33,7 +33,6 @@ function EditWarehouse() {
       delete warehouseData.created_at;
       delete warehouseData.updated_at;
       delete warehouseData.id;
-      console.log(warehouseData);
       const response = await axios.put(`http://3.20.237.64:80/warehouses/${itemId}`, warehouseData);
       console.log(" put successful:", response.data);
     } catch (error) {
