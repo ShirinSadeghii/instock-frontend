@@ -2,45 +2,69 @@ import backArrow from '../../assets/Icons/arrow_back-24px.svg';
 import './AddInventory.scss';
 import dropDownArrow from '../../assets/Icons/arrow_drop_down-24px.svg';
 import '../Warehouse/Warehouse.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function AddInventory() {
-
+  const categories = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health', 'Electronics'];
+  const [warehouseNames, setWarehouseNames] = useState([]);
+  const [warehouses, setWarehouses] = useState([]);
   const [stockStatus, setStockStatus] = useState('InStock');
   const [selectedWarehouse, setSelectedWarehouse] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-
   const navigate = useNavigate();
+  const handleBackClick = () => {navigate('/inventory');}
 
-  const handleBackClick = () => {
-    // Navigate back to the Inventory Page
-    navigate('/inventory');
-  };
+  const [itemData, setItemData] = useState({
+    warehouse_id: 1,
+    item_name: '',
+    description: '',
+    category: '',
+    status: 'InStock',
+    quantity: 0,
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name == 'warehouse_name') setSelectedWarehouse(value);
+    else if (name == 'category') setSelectedCategory(value);
+    else if (name == 'status') setStockStatus(value); 
+    setItemData({
+      ...itemData,
+      [name]: value,
+    });
+  }
+
+  const postInventoryItem = async () => { 
+    try {
+      const warehouse = warehouses.find((warehouseItem) => warehouseItem.warehouse_name == itemData.warehouse_name);
+      itemData.warehouse_id = warehouse.id;
+      delete itemData.warehouse_name;
+      itemData.quantity = parseInt(itemData.quantity);
+      console.log(itemData);
+      const response = await axios.post('http://3.20.237.64:80/inventories', itemData);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() =>{
+    async function fetchWarehouseNames(){
+      const response = await axios.get('http://3.20.237.64:80/warehouses');
+      setWarehouses(response.data);
+      let updatedArray = [];
+      for(let i = 0; i<response.data.length; i++) updatedArray = [...updatedArray, response.data[i].warehouse_name];
+      setWarehouseNames(updatedArray);
+    }
+
+    fetchWarehouseNames();
+  }, []);
 
 
-  // Event handler for when the radio button selection changes
-  const handleStockStatusChange = (event) => {
-    setStockStatus(event.target.value);
-  };
-
-  // Event handler for when the warehouse selection changes
-  const handleWarehouseChange = (event) => {
-    setSelectedWarehouse(event.target.value);
-  };
-
-  // Event handler for when the category selection changes
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
-
-
-  // Dummy warehouse names
-  const warehouses = ["Warehouse 1", "Warehouse 2", "Warehouse 3", "Warehouse 4", "Warehouse 5", "Warehouse 6", "Warehouse 7", "Warehouse 8"];
-  const categories = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5"];
-
-
+  // RETURN FUNCTION
   return (
     <div className="warehouse">
       <div className="newInv-heading">
@@ -52,14 +76,15 @@ function AddInventory() {
         <div className="newInv-itemDetails">
           <p className="newInv__item-heading">Item Details</p>
           <p className="newInv__item-name">Item Name</p>
-          <input className="newInv__item-input" type="text" placeholder="Item Name" />
+          <input className="newInv__item-input" type="text" name='item_name' onChange={handleInputChange} placeholder="Item Name" />
           <p className="newInv__item-name">Description</p>
-          <textarea className="newInv__item-descriptionInput" placeholder="Please enter a brief item description" id="" cols="30" rows="10"></textarea>
+          <textarea className="newInv__item-descriptionInput" placeholder="Please enter a brief item description" name='description' onChange={handleInputChange} cols="30" rows="10"></textarea>
           <p className="newInv__item-name">Category</p>
           <select
             className="newInv__item-input"
             value={selectedCategory}
-            onChange={handleCategoryChange}
+            name='category'
+            onChange={handleInputChange}
           >
             <option value="">Please Select</option>
             {categories.map((category, index) => (
@@ -74,35 +99,36 @@ function AddInventory() {
             <label className="newInv__radio-container">
               <input
                 type="radio"
-                name="stockStatus"
+                name="status"
                 value="InStock"
                 checked={stockStatus === 'InStock'}
-                onChange={handleStockStatusChange}
+                onChange={handleInputChange}
               />
               <span className="newInv__radio-label">In stock</span>
             </label>
             <label className="newInv__radio-container">
               <input
                 type="radio"
-                name="stockStatus"
+                name="status"
                 value="OutOfStock"
                 checked={stockStatus === 'OutOfStock'}
-                onChange={handleStockStatusChange}
+                onChange={handleInputChange}
               />
               <span className="newInv__radio-label">Out of stock</span>
             </label>
           </div>
 
           <p className="newInv__item-name">Quantity</p>
-          <input className="newInv__item-input" type="text" placeholder="0" />
+          <input className="newInv__item-input" type="text" placeholder="0" name="quantity" onChange={handleInputChange} />
           <p className="newInv__item-name">Warehouse</p>
           <select
             className="newInv__item-input"
+            name='warehouse_name'
             value={selectedWarehouse}
-            onChange={handleWarehouseChange}
+            onChange={handleInputChange}
           >
             <option value="">Please Select</option>
-            {warehouses.map((warehouse, index) => (
+            {warehouseNames?.map((warehouse, index) => (
               <option key={index} value={warehouse}>{warehouse}</option>
             ))}
           </select>
@@ -110,7 +136,7 @@ function AddInventory() {
       </div>
       <div className="newInv__btn-container">
         <button className="newInv__cancel-btn" onClick={() => handleBackClick()}>Cancel</button>
-        <button className="newInv__btn-blue"> + Add Item</button>
+        <button className="newInv__btn-blue" onClick={() => postInventoryItem()}> + Add Item</button>
       </div>
     </div>
   );
