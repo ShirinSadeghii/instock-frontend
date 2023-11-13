@@ -202,6 +202,15 @@
             }
         }
 
+        &-sub-title {
+            @include tablet {
+                padding-left: 8px;
+            }
+            @include desktop {
+                padding-left: 14px;
+            }
+        }
+
         &-instock {
             color: $Green;
             font-family: Titillium Web;

@@ -151,11 +151,11 @@ function Inventory({ }) {
                   </div>
                   <div className="inventory__list-right-details">
                     <p className="inventory__list-title">Quantity</p>
-                    <p>{inventoryItem.quantity}</p>
+                    <p className="inventory__list-sub-title">{inventoryItem.quantity}</p>
                   </div>
                   <div className="inventory__list-right-details">
                     <p className="inventory__list-title">Warehouse</p>
-                    <p>{getWarehouseName(inventoryItem.warehouse_id)}</p>
+                    <p className="inventory__list-sub-title">{getWarehouseName(inventoryItem.warehouse_id)}</p>
                   </div>
                   <div div className="inventory__icons-tablet">
                     <p className="inventory__list-title">Actions</p>
