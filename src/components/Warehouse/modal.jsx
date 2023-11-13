@@ -37,7 +37,7 @@ const Modal = ({ showModal, closeModal, handleDelete, deletedItem }) => {
               handleDelete(deletedItem?.id);
             }}
           >
-            Delete Warehouse
+            Delete
           </button>
         </div>
       </div>
