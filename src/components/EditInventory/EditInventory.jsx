@@ -12,7 +12,7 @@ function EditInventory() {
     const navigate = useNavigate();
     const location = useLocation();
     const { itemId } = useParams();
-    const [stockStatus, setStockStatus] = useState('InStock');
+    const [stockStatus, setStockStatus] = useState('In Stock');
     const [selectedWarehouse, setSelectedWarehouse] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const backNavigateUrl = location.state.backNavigateUrl;
@@ -23,7 +23,7 @@ function EditInventory() {
         item_name: '',
         description: '',
         category: '',
-        status: 'InStock',
+        status: 'In Stock',
         quantity: 0,
     });
 
@@ -106,8 +106,8 @@ function EditInventory() {
                             <input
                                 type="radio"
                                 name="status"
-                                value="InStock"
-                                checked={stockStatus === 'InStock'}
+                                value="In Stock"
+                                checked={stockStatus === 'In Stock'}
                                 onChange={handleInputChange}
                             />
                             <span className="newInv__radio-label">In stock</span>
@@ -116,8 +116,8 @@ function EditInventory() {
                             <input
                                 type="radio"
                                 name="status"
-                                value="OutOfStock"
-                                checked={stockStatus === 'OutOfStock'}
+                                value="Out Of Stock"
+                                checked={stockStatus === 'Out Of Stock'}
                                 onChange={handleInputChange}
                             />
                             <span className="newInv__radio-label">Out of stock</span>

@@ -11,7 +11,7 @@ function AddInventory() {
   const categories = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health', 'Electronics'];
   const [warehouseNames, setWarehouseNames] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
-  const [stockStatus, setStockStatus] = useState('InStock');
+  const [stockStatus, setStockStatus] = useState('In Stock');
   const [selectedWarehouse, setSelectedWarehouse] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function AddInventory() {
     item_name: '',
     description: '',
     category: '',
-    status: 'InStock',
+    status: 'In Stock',
     quantity: 0,
   });
 
@@ -100,8 +100,8 @@ function AddInventory() {
               <input
                 type="radio"
                 name="status"
-                value="InStock"
-                checked={stockStatus === 'InStock'}
+                value="In Stock"
+                checked={stockStatus === 'In Stock'}
                 onChange={handleInputChange}
               />
               <span className="newInv__radio-label">In stock</span>
@@ -110,8 +110,8 @@ function AddInventory() {
               <input
                 type="radio"
                 name="status"
-                value="OutOfStock"
-                checked={stockStatus === 'OutOfStock'}
+                value="Out Of Stock"
+                checked={stockStatus === 'Out Of Stock'}
                 onChange={handleInputChange}
               />
               <span className="newInv__radio-label">Out of stock</span>
