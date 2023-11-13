@@ -6,13 +6,14 @@ import dataJson from "../../data/data.json";
 import lookingGlass from "../../assets/Icons/search-24px.svg";
 import sortArrow from "../../assets/Icons/sort-24px.svg";
 import Modal from "./modal";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function WarehouseList() {
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
+  const [warehouseListData, setWarehouseListData] = useState();
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
@@ -29,19 +30,34 @@ function WarehouseList() {
   };
 
   const handleDelete = async (warehouseId) => {
-    //try {
+    try {
     const response = await axios.delete(
       `http://3.20.237.64:80/warehouses/${warehouseId}`
     );
     console.log("Deletion successful:", response.data);
     closeModal();
-    // }
-    // catch (error) {
-    //   console.error("Error:", error);
-    // }
+    window.location.reload();
+    }
+    catch (error) {
+      console.error("Error:", error);
+    }
   };
 
-  function handleClick(event) {
+  useEffect(() => {
+    async function fetchWarehouseList(){
+      try{
+        const response = await axios.get('http://3.20.237.64:80/warehouses');
+        setWarehouseListData(response.data);
+      }catch(error){
+        console.log(error);
+      }
+    }
+
+    fetchWarehouseList();
+  }, []);
+
+
+function handleClick (event) {
     const editWarehouse = () => {
       navigate("/details/edit");
     };
@@ -122,7 +138,7 @@ function WarehouseList() {
             </div>
           </div>
 
-          {dataJson.map((info, index) => {
+          {warehouseListData?.map((info, index) => {
             return (
               <li
                 key={index}
