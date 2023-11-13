@@ -88,32 +88,31 @@ function Inventory({ }) {
           <button className="inventoryListContainer__searchButton" onClick={handleAddItemClick}>+Add New Item</button>
         </div>
       </div>
-      <div className="inventory-titlebar">
-        <div className="inventory-titlebar__item">
-          INVENTORY ITEM
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          CATEGORY
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          STATUS
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          QUANTITY
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          WAREHOUSE
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-        <div className="inventory-titlebar__item">
-          ACTIONS
-          <img src={sortIcon} alt="Sort Icon" />
-        </div>
-      </div>
+      <ul className="inventory-titlebar">
+        <li className="inventory-titlebar__list">
+          <div className="inventory-titlebar__container-left"> 
+            <span className="inventory-titlebar__item"> INVENTORY ITEM
+              <img src={sortIcon} alt="Sort Icon" />
+            </span>
+            <span className="inventory-titlebar__item"> CATEGORY
+              <img src={sortIcon} alt="Sort Icon" />
+            </span>
+            <span className="inventory-titlebar__item"> STATUS
+              <img src={sortIcon} alt="Sort Icon" /> 
+            </span>
+          </div>
+          <div className="inventory-titlebar__container-right">
+            <span className="inventory-titlebar__item">QUANTITY
+              <img src={sortIcon} alt="Sort Icon" />
+            </span>
+            <span className="inventory-titlebar__item">WAREHOUSE
+              <img src={sortIcon} alt="Sort Icon" />
+            </span>
+            <span className="inventory-titlebar__item">ACTIONS</span>
+          </div>
+        </li>
+      </ul>
+
       <ul className="inventory">
         {inventoryItems?.map((inventoryItem, index) => {
           return (
@@ -137,6 +136,7 @@ function Inventory({ }) {
                     <p>{inventoryItem.category}</p>
                   </div>
                 </div>
+
                 <div className="inventory__list-right">
                   <div className="inventory__list-right-details">
                     <p className="inventory__list-title">Status</p>
@@ -151,11 +151,11 @@ function Inventory({ }) {
                   </div>
                   <div className="inventory__list-right-details">
                     <p className="inventory__list-title">Quantity</p>
-                    <p>{inventoryItem.quantity}</p>
+                    <p className="inventory__list-sub-title">{inventoryItem.quantity}</p>
                   </div>
                   <div className="inventory__list-right-details">
                     <p className="inventory__list-title">Warehouse</p>
-                    <p>{getWarehouseName(inventoryItem.warehouse_id)}</p>
+                    <p className="inventory__list-sub-title">{getWarehouseName(inventoryItem.warehouse_id)}</p>
                   </div>
                   <div div className="inventory__icons-tablet">
                     <p className="inventory__list-title">Actions</p>

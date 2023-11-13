@@ -2,7 +2,6 @@ import "../WarehouseList/warehouseList.scss";
 import arrowRight from "../../assets/Icons/chevron_right-24px.svg";
 import trashBin from "../../assets/Icons/delete_outline-24px.svg";
 import pen from "../../assets/Icons/edit-24px.svg";
-import dataJson from "../../data/data.json";
 import lookingGlass from "../../assets/Icons/search-24px.svg";
 import sortArrow from "../../assets/Icons/sort-24px.svg";
 import Modal from "./modal";
