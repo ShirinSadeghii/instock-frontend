@@ -81,14 +81,7 @@ function Warehouse({ props }) {
 
      fetchItemData(props.itemId);
   }, []);
-
-
-// function handleClick (event) {
-//     const editWarehouse = () => {
-//         navigate("/details/edit");
-//     }
-//     editWarehouse();
-// }   
+   
 
   return (
     <section className="warehouse">

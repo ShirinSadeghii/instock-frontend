@@ -41,7 +41,6 @@ function EditWarehouse() {
     }
   };
 
-const navigate = useNavigate();
  
 function handleClick (event) {
   const cancelSubmit = () => {
