@@ -22,6 +22,7 @@ function NewWarehouse() {
     try {
       const response = await axios.post(`http://3.20.237.64:80/warehouses`, warehouseData);
       console.log(" post successful:", response.data);
+      navigate("/");
     } catch (error) {
       console.error("Error:", error);
     }

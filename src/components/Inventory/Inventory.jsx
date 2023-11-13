@@ -60,6 +60,7 @@ function Inventory({ }) {
       const response = await axios.delete(`http://3.20.237.64:80/inventories/${Id}`);
       console.log("Deletion successful:", response.data);
       closeModal();
+      window.location.reload();
     } catch (error) {
       console.error("Error:", error);
     }

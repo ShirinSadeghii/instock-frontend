@@ -50,6 +50,7 @@ function EditInventory() {
             console.log(itemData);
             const response = await axios.put(`http://3.20.237.64:80/inventories/${itemId}`, itemData);
             console.log(response.data);
+            handleGoBack();
         } catch (error) {
             console.log(error);
         }

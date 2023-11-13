@@ -46,6 +46,7 @@ function AddInventory() {
       console.log(itemData);
       const response = await axios.post('http://3.20.237.64:80/inventories', itemData);
       console.log(response.data);
+      handleBackClick();
     } catch (error) {
       console.log(error);
     }
