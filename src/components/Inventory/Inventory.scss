@@ -28,6 +28,7 @@
         @include tablet {
             font-size: 2rem;
             line-height: 2.5rem;
+            padding: 2rem;
         }
       }
       &__titleBox {
@@ -59,8 +60,10 @@
         
 
         @include tablet {
-            width: 11.5625rem;
+            width: 185px;
             height: 2.375rem;
+            margin: 0;
+
         }
 
         @include desktop {
@@ -91,7 +94,7 @@
         align-items: center;
         gap: 0.625rem;
         margin: 1rem;
-        width: 11.5625rem;
+        width: 128px;
         height: 2.375rem;
         justify-content: center;
         }
@@ -111,16 +114,12 @@
         display: none;
 
         @include tablet {
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
             display: flex;
             list-style-type: none;
             height: 2.5rem;
             background: rgba(247, 248, 249, 0.70);
-        }
-
-        @include desktop {
-            width: 1280px;
         }
 
         &__list {
@@ -135,7 +134,7 @@
             @include tablet {
                 display: flex;
                 justify-content: space-between;
-                width: 50%;
+                width: 52%;
             }
         }
 
@@ -143,7 +142,11 @@
             @include tablet {
                 display: flex;
                 justify-content: space-between;
-                width: 44%;
+                width: 43%;
+            }
+
+            @include desktop {
+                width: 50%;
             }
         }
 
@@ -192,6 +195,8 @@
         }
 
         &-title {
+            padding-bottom: 4px;
+
             @include tablet {
                 display: none;
             }
@@ -229,7 +234,7 @@
             font-weight: 600;
             line-height: 1rem;
             text-transform: uppercase;
-            margin-top: 1rem;
+            // margin-top: 1rem;
 
             @include tablet {
                 margin-top: 0;
@@ -254,12 +259,12 @@
 
             @include tablet {
                 align-items: center;
-                padding: 0.5rem 1rem;
+                padding: 0.5rem 2rem;
                 justify-content: space-between;
             }
 
             @include desktop {
-                padding: 0 0 0 1rem;
+                padding: 0 2rem;
             }
         }
 
@@ -268,15 +273,19 @@
 
             @include tablet {
                 display: flex;
-                width: 38%;
+                width: 42%;
                 justify-content: space-between;
+
+                @include desktop {
+                    width: 35%;
+                }
             }
 
             &-details {
                 padding: 0.5rem 1rem;
                 
                 @include tablet {
-                    width: 100%;
+                    width: 45%;
                     padding: 0.5rem 0;
                 }
 
@@ -291,8 +300,11 @@
             @include tablet {
                 display: flex;
                 justify-content: space-between;
-                width: 60%;
-
+                width: 58%;
+                
+                @include desktop {
+                    width: 65%;
+                }
             }
             
             &-details {
@@ -300,12 +312,8 @@
                 text-align: left;
                 
                 @include tablet {
-                    width: 100px;
+                    width: 25%;
                     padding: 0.5rem 0;
-                }
-
-                @include desktop {
-                    width: 190px;
                 }
             }
         }
@@ -325,7 +333,10 @@
         @include tablet {
             display: flex;
             padding: 0.5rem 0;
-            
+        }
+
+        @include desktop {
+            padding: 0.5rem 6rem 0.5rem 0;
         }
     }
 }

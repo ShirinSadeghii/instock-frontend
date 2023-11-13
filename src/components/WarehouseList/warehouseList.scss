@@ -149,6 +149,8 @@
     @include tablet {
       padding-top: 0.5rem;
       display: flex;
+      font-size: 12px;
+      font-weight: 600;
     }
     @include desktop {
       width: 10rem;

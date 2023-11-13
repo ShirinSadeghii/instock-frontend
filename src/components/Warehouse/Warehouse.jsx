@@ -1,8 +1,7 @@
-// import dataJson from "../../data/data.json";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import dataJson from "../../data/data.json";
-import dataDetailsJson from "../../data/datadetails.json";
+// import dataJson from "../../data/data.json";
+// import dataDetailsJson from "../../data/datadetails.json";
 import "../Warehouse/Warehouse.scss";
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
 import Edit from "../../assets/Icons/edit-24px.svg";
@@ -13,6 +12,7 @@ import Modal from "./modal";
 import axios from "axios";
 
 function Warehouse({ props }) {
+
   const inStock = "In Stock";
   const navigate = useNavigate();
   const [deleteWarehouse, SetDeleteWarehouse] = useState(null);
@@ -32,9 +32,13 @@ function Warehouse({ props }) {
     });
   };
 
-  const handleBackClick = () => {
-    navigate("/");
-  };
+
+  function handleBackClick (event) {
+    const backSubmit = () => {
+        navigate("/");
+    }
+    backSubmit();
+  }
 
   const handleEditWarehouseClick = () => {
     navigate(`/details/edit/${props.itemId}`);
@@ -63,7 +67,7 @@ function Warehouse({ props }) {
   useEffect(() => {
     async function fetchItemData(itemId) {
       const response = await axios.get(
-        `http://3.20.237.64:80/warehouses/${itemId}`
+        `http://3.20.237.64:80/warehouses`
       );
       setWarehouseData(response.data);
 
@@ -77,28 +81,13 @@ function Warehouse({ props }) {
   });
 
 
-function handleClick (event) {
-    const editWarehouse = () => {
-        navigate("/details/edit");
-    }
-    editWarehouse();
-}   
+// function handleClick (event) {
+//     const editWarehouse = () => {
+//         navigate("/details/edit");
+//     }
+//     editWarehouse();
+// }   
 
-function handleEdit (event) {
-    const editInventory = () => {
-        navigate("/edit-inventory");
-    }
-    editInventory();
-}
-
-function handleBack (event) {
-    const backSubmit = () => {
-        navigate("/");
-    }
-    backSubmit();
-  }
-
-  
   return (
     <section className="warehouse">
       <div className="warehouse__header">
