@@ -81,9 +81,9 @@ function EditInventory() {
                 <div className="newInv-itemDetails">
                     <p className="newInv__item-heading">Item Details</p>
                     <p className="newInv__item-name">Item Name</p>
-                    <input className="newInv__item-input" type="text" placeholder="Item Name" name='item_name' onChange={handleInputChange} />
+                    <input className="newInv__item-input" type="text" placeholder={itemData.item_name} name='item_name' onChange={handleInputChange} />
                     <p className="newInv__item-name">Description</p>
-                    <textarea className="newInv__item-descriptionInput" placeholder="Please enter a brief item description" name='description' cols="30" rows="10"></textarea>
+                    <textarea className="newInv__item-descriptionInput" placeholder={itemData.description} name='description' cols="30" rows="10"></textarea>
                     <p className="newInv__item-name">Category</p>
                     <select
                         className="newInv__item-input"
