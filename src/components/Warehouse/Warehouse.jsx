@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import dataJson from "../../data/data.json";
-// import dataDetailsJson from "../../data/datadetails.json";
 import "../Warehouse/Warehouse.scss";
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
 import Edit from "../../assets/Icons/edit-24px.svg";
