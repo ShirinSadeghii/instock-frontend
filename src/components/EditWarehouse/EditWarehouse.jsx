@@ -49,8 +49,9 @@ function EditWarehouse() {
     }
   };
 
-  function handleClick(event) {
-    const cancelSubmit = () => {
+ 
+function handleClick (event) {
+  const cancelSubmit = () => {
       navigate("/");
     };
     cancelSubmit();
