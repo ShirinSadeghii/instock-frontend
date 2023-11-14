@@ -4,6 +4,7 @@ import "../NewWarehouse/NewWarehouse.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import helpers from '../../helpers';
 
 
 function EditWarehouse() {
@@ -30,12 +31,19 @@ function EditWarehouse() {
 
   const putWarehouse = async () => {
     try {
+
       delete warehouseData.created_at;
       delete warehouseData.updated_at;
       delete warehouseData.id;
-      const response = await axios.put(`http://3.20.237.64:80/warehouses/${itemId}`, warehouseData);
-      console.log(" put successful:", response.data);
-      navigate('/');
+
+      const { error, value: cleanedData } = helpers.warehouseSchema.validate(warehouseData);
+      if (error) console.error("Failed to validate warehouse data: ", error);
+      else {
+        const response = await axios.put(`http://3.20.237.64:80/warehouses/${itemId}`, cleanedData);
+        console.log(" put successful:", response.data);
+        navigate('/');
+      }
+
     } catch (error) {
       console.error("Error:", error);
     }
@@ -155,7 +163,7 @@ function handleClick (event) {
             ></input>
             <div className="buttons--blue__container">
               <button className="buttons buttons--blue" type="button" onClick={() => putWarehouse()}>
-                +Add Warehouse
+                Save
               </button>
             </div>
           </form>

@@ -4,6 +4,7 @@ import "../NewWarehouse/NewWarehouse.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import helpers from '../../helpers';
 
 function NewWarehouse() {
   const navigate = useNavigate();
@@ -20,9 +21,13 @@ function NewWarehouse() {
 
   const postWarehouse = async (warehouseId) => {
     try {
-      const response = await axios.post(`http://3.20.237.64:80/warehouses`, warehouseData);
-      console.log(" post successful:", response.data);
-      navigate("/");
+      const { error, value: cleanedData } = helpers.warehouseSchema.validate(warehouseData);
+      if (error) console.error("Failed to validate warehouse data: ", error);
+      else {
+        const response = await axios.post(`http://3.20.237.64:80/warehouses`, cleanedData);
+        console.log(" post successful:", response.data);
+        navigate("/");
+      }
     } catch (error) {
       console.error("Error:", error);
     }

@@ -67,7 +67,7 @@ function Warehouse({ props }) {
   useEffect(() => {
     async function fetchItemData(itemId) {
       const response = await axios.get(
-        `http://3.20.237.64:80/warehouses`
+        `http://3.20.237.64:80/warehouses/${itemId}`
       );
       setWarehouseData(response.data);
 
