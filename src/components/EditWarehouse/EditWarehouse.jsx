@@ -163,7 +163,7 @@ function handleClick (event) {
             ></input>
             <div className="buttons--blue__container">
               <button className="buttons buttons--blue" type="button" onClick={() => putWarehouse()}>
-                +Add Warehouse
+                Save
               </button>
             </div>
           </form>

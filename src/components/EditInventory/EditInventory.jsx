@@ -73,13 +73,13 @@ function EditInventory() {
             setWarehouseNames(updatedArray);
 
             const warehouse = response.data.find((warehouseItem) => warehouseItem.id == itemResponse.data[0].warehouse_id);
-            setSelectedWarehouse(warehouse.warehouse_name);
             setItemData({
                 ...itemResponse.data[0],
                 warehouse_name: warehouse.warehouse_name
             });
-
+            setSelectedWarehouse(warehouse.warehouse_name);
             setSelectedCategory(itemResponse.data[0].category);
+            setStockStatus(itemResponse.data[0].status)
         }
         fetchItemData(itemId);
     }, [itemId]);
