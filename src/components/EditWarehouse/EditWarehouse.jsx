@@ -71,7 +71,7 @@ function handleClick (event) {
     <section className="warehouse">
       <div className="warehouse__header">
         <div className="warehouse__container">
-          <img
+          <img className="cursor-pointer"
             onClick={(handleClick) => navigate("/")}
             src={ArrowBack}
             alt="arrow back icon"
@@ -162,7 +162,7 @@ function handleClick (event) {
               required
             ></input>
             <div className="buttons--blue__container">
-              <button className="buttons buttons--blue" type="button" onClick={() => putWarehouse()}>
+              <button className="buttons buttons--blue cursor-pointer" type="button" onClick={() => putWarehouse()}>
                 Save
               </button>
             </div>
@@ -172,7 +172,7 @@ function handleClick (event) {
 
       <div className="warehouse-detail__btn">
         <div className="warehouse-detail__btn-container">
-          <button onClick={handleClick} type="button" className="buttons">
+          <button onClick={handleClick} type="button" className="buttons cursor-pointer">
             Cancel
           </button>
         </div>

@@ -44,9 +44,9 @@ function InventoryDetails() {
         <section className="inventory-item-section">
             <div className='inventory-item-header'>
                 <div className='inventory-item-header__container'>
-                    <img src={ArrowBack} onClick={handleGoBack} alt="arrow back icon"></img>
+                    <img className='cursor-pointer' src={ArrowBack} onClick={handleGoBack} alt="arrow back icon"></img>
                     <h1 className='inventory-item-header__title'>{itemData?.item_name}</h1>
-                    <button className='edit-btn-container inventory-item-header__edit-btn' onClick={() => handleEditClick(itemData?.id)}>
+                    <button className='edit-btn-container inventory-item-header__edit-btn cursor-pointer' onClick={() => handleEditClick(itemData?.id)}>
                         <img className="edit-icon" src={Edit} alt='edit icon'></img>
                         <span className='edit-label'>Edit</span>
                     </button>

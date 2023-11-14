@@ -77,7 +77,7 @@ function AddInventory() {
   return (
     <div className="warehouse">
       <div className="newInv-heading">
-        <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" onClick={handleBackClick} />
+        <img className="newInv-heading__img cursor-pointer" src={backArrow} alt="Back Arrow" onClick={handleBackClick} />
 
         <span>Add New Inventory Item</span>
       </div>
@@ -144,8 +144,8 @@ function AddInventory() {
         </div>
       </div>
       <div className="newInv__btn-container">
-        <button className="newInv__cancel-btn" onClick={() => handleBackClick()}>Cancel</button>
-        <button className="newInv__btn-blue" onClick={() => postInventoryItem()}> + Add Item</button>
+        <button className="newInv__cancel-btn cursor-pointer" onClick={() => handleBackClick()}>Cancel</button>
+        <button className="newInv__btn-blue cursor-pointer" onClick={() => postInventoryItem()}> + Add Item</button>
       </div>
     </div>
   );

@@ -89,7 +89,7 @@ function EditInventory() {
     return (
         <div className="warehouse">
             <div className="newInv-heading">
-                <img className="newInv-heading__img" src={backArrow} alt="Back Arrow" onClick={() => handleGoBack()} />
+                <img className="newInv-heading__img cursor-pointer" src={backArrow} alt="Back Arrow" onClick={() => handleGoBack()} />
                 <span>Edit Inventory Item</span>
             </div>
             <div className="newInv-container">
@@ -153,8 +153,8 @@ function EditInventory() {
                 </div>
             </div>
             <div className="newInv__btn-container">
-                <button className="newInv__cancel-btn" onClick={() => handleGoBack()}>Cancel</button>
-                <button className="newInv__btn-blue" onClick={() => updateInventoryItem()}> Save</button>
+                <button className="newInv__cancel-btn cursor-pointer" onClick={() => handleGoBack()}>Cancel</button>
+                <button className="newInv__btn-blue cursor-pointer" onClick={() => updateInventoryItem()}> Save</button>
             </div>
         </div>
     )

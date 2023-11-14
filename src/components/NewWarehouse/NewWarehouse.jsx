@@ -52,6 +52,7 @@ function NewWarehouse() {
       <div className="warehouse__header">
         <div className="warehouse__container">
           <img
+          className="cursor-pointer"
             onClick={(handleClick) => navigate("/")}
             src={ArrowBack}
             alt="arrow back icon"
@@ -143,7 +144,7 @@ function NewWarehouse() {
             ></input>
             <div className="buttons--blue__container">
               <button
-                className="buttons buttons--blue"
+                className="buttons buttons--blue cursor-pointer"
                 onClick={() => {
                   postWarehouse();
                 }}
@@ -157,7 +158,7 @@ function NewWarehouse() {
 
       <div className="warehouse-detail__btn">
         <div className="warehouse-detail__btn-container">
-          <button onClick={handleClick} className="buttons">
+          <button onClick={handleClick} className="buttons cursor-pointer">
             Cancel
           </button>
         </div>

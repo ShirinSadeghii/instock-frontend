@@ -85,7 +85,7 @@ function Warehouse({ props }) {
     <section className="warehouse">
       <div className="warehouse__header">
         <div className="warehouse__container" onClick={() => handleBackClick()}>
-          <img src={ArrowBack} alt="arrow back icon"></img>
+          <img className="cursor-pointer" src={ArrowBack} alt="arrow back icon"></img>
           <h1 className="warehouse__title">{warehouseData?.warehouse_name}</h1>
         </div>
         <div className="warehouse__container">
@@ -94,11 +94,11 @@ function Warehouse({ props }) {
             onClick={() => handleEditWarehouseClick()}
           >
             <img
-              className="warehouse__edit-icon"
+              className="warehouse__edit-icon cursor-pointer"
               src={Edit}
               alt="edit icon"
             ></img>
-            <span className="warehouse__edit-txt">Edit</span>
+            <span className="warehouse__edit-txt cursor-pointer">Edit</span>
           </button>
         </div>
       </div>
@@ -173,7 +173,7 @@ function Warehouse({ props }) {
                     INVENTORY ITEM
                   </span>
                   <span
-                    className="warehouse__label-item warehouse__label-item--blue"
+                    className="warehouse__label-item warehouse__label-item--blue cursor-pointer"
                     onClick={() => handleInventoryItemClick(detail?.id)}
                   >
                     {detail?.item_name}
@@ -208,9 +208,9 @@ function Warehouse({ props }) {
                 </div>
               </div>
               <div className="logo__container">
-                <img className="edit-logo" src={Delete} alt="delete icon" onClick={() => setUpDeleteModal(detail)}></img>
+                <img className="edit-logo cursor-pointer" src={Delete} alt="delete icon" onClick={() => setUpDeleteModal(detail)}></img>
                 <img
-                  className="edit-logo"
+                  className="edit-logo cursor-pointer"
                   src={Edit}
                   alt="edit icon"
                   onClick={() => handleEditInventoryClick(detail?.id)}

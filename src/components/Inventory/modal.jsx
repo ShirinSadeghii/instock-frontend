@@ -13,7 +13,7 @@ const Modal = ({ showModal, closeModal, handleDelete, deletedItem }) => {
             </h2>{" "}
             <img
               onClick={closeModal}
-              className="deleteTitleLogoContainer__logo"
+              className="deleteTitleLogoContainer__logo cursor-pointer"
               src={xLogo}
               alt="close window logo"
             />
@@ -27,11 +27,11 @@ const Modal = ({ showModal, closeModal, handleDelete, deletedItem }) => {
           </div>
         </div>
         <div className="selectionBox">
-          <button className="selectionBox__cancel" onClick={closeModal}>
+          <button className="selectionBox__cancel cursor-pointer" onClick={closeModal}>
             Cancel
           </button>
           <button
-            className="selectionBox__delete"
+            className="selectionBox__delete cursor-pointer"
             onClick={() => {
               handleDelete(deletedItem.id);
             }}

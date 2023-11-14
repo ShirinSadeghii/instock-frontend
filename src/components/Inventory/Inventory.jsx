@@ -85,7 +85,7 @@ function Inventory({ }) {
         <div className="inventoryListContainer__items">
           <input className="inventoryListContainer__searchBar" placeholder="Search...">
           </input>
-          <button className="inventoryListContainer__searchButton" onClick={handleAddItemClick}>+Add New Item</button>
+          <button className="inventoryListContainer__searchButton cursor-pointer" onClick={handleAddItemClick}>+Add New Item</button>
         </div>
       </div>
       <ul className="inventory-titlebar">
@@ -122,7 +122,7 @@ function Inventory({ }) {
                   <div className="inventory__list-left-details">
                     <p className="inventory__list-title">Inventory Item</p>
                     <div
-                      className="inventory__list-container"
+                      className="inventory__list-container cursor-pointer"
                       onClick={() => handleItemClick(inventoryItem.id)}
                     >
                       <p className="inventory__list-blueItm">
@@ -160,7 +160,7 @@ function Inventory({ }) {
                   <div div className="inventory__icons-tablet">
                     <p className="inventory__list-title">Actions</p>
                     <img
-                      className="inventory__icon"
+                      className="inventory__icon cursor-pointer"
                       src={deleteIcon}
                       alt="Delete Logo"
                       onClick={() => {
@@ -169,7 +169,7 @@ function Inventory({ }) {
                       }}
                     />
                     <img
-                      className="inventory__icon"
+                      className="inventory__icon cursor-pointer"
                       src={editIcon}
                       alt="Edit Logo"
                       onClick={() => editInventoryItemClick(inventoryItem.id)}
