@@ -27,6 +27,7 @@ function NewWarehouse() {
         const response = await axios.post(`http://3.20.237.64:80/warehouses`, cleanedData);
         console.log(" post successful:", response.data);
         navigate("/");
+        window.location.reload();
       }
     } catch (error) {
       console.error("Error:", error);
