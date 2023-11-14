@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import backArrow from '../../assets/Icons/arrow_back-24px.svg';
 import dropDownArrow from '../../assets/Icons/arrow_drop_down-24px.svg';
+import helpers from '../../helpers';
 
 
 function EditInventory() {
@@ -14,7 +15,7 @@ function EditInventory() {
     const { itemId } = useParams();
     const [stockStatus, setStockStatus] = useState('In Stock');
     const [selectedWarehouse, setSelectedWarehouse] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
     const backNavigateUrl = location.state.backNavigateUrl;
     const handleGoBack = () => {navigate(backNavigateUrl);}
 
@@ -22,7 +23,7 @@ function EditInventory() {
         warehouse_id: 1,
         item_name: '',
         description: '',
-        category: '',
+        category: categories[0],
         status: 'In Stock',
         quantity: 0,
     });
@@ -47,10 +48,15 @@ function EditInventory() {
             delete itemData.created_at;
             delete itemData.id;
             itemData.quantity = parseInt(itemData.quantity);
-            console.log(itemData);
-            const response = await axios.put(`http://3.20.237.64:80/inventories/${itemId}`, itemData);
-            console.log(response.data);
-            handleGoBack();
+            
+            const { error, value: cleanedData } = helpers.inventorySchema.validate(itemData);
+            if (error) console.error("Failed to validate inventory data: ", error);
+            else {
+                const response = await axios.put(`http://3.20.237.64:80/inventories/${itemId}`, cleanedData);
+                console.log(response.data);
+                handleGoBack();
+            }
+
         } catch (error) {
             console.log(error);
         }
@@ -60,12 +66,20 @@ function EditInventory() {
     useEffect(() => {
         async function fetchItemData(itemId) {
             const itemResponse = await axios.get(`http://3.20.237.64:80/inventories/${itemId}`);
-            setItemData(itemResponse.data[0]);
             const response = await axios.get('http://3.20.237.64:80/warehouses');
             setWarehouses(response.data);
             let updatedArray = [];
             for(let i = 0; i<response.data.length; i++) updatedArray = [...updatedArray, response.data[i].warehouse_name];
             setWarehouseNames(updatedArray);
+
+            const warehouse = response.data.find((warehouseItem) => warehouseItem.id == itemResponse.data[0].warehouse_id);
+            setSelectedWarehouse(warehouse.warehouse_name);
+            setItemData({
+                ...itemResponse.data[0],
+                warehouse_name: warehouse.warehouse_name
+            });
+
+            setSelectedCategory(itemResponse.data[0].category);
         }
         fetchItemData(itemId);
     }, [itemId]);
@@ -84,7 +98,7 @@ function EditInventory() {
                     <p className="newInv__item-name">Item Name</p>
                     <input className="newInv__item-input" type="text" placeholder={itemData.item_name} name='item_name' onChange={handleInputChange} />
                     <p className="newInv__item-name">Description</p>
-                    <textarea className="newInv__item-descriptionInput" placeholder={itemData.description} name='description' cols="30" rows="10"></textarea>
+                    <textarea className="newInv__item-descriptionInput" placeholder={itemData.description} name='description' cols="30" rows="10" onChange={handleInputChange}></textarea>
                     <p className="newInv__item-name">Category</p>
                     <select
                         className="newInv__item-input"
@@ -92,7 +106,7 @@ function EditInventory() {
                         onChange={handleInputChange}
                         name='category'
                     >
-                        <option value="">Please Select</option>
+                        {/* <option value="">Please Select</option> */}
                         {categories.map((category, index) => (
                             <option key={index} value={category}>{category}</option>
                         ))}
@@ -131,7 +145,7 @@ function EditInventory() {
                         onChange={handleInputChange}
                         name='warehouse_name'
                     >
-                        <option value="">Please Select</option>
+                        {/* <option value="">Please Select</option> */}
                         {warehouseNames.map((warehouse, index) => (
                             <option key={index} value={warehouse}>{warehouse}</option>
                         ))}

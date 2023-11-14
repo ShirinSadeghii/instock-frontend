@@ -5,6 +5,7 @@ import '../Warehouse/Warehouse.scss';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import helpers from '../../helpers';
 
 
 function AddInventory() {
@@ -13,7 +14,7 @@ function AddInventory() {
   const [warehouses, setWarehouses] = useState([]);
   const [stockStatus, setStockStatus] = useState('In Stock');
   const [selectedWarehouse, setSelectedWarehouse] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const navigate = useNavigate();
   const handleBackClick = () => {navigate('/inventory');}
 
@@ -21,7 +22,7 @@ function AddInventory() {
     warehouse_id: 1,
     item_name: '',
     description: '',
-    category: '',
+    category: categories[0],
     status: 'In Stock',
     quantity: 0,
   });
@@ -43,10 +44,15 @@ function AddInventory() {
       itemData.warehouse_id = warehouse.id;
       delete itemData.warehouse_name;
       itemData.quantity = parseInt(itemData.quantity);
-      console.log(itemData);
-      const response = await axios.post('http://3.20.237.64:80/inventories', itemData);
-      console.log(response.data);
-      handleBackClick();
+      
+      const { error, value: cleanedData } = helpers.inventorySchema.validate(itemData);
+      if (error) console.error("Failed to validate inventory data: ", error);
+      else {
+        const response = await axios.post('http://3.20.237.64:80/inventories', cleanedData);
+        console.log(response.data);
+        handleBackClick();
+      }
+
     } catch (error) {
       console.log(error);
     }
@@ -59,6 +65,8 @@ function AddInventory() {
       let updatedArray = [];
       for(let i = 0; i<response.data.length; i++) updatedArray = [...updatedArray, response.data[i].warehouse_name];
       setWarehouseNames(updatedArray);
+      setSelectedWarehouse(updatedArray[0]);
+      itemData.warehouse_name = response.data[0].warehouse_name;
     }
 
     fetchWarehouseNames();
@@ -87,7 +95,7 @@ function AddInventory() {
             name='category'
             onChange={handleInputChange}
           >
-            <option value="">Please Select</option>
+            {/* <option value="">Please Select</option> */}
             {categories.map((category, index) => (
               <option key={index} value={category}>{category}</option>
             ))}
@@ -128,7 +136,7 @@ function AddInventory() {
             value={selectedWarehouse}
             onChange={handleInputChange}
           >
-            <option value="">Please Select</option>
+            {/* <option value="">Please Select</option> */}
             {warehouseNames?.map((warehouse, index) => (
               <option key={index} value={warehouse}>{warehouse}</option>
             ))}
