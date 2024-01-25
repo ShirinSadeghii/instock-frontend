@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# InStock Inventory Management System Project #
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview ##
 
-## Available Scripts
+This project involves building a full-stack React application, 'InStock,' for an Inventory Management System catering to a Fortune 500 client. The existing system lacks scalability and struggles with performance under heavy traffic. The goal is to deliver a time-sensitive, modern, and scalable solution with a React front-end communicating with a robust Express back-end.
 
-In the project directory, you can run:
+The project follows Agile methodologies, resembling a collaborative team structure found in modern tech companies. A Jira Scrum board is set up for task management, and the team will use Git, GitHub, and Scrum methodology to facilitate a streamlined collaborative workflow.
 
-### `npm start`
+## Tools and Resources ##
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Design Tool (Figma): Utilized for exploring mockups interactively and viewing design specifications.
+* Prototyping and Style Guide: Referenced Figma for user flow understanding and CSS suggestions.
+* Git, GitHub, Jira, and Scrum: Implemented for collaborative version control, project management, and Agile development.
+* Technologies: create-react-app, react-router-dom, Node, Express, MySQL, Knex, BEM/SASS, npm, Postman.
+* Browser Development Tools: Used for debugging and inspecting code during development.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Teamwork ##
 
-### `npm test`
+* Each team member took an equal share of front-end/back-end tasks.
+* Worked through and completed assigned Jira tickets.
+* Maintained effective communication between team members regarding progress, dependencies, and implementation details.
+* Followed Git Flow best practices (main > develop > feature branches).
+* Provided frequent and detailed Git commit messages on all tasks.
+* Created pull requests with descriptions of work completed.
+* Conducted code reviews on pull requests created by teammates.
+* Handled merge conflicts in personal pull requests.
+* Never merged pull requests without team approval.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project represents a collaborative effort to deliver a robust, scalable, and modern Inventory Management System, showcasing proficiency in full-stack development and Agile methodologies.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
